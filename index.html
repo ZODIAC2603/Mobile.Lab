@@ -1,18 +1,89 @@
-<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MobileLab — Amir Ali Zohrabi</title>
 <style>
 :root{--bg:#08090b;--panel:#101216;--panel2:#15171c;--line:#272a31;--text:#f5f7fa;--muted:#969ba6;--purple:#a855f7;--purple2:#7e22ce;--green:#4fe39a}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#08090b,#0b0d11 55%,#160716);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{width:min(1200px,92%);margin:auto}
-header{border-bottom:1px solid var(--line);background:#08090bf2;backdrop-filter:blur(14px);position:sticky;top:0;z-index:20}.nav{height:72px;display:flex;align-items:center;gap:26px}.name{font-size:15px;font-weight:800;letter-spacing:.4px}.name span{color:var(--purple)}.brand{font-size:21px;font-weight:900;letter-spacing:-.8px;margin:auto}.brand em{color:var(--purple);font-style:normal}.navlinks{display:flex;gap:18px;color:var(--muted);font-size:11px}.navlinks a:hover{color:#fff}.lang{border:1px solid var(--line);background:#121419;color:#fff;border-radius:9px;padding:8px 11px;font-size:10px}
-.hero{padding:72px 0 48px;display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:end}.kicker{color:#d8b4fe;font-size:10px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-3px;margin:15px 0}.hero h1 span{color:var(--purple)}.hero p{color:var(--muted);line-height:1.8;max-width:650px;font-size:13px}.heroCard{border:1px solid var(--line);border-radius:20px;padding:20px;background:linear-gradient(145deg,#14161b,#0e1014);box-shadow:0 30px 80px #0007}.heroCard strong{display:block;font-size:25px}.heroCard small{color:var(--muted)}.actions{display:flex;gap:9px;margin-top:22px;flex-wrap:wrap}.primary,.ghost{border-radius:11px;padding:11px 16px;font-size:11px}.primary{background:linear-gradient(135deg,var(--purple),var(--purple2));color:white;border:0;font-weight:800}.ghost{background:#14161b;color:#fff;border:1px solid var(--line)}
-.section{padding:18px 0 45px}.sectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}.sectionHead h2{font-size:22px;margin:0}.sectionHead p{font-size:10px;color:var(--muted);margin:5px 0 0}.compare{display:grid;grid-template-columns:1fr 70px 1fr;gap:12px;align-items:stretch}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.cardTitle{font-size:9px;color:#d8b4fe;font-weight:800;letter-spacing:1px}.card h3{margin:7px 0 3px;font-size:18px}.card .muted{color:var(--muted);font-size:10px}.swap{align-self:center;width:70px;height:44px;border:1px solid var(--line);background:#13151a;color:#fff;border-radius:12px}.select{width:100%;margin-top:14px;background:#0b0d11;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;outline:0;font-size:11px}.stats{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.stat{background:#0c0e12;border:1px solid #20232a;border-radius:10px;padding:9px}.stat small{display:block;color:#747985;font-size:8px}.stat b{font-size:9px}.compareTable{margin-top:12px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}.tr{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #20232a}.tr:last-child{border-bottom:0}.tr>*{padding:12px;font-size:10px}.tr span{color:var(--muted)}.tr b{text-align:center}.picker{margin-top:28px;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden}.pickerTop{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center}.pickerTop h3{margin:0;font-size:15px}.pickerTop p{margin:5px 0 0;color:var(--muted);font-size:10px}.pickerControls{display:none;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap}.pickerControls.open{display:flex}.search{flex:1;min-width:200px;background:#0b0d11;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;outline:0}.list{display:none;max-height:520px;overflow:auto}.list.open{display:block}.item{display:grid;grid-template-columns:48px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #1e2127;align-items:center}.item:hover{background:#ffffff04}.phoneIcon{width:42px;height:58px;border:1px solid #3b3f47;border-radius:10px;background:linear-gradient(145deg,#1a1d23,#090a0d);position:relative}.phoneIcon:after{content:"";position:absolute;right:5px;top:5px;width:15px;height:20px;background:#050608;border-radius:5px;box-shadow:0 0 0 2px #30343b}.item h4{margin:0;font-size:12px}.item p{margin:4px 0 0;color:var(--muted);font-size:9px}.tag{font-size:8px;padding:5px 7px;border-radius:7px;background:#1a1c22;border:1px solid #2b2e35;color:#e9d5ff}.supportBox{margin:40px 0 20px;background:linear-gradient(145deg,#121019,#181224);border:1px solid rgba(168,85,247,.3);border-radius:18px;padding:22px;text-align:center}.supportBox h3{margin:0 0 8px;font-size:16px;color:#d8b4fe}.supportBox p{margin:0 0 14px;color:var(--muted);font-size:11px}.supportPhone{display:inline-block;background:var(--purple);color:#fff;padding:10px 20px;border-radius:12px;font-weight:800;font-size:13px;letter-spacing:.5px}footer{padding:30px 0;color:#666b75;text-align:center;font-size:9px}@media(max-width:800px){.hero{grid-template-columns:1fr}.compare{grid-template-columns:1fr}.swap{width:100%}.navlinks{display:none}.brand{margin-left:auto;margin-right:auto}.name{font-size:11px}.stats{grid-template-columns:1fr 1fr}}
-</style></head><body>
-<header><div class="wrap nav"><div class="name">Amir Ali <span>Zohrabi</span></div><div class="brand">Mobile<em>Lab</em></div><nav class="navlinks"><a href="#compare">Compare</a><a href="#phones">Phones</a></nav><button id="lang" class="lang">فارسی</button></div></header>
-<main class="wrap"><section class="hero"><div><div class="kicker">MOBILE DATABASE · V7</div><h1><span>Find your next</span><br><span>phone.</span></h1><p>A clean mobile-tech database for Xiaomi, POCO, Redmi, Samsung and Apple. Choose two phones, compare their key specifications, and open the full database only when you need it.</p><div class="actions"><a class="primary" href="#compare">Start comparing</a><button class="ghost" id="openPicker">Browse phones</button></div></div><div class="heroCard"><strong id="total">0</strong><small>phones in the local database</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>2</strong><small>independent comparison slots</small></div></section>
-<section class="section" id="compare"><div class="sectionHead"><div><h2>Compare phones</h2><p>Select any two devices — no fixed model.</p></div></div><div class="compare"><div class="card"><div class="cardTitle">DEVICE A</div><h3 id="nameA"></h3><div class="muted" id="metaA"></div><select id="selectA" class="select"></select><div class="stats" id="statsA"></div></div><button id="swap" class="swap">↔</button><div class="card"><div class="cardTitle">DEVICE B</div><h3 id="nameB"></h3><div class="muted" id="metaB"></div><select id="selectB" class="select"></select><div class="stats" id="statsB"></div></div></div><div id="table" class="compareTable"></div></section>
-<section class="section" id="phones"><div class="picker"><div class="pickerTop"><div><h3>Phone database</h3><p>Hidden by default to keep the home page clean.</p></div><button class="primary" id="togglePicker">Show database</button></div><div id="controls" class="pickerControls"><input id="search" class="search" placeholder="Search model..."><select id="brand" class="select" style="width:150px;margin:0"><option value="all">All brands</option><option>Xiaomi</option><option>POCO</option><option>Redmi</option><option>Samsung</option><option>Apple</option></select><select id="year" class="select" style="width:120px;margin:0"><option value="all">All years</option><option>2019</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option></select><button class="ghost" id="closePicker">Hide</button></div><div id="list" class="list"></div></div></section>
-<div class="supportBox"><h3>پشتیبانی و استعلام قیمت تومانی</h3><p>برای دریافت قیمت روز و استعلام قیمت‌های تومانی گوشی‌ها با ما تماس بگیرید:</p><a href="tel:09212038685" class="supportPhone">09212038685</a></div></main><footer>MobileLab V7 · Amir Ali Zohrabi</footer>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#08090b,#0b0d11 55%,#160716);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,92%);margin:auto}
+header{border-bottom:1px solid var(--line);background:#08090bf2;backdrop-filter:blur(14px);position:sticky;top:0;z-index:20}
+.nav{height:72px;display:flex;align-items:center;gap:26px}
+.name{font-size:15px;font-weight:800;letter-spacing:.4px}.name span{color:var(--purple)}
+.brand{font-size:21px;font-weight:900;letter-spacing:-.8px;margin:auto}.brand em{color:var(--purple);font-style:normal}
+.navlinks{display:flex;gap:18px;color:var(--muted);font-size:11px}.navlinks a:hover{color:#fff}
+.lang{border:1px solid var(--line);background:#121419;color:#fff;border-radius:9px;padding:8px 11px;font-size:10px}
+.hero{padding:72px 0 48px;display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:end}
+.kicker{color:#d8b4fe;font-size:10px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-3px;margin:15px 0}.hero h1 span{color:var(--purple)}.hero p{color:var(--muted);line-height:1.8;max-width:650px;font-size:13px}
+.heroCard{border:1px solid var(--line);border-radius:20px;padding:20px;background:linear-gradient(145deg,#14161b,#0e1014);box-shadow:0 30px 80px #0007}.heroCard strong{display:block;font-size:25px}.heroCard small{color:var(--muted)}
+.actions{display:flex;gap:9px;margin-top:22px;flex-wrap:wrap}.primary,.ghost{border-radius:11px;padding:11px 16px;font-size:11px}.primary{background:linear-gradient(135deg,var(--purple),var(--purple2));color:white;border:0;font-weight:800}.ghost{background:#14161b;color:#fff;border:1px solid var(--line)}
+.section{padding:18px 0 45px}.sectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}.sectionHead h2{font-size:22px;margin:0}.sectionHead p{font-size:10px;color:var(--muted);margin:5px 0 0}
+.compare{display:grid;grid-template-columns:1fr 70px 1fr;gap:12px;align-items:stretch}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.cardTitle{font-size:9px;color:#d8b4fe;font-weight:800;letter-spacing:1px}.card h3{margin:7px 0 3px;font-size:18px}.card .muted{color:var(--muted);font-size:10px}.swap{align-self:center;width:70px;height:44px;border:1px solid var(--line);background:#13151a;color:#fff;border-radius:12px}
+.select{width:100%;margin-top:14px;background:#0b0d11;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;outline:0;font-size:11px}.select:focus{border-color:#a855f777}
+.stats{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.stat{background:#0c0e12;border:1px solid #20232a;border-radius:10px;padding:9px}.stat small{display:block;color:#747985;font-size:8px}.stat b{font-size:9px}
+.compareTable{margin-top:12px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}.tr{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #20232a}.tr:last-child{border-bottom:0}.tr>*{padding:12px;font-size:10px}.tr span{color:var(--muted)}.tr b{text-align:center}
+.picker{margin-top:28px;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden}.pickerTop{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center}.pickerTop h3{margin:0;font-size:15px}.pickerTop p{margin:5px 0 0;color:var(--muted);font-size:10px}.pickerControls{display:none;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap}.pickerControls.open{display:flex}.search{flex:1;min-width:200px;background:#0b0d11;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;outline:0}.list{display:none;max-height:520px;overflow:auto}.list.open{display:block}.item{display:grid;grid-template-columns:48px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #1e2127;align-items:center}.item:hover{background:#ffffff04}.phoneIcon{width:42px;height:58px;border:1px solid #3b3f47;border-radius:10px;background:linear-gradient(145deg,#1a1d23,#090a0d);position:relative}.phoneIcon:after{content:"";position:absolute;right:5px;top:5px;width:15px;height:20px;background:#050608;border-radius:5px;box-shadow:0 0 0 2px #30343b}.item h4{margin:0;font-size:12px}.item p{margin:4px 0 0;color:var(--muted);font-size:9px}.tag{font-size:8px;padding:5px 7px;border-radius:7px;background:#1a1c22;border:1px solid #2b2e35;color:#e9d5ff}
+.empty{padding:35px;text-align:center;color:var(--muted);font-size:11px}
+.supportBox{margin:40px 0 20px;background:linear-gradient(145deg,#121019,#181224);border:1px solid rgba(168,85,247,0.3);border-radius:18px;padding:22px;text-align:center}
+.supportBox h3{margin:0 0 8px;font-size:16px;color:#d8b4fe}
+.supportBox p{margin:0 0 14px;color:var(--muted);font-size:11px}
+.supportPhone{display:inline-block;background:var(--purple);color:#fff;padding:10px 20px;border-radius:12px;font-weight:800;font-size:13px;letter-spacing:.5px}
+footer{padding:30px 0;color:#666b75;text-align:center;font-size:9px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.compare{grid-template-columns:1fr}.swap{width:100%}.navlinks{display:none}.brand{margin-left:auto;margin-right:auto}.name{font-size:11px}.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<div class="name">Amir Ali <span>Zohrabi</span></div>
+<div class="brand">Mobile<em>Lab</em></div>
+<nav class="navlinks"><a id="navCompare" href="#compare">Compare</a><a id="navPhones" href="#phones">Phones</a></nav>
+<button id="lang" class="lang">فارسی</button>
+</div></header>
+
+<main class="wrap">
+<section class="hero">
+<div>
+<div class="kicker" id="kicker">MOBILE DATABASE · V7</div>
+<h1><span id="heroTitle">Find your next</span><br><span id="heroTitle2">phone.</span></h1>
+<p id="intro">A clean mobile-tech database for Xiaomi, POCO, Redmi, Samsung and Apple. Choose two phones, compare their key specifications, and open the full database only when you need it.</p>
+<div class="actions"><a class="primary" id="start" href="#compare">Start comparing</a><button class="ghost" id="openPicker">Browse phones</button></div>
+</div>
+<div class="heroCard"><strong id="total">0</strong><small id="local">phones in the local database</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>2</strong><small id="slots">independent comparison slots</small></div>
+</section>
+
+<section class="section" id="compare">
+<div class="sectionHead"><div><h2 id="compareTitle">Compare phones</h2><p id="compareSub">Select any two devices — no fixed model.</p></div></div>
+<div class="compare">
+<div class="card"><div class="cardTitle" id="cardTitleA">DEVICE A</div><h3 id="nameA"></h3><div class="muted" id="metaA"></div><select id="selectA" class="select"></select><div class="stats" id="statsA"></div></div>
+<button id="swap" class="swap">↔</button>
+<div class="card"><div class="cardTitle" id="cardTitleB">DEVICE B</div><h3 id="nameB"></h3><div class="muted" id="metaB"></div><select id="selectB" class="select"></select><div class="stats" id="statsB"></div></div>
+</div>
+<div id="table" class="compareTable"></div>
+</section>
+
+<section class="section" id="phones">
+<div class="picker">
+<div class="pickerTop"><div><h3 id="pickerTitle">Phone database</h3><p id="pickerSub">Hidden by default to keep the home page clean.</p></div><button class="primary" id="togglePicker">Show database</button></div>
+<div id="controls" class="pickerControls">
+<input id="search" class="search" placeholder="Search model...">
+<select id="brand" class="select" style="width:150px;margin:0"><option value="all">All brands</option><option>Xiaomi</option><option>POCO</option><option>Redmi</option><option>Samsung</option><option>Apple</option></select>
+<select id="year" class="select" style="width:120px;margin:0"><option value="all">All years</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option></select>
+<button class="ghost" id="closePicker">Hide</button>
+</div>
+<div id="list" class="list"></div>
+</div>
+</section>
+
+<div class="supportBox">
+<h3 id="suppTitle">پشتیبانی و استعلام قیمت تومانی</h3>
+<p id="suppDesc">برای دریافت قیمت روز و استعلام قیمت‌های تومانی گوشی‌ها با ما تماس بگیرید:</p>
+<a href="tel:09212038685" class="supportPhone">09212038685</a>
+</div>
+</main>
+<footer id="footer">MobileLab V7 · Amir Ali Zohrabi</footer>
+
 <script>
 const phones=[
 ["POCO X7 Pro","POCO",2025,"Dimensity 8400-Ultra","6.67 AMOLED 120Hz","6000 mAh","90W","50MP OIS","12GB / 512GB"],
@@ -61,12 +132,19 @@ const phones=[
 ["Samsung Galaxy S21 Ultra","Samsung",2021,"Snapdragon 888 / Exynos 2100","6.8 AMOLED 120Hz","5000 mAh","25W","108MP","12GB / 256GB"],
 ["Samsung Galaxy S21","Samsung",2021,"Snapdragon 888 / Exynos 2100","6.2 AMOLED 120Hz","4000 mAh","25W","12MP","8GB / 256GB"],
 ["Samsung Galaxy S20 FE","Samsung",2020,"Snapdragon 865 / Exynos 990","6.5 AMOLED 120Hz","4500 mAh","25W","12MP","8GB / 256GB"],
+["Samsung Galaxy Z Fold8 Ultra","Samsung",2026,"Snapdragon flagship","7.9 Foldable AMOLED 120Hz","—","Fast charging","Multi-camera","16GB / 1TB"],
+["Samsung Galaxy Z Fold8","Samsung",2026,"Snapdragon flagship","7.6 Foldable AMOLED 120Hz","—","Fast charging","Multi-camera","16GB / 1TB"],
+["Samsung Galaxy Z Flip8","Samsung",2026,"Snapdragon flagship","6.9 Foldable AMOLED 120Hz","—","Fast charging","Dual camera","12GB / 512GB"],
+["Samsung Galaxy Z Fold7","Samsung",2025,"Snapdragon 8 Elite","8.0 Foldable AMOLED 120Hz","—","Fast charging","Multi-camera","16GB / 1TB"],
+["Samsung Galaxy Z Flip7","Samsung",2025,"Exynos flagship","6.9 Foldable AMOLED 120Hz","—","Fast charging","50MP","12GB / 512GB"],
+["Samsung Galaxy A57 5G","Samsung",2026,"Exynos class","6.7 AMOLED 120Hz","5000 mAh","45W","50MP OIS","12GB / 256GB"],
 ["Samsung Galaxy A56 5G","Samsung",2025,"Exynos 1580","6.7 AMOLED 120Hz","5000 mAh","45W","50MP OIS","12GB / 256GB"],
 ["Samsung Galaxy A36 5G","Samsung",2025,"Snapdragon 6 Gen 3","6.7 AMOLED 120Hz","5000 mAh","45W","50MP OIS","8GB / 256GB"],
 ["Samsung Galaxy A35 5G","Samsung",2024,"Exynos 1380","6.6 AMOLED 120Hz","5000 mAh","25W","50MP OIS","8GB / 256GB"],
 ["Samsung Galaxy A55 5G","Samsung",2024,"Exynos 1480","6.6 AMOLED 120Hz","5000 mAh","25W","50MP OIS","8GB / 256GB"],
 ["Samsung Galaxy A25 5G","Samsung",2023,"Exynos 1280","6.5 AMOLED 120Hz","5000 mAh","25W","50MP OIS","8GB / 256GB"],
 ["Samsung Galaxy A15 5G","Samsung",2023,"Dimensity 6100+","6.5 AMOLED 90Hz","5000 mAh","25W","50MP","8GB / 256GB"],
+["iPhone Duo","Apple",2026,"A20 Pro","7.6 OLED folding + 5.36 OLED outer","—","USB-C fast charge","48MP system","256GB–2TB"],
 ["iPhone 18 Pro Max","Apple",2026,"A20 Pro","6.9 OLED ProMotion 120Hz","—","USB-C fast charge","48MP system","256GB–2TB"],
 ["iPhone 18 Pro","Apple",2026,"A20 Pro","6.3 OLED ProMotion 120Hz","—","USB-C fast charge","48MP system","256GB–1TB"],
 ["iPhone Air","Apple",2025,"A19 Pro","6.5 OLED ProMotion 120Hz","—","USB-C fast charge","48MP","256GB–1TB"],
@@ -104,26 +182,71 @@ const phones=[
 ["iPhone X","Apple",2017,"A11 Bionic","5.8 OLED","—","Lightning","12MP system","64GB–256GB"],
 ["iPhone 8 Plus","Apple",2017,"A11 Bionic","5.5 LCD","—","Lightning","12MP system","64GB–256GB"],
 ["iPhone 8","Apple",2017,"A11 Bionic","4.7 LCD","—","Lightning","12MP","64GB–256GB"],
-["iPhone 7 Plus","Apple",2016,"A10 Fusion","5.5 LCD","—","Lightning","12MP","32GB–256GB"]
+["iPhone 7 Plus","Apple",2016,"A10 Fusion","5.5 LCD","—","Lightning","12MP system","32GB–256GB"],
+["iPhone 7","Apple",2016,"A10 Fusion","4.7 LCD","—","Lightning","12MP","32GB–256GB"]
 ];
+
+let A=0,B=1,lang="en";
 const $=id=>document.getElementById(id);
-function option(i){return `<option value="${i}">${phones[i][0]} · ${phones[i][2]}</option>`}
-function fill(){ $("total").textContent=phones.length; $("selectA").innerHTML=phones.map((_,i)=>option(i)).join(""); $("selectB").innerHTML=phones.map((_,i)=>option(i)).join(""); $("selectA").value=0; $("selectB").value=5; renderCompare(); renderList(); }
-function renderCompare(){
- let a=phones[+$("selectA").value],b=phones[+$("selectB").value];
- [["nameA","metaA","statsA",a],["nameB","metaB","statsB",b]].forEach(([n,m,s,p])=>{$(n).textContent=p[0];$(m).textContent=`${p[1]} · ${p[2]}`;$(s).innerHTML=`<div class="stat"><small>Chip</small><b>${p[3]}</b></div><div class="stat"><small>Display</small><b>${p[4]}</b></div><div class="stat"><small>Battery</small><b>${p[5]}</b></div>`});
- const labels=["Processor","Display","Battery","Charging","Camera","Memory / Storage"];
- const vals=[[a[3],b[3]],[a[4],b[4]],[a[5],b[5]],[a[6],b[6]],[a[7],b[7]],[a[8],b[8]]];
- $("table").innerHTML=`<div class="tr"><span>Specification</span><b>${a[0]}</b><b>${b[0]}</b></div>`+vals.map((v,i)=>`<div class="tr"><span>${labels[i]}</span><b>${v[0]}</b><b>${v[1]}</b></div>`).join("");
+$("total").textContent=phones.length;
+
+const ui={
+ en:{
+  navCompare:"Compare",navPhones:"Phones",langButton:"فارسی",kicker:"MOBILE DATABASE · V7",heroTitle:"Find your next",heroTitle2:"phone.",intro:"A clean mobile-tech database for Xiaomi, POCO, Redmi, Samsung and Apple. Choose two phones, compare their key specifications, and open the full database only when you need it.",start:"Start comparing",browse:"Browse phones",local:"phones in the local database",slots:"independent comparison slots",compare:"Compare phones",sub:"Select any two devices — no fixed model.",deviceA:"DEVICE A",deviceB:"DEVICE B",picker:"Phone database",hidden:"Hidden by default to keep the home page clean.",show:"Show database",hide:"Hide",search:"Search model...",all:"All brands",allYears:"All years",empty:"No phones found.",processor:"Processor",display:"Display",battery:"Battery",charging:"Charging",camera:"Camera",storage:"RAM / Storage",chip:"Chip",suppTitle:"Support & Tomani Price Inquiry",suppDesc:"To get daily prices and inquire about toman prices for phones, contact us:",footer:"MobileLab V7 · Amir Ali Zohrabi"
+ },
+ fa:{
+  navCompare:"مقایسه",navPhones:"گوشی‌ها",langButton:"English",kicker:"پایگاه داده موبایل · V7",heroTitle:"گوشی بعدی",heroTitle2:"خودت را پیدا کن.",intro:"یک پایگاه داده تمیز و حرفه‌ای برای گوشی‌های Xiaomi، POCO، Redmi، Samsung و Apple. دو گوشی را انتخاب کنید، مشخصات اصلی آن‌ها را مقایسه کنید و فقط زمانی که لازم دارید دیتابیس کامل را باز کنید.",start:"شروع مقایسه",browse:"نمایش گوشی‌ها",local:"گوشی در دیتابیس محلی",slots:"جایگاه مقایسه مستقل",compare:"مقایسه گوشی‌ها",sub:"هر دو گوشی کاملاً مستقل هستند و می‌توانید هر مدلی را انتخاب کنید.",deviceA:"دستگاه A",deviceB:"دستگاه B",picker:"دیتابیس گوشی‌ها",hidden:"برای تمیز ماندن صفحه اصلی، دیتابیس به‌صورت پیش‌فرض مخفی است.",show:"نمایش دیتابیس",hide:"بستن",search:"جستجوی مدل گوشی...",all:"همه برندها",allYears:"همه سال‌ها",empty:"گوشی‌ای پیدا نشد.",processor:"پردازنده",display:"نمایشگر",battery:"باتری",charging:"شارژ",camera:"دوربین",storage:"رم / حافظه",chip:"چیپست",suppTitle:"پشتیبانی و استعلام قیمت تومانی",suppDesc:"برای دریافت قیمت روز و استعلام قیمت‌های تومانی گوشی‌ها با ما تماس بگیرید:",footer:"MobileLab V7 · Amir Ali Zohrabi"
+ }
+};
+
+function translateSpec(value){
+ if(lang==="en") return value;
+ let v=value;
+ const exact={
+  "Fast charging":"شارژ سریع","USB-C fast charge":"شارژ سریع USB-C","Multi-camera":"چند دوربین","Dual camera":"دوربین دوگانه","50MP OIS":"۵۰ مگاپیکسل با OIS","48MP system":"مجموعه دوربین ۴۸ مگاپیکسلی","50MP system":"مجموعه دوربین ۵۰ مگاپیکسلی","12MP system":"مجموعه دوربین ۱۲ مگاپیکسلی","48MP":"۴۸ مگاپیکسل","50MP":"۵۰ مگاپیکسل","64MP OIS":"۶۴ مگاپیکسل با OIS","64MP":"۶۴ مگاپیکسل","108MP":"۱۰۸ مگاپیکسل","200MP":"۲۰۰ مگاپیکسل","12MP":"۱۲ مگاپیکسل","200MP OIS":"۲۰۰ مگاپیکسل با OIS","—":"—"
+ };
+ if(exact[v]) return exact[v];
+ v=v.replace(/Fast charging/g,"شارژ سریع").replace(/USB-C fast charge/g,"شارژ سریع USB-C").replace(/Multi-camera/g,"چند دوربین").replace(/Dual camera/g,"دوربین دوگانه").replace(/Foldable/g,"تاشو").replace(/flagship/g,"پرچمدار").replace(/class/g,"رده").replace(/system/g,"مجموعه دوربین").replace(/Lightning/g,"لایتنینگ").replace(/folding/g,"تاشو").replace(/outer/g,"خارجی").replace(/for Galaxy/g,"برای گلکسی");
+ v=v.replace(/(\d+)MP/g,"$1 مگاپیکسل").replace(/(\d+)GB/g,"$1 گیگابایت").replace(/(\d+)TB/g,"$1 ترابایت").replace(/(\d+) mAh/g,"$1 میلی‌آمپرساعت");
+ return v;
+}
+function opts(){return phones.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]} · ${p[2]}</option>`).join("")}
+function stat(label,value){return `<div class="stat"><small>${label}</small><b>${value}</b></div>`}
+function render(){
+ const a=phones[A],b=phones[B],t=ui[lang];
+ $("nameA").textContent=a[0];$("metaA").textContent=`${a[1]} · ${a[2]}`;
+ $("nameB").textContent=b[0];$("metaB").textContent=`${b[1]} · ${b[2]}`;
+ $("selectA").value=A;$("selectB").value=B;
+ $("statsA").innerHTML=stat(t.chip,translateSpec(a[3]))+stat(t.display,translateSpec(a[4]))+stat(t.battery,translateSpec(a[5]));
+ $("statsB").innerHTML=stat(t.chip,translateSpec(b[3]))+stat(t.display,translateSpec(b[4]))+stat(t.battery,translateSpec(b[5]));
+ const rows=[[t.processor,a[3],b[3]],[t.display,a[4],b[4]],[t.battery,a[5],b[5]],[t.charging,a[6],b[6]],[t.camera,a[7],b[7]],[t.storage,a[8],b[8]]];
+ $("table").innerHTML=rows.map(r=>`<div class="tr"><span>${r[0]}</span><b>${translateSpec(r[1])}</b><b>${translateSpec(r[2])}</b></div>`).join("");
+ $("cardTitleA").textContent=t.deviceA;$("cardTitleB").textContent=t.deviceB;
 }
 function renderList(){
- const q=$("search").value.toLowerCase(), br=$("brand").value, yr=$("year").value;
+ const q=$("search").value.toLowerCase(),br=$("brand").value,yr=$("year").value,t=ui[lang];
  const arr=phones.map((p,i)=>({p,i})).filter(x=>(!q||x.p[0].toLowerCase().includes(q))&&(br==="all"||x.p[1]===br)&&(yr==="all"||String(x.p[2])===yr));
- $("list").innerHTML=arr.length?arr.map(x=>`<div class="item"><div class="phoneIcon"></div><div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · ${x.p[3]}</p></div><span class="tag">${x.p[8]}</span></div>`).join(""):`<div class="empty">No phones found.</div>`;
+ $("list").innerHTML=arr.map(x=>`<div class="item" data-i="${x.i}"><div class="phoneIcon"></div><div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · ${translateSpec(x.p[3])}</p></div><span class="tag">${x.p[2]}</span></div>`).join("")||`<div class="empty">${t.empty}</div>`;
+ document.querySelectorAll(".item").forEach(e=>e.onclick=()=>{A=+e.dataset.i;if(A===B)B=(A+1)%phones.length;render();document.querySelector("#compare").scrollIntoView({behavior:"smooth"})});
 }
-$("selectA").addEventListener("change",renderCompare);$("selectB").addEventListener("change",renderCompare);
-$("swap").onclick=()=>{let x=$("selectA").value;$("selectA").value=$("selectB").value;$("selectB").value=x;renderCompare()};
-function open(){ $("controls").classList.add("open");$("list").classList.add("open");$("togglePicker").style.display="none";renderList()}
-$("openPicker").onclick=open;$("togglePicker").onclick=open;$("closePicker").onclick=()=>{$("controls").classList.remove("open");$("list").classList.remove("open");$("togglePicker").style.display="inline-block"};
-$("search").oninput=renderList;$("brand").onchange=renderList;$("year").onchange=renderList;fill();
-</script></body></html>
+function applyLanguage(){
+ const t=ui[lang];document.documentElement.lang=lang;document.documentElement.dir=lang==="fa"?"rtl":"ltr";
+ $("lang").textContent=t.langButton;$("navCompare").textContent=t.navCompare;$("navPhones").textContent=t.navPhones;$("kicker").textContent=t.kicker;$("heroTitle").textContent=t.heroTitle;$("heroTitle2").textContent=t.heroTitle2;$("intro").textContent=t.intro;$("start").textContent=t.start;$("openPicker").textContent=t.browse;$("local").textContent=t.local;$("slots").textContent=t.slots;$("compareTitle").textContent=t.compare;$("compareSub").textContent=t.sub;$("pickerTitle").textContent=t.picker;$("pickerSub").textContent=t.hidden;$("search").placeholder=t.search;$("brand").options[0].text=t.all;$("year").options[0].text=t.allYears;$("closePicker").textContent=t.hide;$("suppTitle").textContent=t.suppTitle;$("suppDesc").textContent=t.suppDesc;$("footer").textContent=t.footer;
+ $("togglePicker").textContent=$("list").classList.contains("open")?t.hide:t.show;
+ render();if($("list").classList.contains("open"))renderList();
+}
+$("selectA").innerHTML=opts();$("selectB").innerHTML=opts();
+$("selectA").onchange=e=>{A=+e.target.value;if(A===B)B=(B+1)%phones.length;render()};
+$("selectB").onchange=e=>{B=+e.target.value;if(A===B)A=(A+1)%phones.length;render()};
+$("swap").onclick=()=>{[A,B]=[B,A];render()};
+function openPicker(){ $("controls").classList.add("open");$("list").classList.add("open");renderList();$("togglePicker").textContent=ui[lang].hide;$("search").focus() }
+function closePicker(){ $("controls").classList.remove("open");$("list").classList.remove("open");$("togglePicker").textContent=ui[lang].show }
+$("openPicker").onclick=()=>{document.querySelector("#phones").scrollIntoView({behavior:"smooth"});setTimeout(openPicker,250)};
+$("togglePicker").onclick=()=>{if($("list").classList.contains("open"))closePicker();else openPicker()};
+$("closePicker").onclick=closePicker;
+$("search").oninput=renderList;$("brand").onchange=renderList;$("year").onchange=renderList;
+$("lang").onclick=()=>{lang=lang==="en"?"fa":"en";applyLanguage()};
+applyLanguage();
+</script>
+</body>
+</html>
