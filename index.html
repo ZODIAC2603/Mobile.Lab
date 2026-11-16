@@ -16,6 +16,8 @@
   --purple-glow:rgba(192,132,252,0.45);
   --cyan:#22d3ee;
   --cyan-glow:rgba(34,211,238,0.45);
+  --pink:#f43f5e;
+  --pink-glow:rgba(244,63,94,0.45);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -92,7 +94,8 @@ header{
 .sectionHead h2{font-size:22px;margin:0}
 .sectionHead p{font-size:10px;color:var(--muted);margin:5px 0 0}
 
-.compare{display:grid;grid-template-columns:1fr 70px 1fr;gap:12px;align-items:stretch}
+/* تغییر بخش مقایسه به ۳ ستونه */
+.compare3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:stretch}
 .card{
   background:var(--panel);
   border:1px solid var(--line);
@@ -102,29 +105,14 @@ header{
 }
 .cardA{border-top:2px solid var(--purple);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(192,132,252,0.1)}
 .cardB{border-top:2px solid var(--cyan);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(34,211,238,0.1)}
+.cardC{border-top:2px solid var(--pink);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(244,63,94,0.1)}
 
 .cardTitleA{font-size:10px;color:var(--purple);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--purple-glow)}
 .cardTitleB{font-size:10px;color:var(--cyan);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--cyan-glow)}
+.cardTitleC{font-size:10px;color:var(--pink);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--pink-glow)}
 
-.card h3{margin:7px 0 3px;font-size:18px}
+.card h3{margin:7px 0 3px;font-size:16px}
 .card .muted{color:var(--muted);font-size:10px}
-
-.swap{
-  align-self:center;
-  width:70px;
-  height:44px;
-  border:1px solid var(--line);
-  background:linear-gradient(135deg,#0c101c,#060912);
-  color:var(--cyan);
-  border-radius:12px;
-  font-weight:900;
-  transition:.2s;
-}
-.swap:hover{
-  border-color:var(--cyan);
-  color:#fff;
-  box-shadow:0 0 16px var(--cyan-glow), 0 0 12px var(--purple-glow);
-}
 
 .select{
   width:100%;
@@ -139,6 +127,7 @@ header{
 }
 #selectA:focus{border-color:var(--purple);box-shadow:0 0 12px var(--purple-glow)}
 #selectB:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
+#selectC:focus{border-color:var(--pink);box-shadow:0 0 12px var(--pink-glow)}
 
 .stats{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
 .stat{background:#05070c;border:1px solid #161c2b;border-radius:10px;padding:9px}
@@ -153,13 +142,14 @@ header{
   background:var(--panel);
   box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
-.tr{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #161c2b}
+.tr{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid #161c2b}
 .tr:last-child{border-bottom:0}
 .tr>*{padding:12px;font-size:10px}
 .tr span{color:var(--muted)}
 .tr b{text-align:center}
 .tr b:nth-child(2){color:#f3e8ff}
 .tr b:nth-child(3){color:#cffafe}
+.tr b:nth-child(4){color:#ffe4e6}
 
 .picker{
   margin-top:28px;
@@ -230,14 +220,13 @@ header{
   box-shadow:0 0 20px rgba(34,211,238,0.4), 0 0 15px rgba(168,85,247,0.4);
 }
 footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
-@media(max-width:800px){
+@media(max-width:900px){
   .hero{grid-template-columns:1fr}
-  .compare{grid-template-columns:1fr}
-  .swap{width:100%}
+  .compare3{grid-template-columns:1fr}
   .navlinks{display:none}
   .brand{margin-left:auto;margin-right:auto}
   .name{font-size:11px}
-  .stats{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -251,21 +240,42 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <main class="wrap">
 <section class="hero">
 <div>
-<div class="kicker">MOBILE DATABASE · V7</div>
+<div class="kicker">MOBILE DATABASE · V7.3</div>
 <h1><span>گوشی بعدی</span><br>خودت را پیدا کن.</h1>
-<p>دیتابیس جامع موبایل شامل تمامی مدل‌های اپل، سامسونگ، ردمی و پوکو. دو گوشی را انتخاب کنید و مشخصات آن‌ها را مقایسه کنید.</p>
+<p>دیتابیس جامع موبایل شامل تمامی مدل‌های اپل، سامسونگ، ردمی و پوکو. سه گوشی را انتخاب کنید و مشخصات آن‌ها را همزمان مقایسه کنید.</p>
 <div class="actions"><a class="primary" href="#compare">شروع مقایسه</a><button class="ghost" id="openPicker">نمایش گوشی‌ها</button></div>
 </div>
-<div class="heroCard"><strong id="total">0</strong><small>گوشی در دیتابیس جامع</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>2</strong><small>جایگاه مقایسه مستقل</small></div>
+<div class="heroCard"><strong id="total">0</strong><small>گوشی در دیتابیس جامع</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>3</strong><small>جایگاه مقایسه همزمان</small></div>
 </section>
 
 <section class="section" id="compare">
-<div class="sectionHead"><div><h2>مقایسه گوشی‌ها</h2><p>انتخاب آزادانه هر دو مدل گوشی بدون محدودیت.</p></div></div>
-<div class="compare">
-<div class="card cardA"><div class="cardTitleA">دیوایس A</div><h3 id="nameA"></h3><div class="muted" id="metaA"></div><select id="selectA" class="select"></select><div class="stats" id="statsA"></div></div>
-<button id="swap" class="swap">↔</button>
-<div class="card cardB"><div class="cardTitleB">دیوایس B</div><h3 id="nameB"></h3><div class="muted" id="metaB"></div><select id="selectB" class="select"></select><div class="stats" id="statsB"></div></div>
+<div class="sectionHead"><div><h2>مقایسه گوشی‌ها</h2><p>انتخاب آزادانه سه مدل گوشی بدون محدودیت.</p></div></div>
+
+<!-- بخش مقایسه ۳ تایی -->
+<div class="compare3">
+  <div class="card cardA">
+    <div class="cardTitleA">دیوایس A</div>
+    <h3 id="nameA"></h3>
+    <div class="muted" id="metaA"></div>
+    <select id="selectA" class="select"></select>
+    <div class="stats" id="statsA"></div>
+  </div>
+  <div class="card cardB">
+    <div class="cardTitleB">دیوایس B</div>
+    <h3 id="nameB"></h3>
+    <div class="muted" id="metaB"></div>
+    <select id="selectB" class="select"></select>
+    <div class="stats" id="statsB"></div>
+  </div>
+  <div class="card cardC">
+    <div class="cardTitleC">دیوایس C</div>
+    <h3 id="nameC"></h3>
+    <div class="muted" id="metaC"></div>
+    <select id="selectC" class="select"></select>
+    <div class="stats" id="statsC"></div>
+  </div>
 </div>
+
 <div id="table" class="compareTable"></div>
 </section>
 
@@ -288,7 +298,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <a href="tel:09212038685" class="supportPhone">09212038685</a>
 </div>
 </main>
-<footer>MobileLab V7 · Amir Ali Zohrabi</footer>
+<footer>MobileLab V7.3 · Amir Ali Zohrabi</footer>
 
 <script>
 const phones=[
@@ -475,7 +485,7 @@ const phones=[
 ["POCO X7","POCO",2025,"Dimensity 7300 Ultra","6.67 AMOLED 120Hz","5110 mAh","45W","50MP OIS","8GB / 256GB"],
 ["POCO X7 Pro","POCO",2025,"Dimensity 8400 Ultra","6.67 AMOLED 120Hz","6000 mAh","90W","50MP OIS","8GB / 256GB"],
 ["POCO F7","POCO",2025,"Snapdragon 8s Gen 4","6.67 AMOLED 120Hz","5500 mAh","90W","50MP OIS","8GB / 256GB"],
-["POCO F7 Pro","POCO",2025,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
+["POCO F7 Pro","POCO",2025,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","8GB / 256GB"],
 ["POCO F7 Ultra","POCO",2025,"Snapdragon 8 Elite","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 512GB"],
 ["POCO M7","POCO",2025,"Helio processor","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["POCO M7 Pro 5G","POCO",2025,"Dimensity processor","6.67 AMOLED 120Hz","5000 mAh","45W","50MP OIS","8GB / 256GB"],
@@ -492,7 +502,7 @@ const phones=[
 ["POCO M8s 5G","POCO",2026,"Processor class","6.67 AMOLED 120Hz","5200 mAh","45W","50MP OIS","8GB / 256GB"]
 ];
 
-let A=0,B=1;
+let A=0, B=1, C=2;
 const $=id=>document.getElementById(id);
 $("total").textContent=phones.length;
 
@@ -503,7 +513,6 @@ function translateSpec(value){
  return v;
 }
 
-// موتور جستجوی هوشمند فارسی و انگلیسی با پشتیبانی از معادل‌ها و تطابق جزئی
 const faToEnMap = [
   [/اف\s*ای|اف‌ای/g, "fe"],
   [/پرو\s*مکس|پرومکس/g, "pro max"],
@@ -555,33 +564,61 @@ function matchesSmart(phone, rawQuery){
 
 function opts(){return phones.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]} · ${p[2]}</option>`).join("")}
 function stat(label,value){return `<div class="stat"><small>${label}</small><b>${value}</b></div>`}
+
 function render(){
- const a=phones[A],b=phones[B];
- $("nameA").textContent=a[0];$("metaA").textContent=`${a[1]} · ${a[2]}`;
- $("nameB").textContent=b[0];$("metaB").textContent=`${b[1]} · ${b[2]}`;
- $("selectA").value=A;$("selectB").value=B;
+ const a=phones[A], b=phones[B], c=phones[C];
+ 
+ $("nameA").textContent=a[0]; $("metaA").textContent=`${a[1]} · ${a[2]}`;
+ $("nameB").textContent=b[0]; $("metaB").textContent=`${b[1]} · ${b[2]}`;
+ $("nameC").textContent=c[0]; $("metaC").textContent=`${c[1]} · ${c[2]}`;
+
+ $("selectA").value=A; $("selectB").value=B; $("selectC").value=C;
+
  $("statsA").innerHTML=stat("چیپست",translateSpec(a[3]))+stat("نمایشگر",translateSpec(a[4]))+stat("باتری",translateSpec(a[5]));
  $("statsB").innerHTML=stat("چیپست",translateSpec(b[3]))+stat("نمایشگر",translateSpec(b[4]))+stat("باتری",translateSpec(b[5]));
- const rows=[["پردازنده",a[3],b[3]],["نمایشگر",a[4],b[4]],["باتری",a[5],b[5]],["شارژ",a[6],b[6]],["دوربین",a[7],b[7]],["رم / حافظه",a[8],b[8]]];
- $("table").innerHTML=rows.map(r=>`<div class="tr"><span>${r[0]}</span><b>${translateSpec(r[1])}</b><b>${translateSpec(r[2])}</b></div>`).join("");
+ $("statsC").innerHTML=stat("چیپست",translateSpec(c[3]))+stat("نمایشگر",translateSpec(c[4]))+stat("باتری",translateSpec(c[5]));
+
+ const rows=[
+   ["پردازنده", a[3], b[3], c[3]],
+   ["نمایشگر", a[4], b[4], c[4]],
+   ["باتری", a[5], b[5], c[5]],
+   ["شارژ", a[6], b[6], c[6]],
+   ["دوربین", a[7], b[7], c[7]],
+   ["رم / حافظه", a[8], b[8], c[8]]
+ ];
+
+ $("table").innerHTML=rows.map(r=>`<div class="tr"><span>${r[0]}</span><b>${translateSpec(r[1])}</b><b>${translateSpec(r[2])}</b><b>${translateSpec(r[3])}</b></div>`).join("");
 }
+
 function renderList(){
- const q=$("search").value,br=$("brand").value,yr=$("year").value;
+ const q=$("search").value, br=$("brand").value, yr=$("year").value;
  const arr=phones.map((p,i)=>({p,i})).filter(x=>matchesSmart(x.p, q)&&(br==="all"||x.p[1]===br)&&(yr==="all"||String(x.p[2])===yr));
  const realPhoneSvg=`<div class="phoneIconSVG"><svg viewBox="0 0 24 24"><path d="M16 1H8C6.9 1 6 1.9 6 3v18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H8V4h8v16z"/><circle cx="12" cy="2.5" r="0.75"/><rect x="9" y="19" width="6" height="1.5" rx="0.5"/></svg></div>`;
+ 
  $("list").innerHTML=arr.map(x=>`<div class="item" data-i="${x.i}">${realPhoneSvg}<div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · ${translateSpec(x.p[3])}</p></div><span class="tag">${x.p[2]}</span></div>`).join("")||`<div class="empty">گوشی‌ای پیدا نشد.</div>`;
- document.querySelectorAll(".item").forEach(e=>e.onclick=()=>{A=+e.dataset.i;if(A===B)B=(A+1)%phones.length;render();document.querySelector("#compare").scrollIntoView({behavior:"smooth"})});
+ 
+ document.querySelectorAll(".item").forEach(e=>e.onclick=()=>{
+   A = +e.dataset.i;
+   if(A===B) B=(A+1)%phones.length;
+   if(A===C) C=(A+2)%phones.length;
+   render();
+   document.querySelector("#compare").scrollIntoView({behavior:"smooth"});
+ });
 }
-$("selectA").innerHTML=opts();$("selectB").innerHTML=opts();
-$("selectA").onchange=e=>{A=+e.target.value;if(A===B)B=(B+1)%phones.length;render()};
-$("selectB").onchange=e=>{B=+e.target.value;if(A===B)A=(A+1)%phones.length;render()};
-$("swap").onclick=()=>{[A,B]=[B,A];render()};
+
+$("selectA").innerHTML=opts(); $("selectB").innerHTML=opts(); $("selectC").innerHTML=opts();
+
+$("selectA").onchange=e=>{A=+e.target.value; render()};
+$("selectB").onchange=e=>{B=+e.target.value; render()};
+$("selectC").onchange=e=>{C=+e.target.value; render()};
+
 function openPicker(){ $("controls").classList.add("open");$("list").classList.add("open");renderList();$("togglePicker").textContent="بستن";$("search").focus() }
 function closePicker(){ $("controls").classList.remove("open");$("list").classList.remove("open");$("togglePicker").textContent="نمایش دیتابیس" }
 $("openPicker").onclick=()=>{document.querySelector("#phones").scrollIntoView({behavior:"smooth"});setTimeout(openPicker,250)};
 $("togglePicker").onclick=()=>{if($("list").classList.contains("open"))closePicker();else openPicker()};
 $("closePicker").onclick=closePicker;
 $("search").oninput=renderList;$("brand").onchange=renderList;$("year").onchange=renderList;
+
 render();
 </script>
 </body>
