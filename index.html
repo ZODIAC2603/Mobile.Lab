@@ -178,10 +178,23 @@ header{
 .search:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 .list{display:none;max-height:520px;overflow:auto}
 .list.open{display:block}
-.item{display:grid;grid-template-columns:48px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center}
+.item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center}
 .item:hover{background:linear-gradient(90deg, rgba(168,85,247,0.06), rgba(34,211,238,0.06))}
-.phoneIcon{width:42px;height:58px;border:1px solid #3b3f47;border-radius:10px;background:linear-gradient(145deg,#1a1d23,#090a0d);position:relative}
-.phoneIcon:after{content:"";position:absolute;right:5px;top:5px;width:15px;height:20px;background:#000000;border-radius:5px;box-shadow:0 0 0 2px #30343b}
+
+/* استایل دقیق و واقع‌گرایانه موبایل با جزئیات بدنه و صفحه نمایش */
+.phoneIconSVG{
+  width:36px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#121622,#07090f);
+  border:1px solid rgba(34,211,238,0.35);
+  border-radius:8px;
+  box-shadow:0 0 12px rgba(34,211,238,0.2);
+}
+.phoneIconSVG svg{width:22px;height:22px;fill:var(--cyan);filter:drop-shadow(0 0 6px var(--cyan-glow))}
+
 .item h4{margin:0;font-size:12px}
 .item p{margin:4px 0 0;color:var(--muted);font-size:9px}
 .tag{
@@ -385,7 +398,7 @@ const phones=[
 ["Redmi Note 12 Turbo","Redmi",2023,"Snapdragon 7+ Gen 2","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
 ["Redmi 13C","Redmi",2023,"Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["Redmi K60","Redmi",2023,"Snapdragon 8+ Gen 1","6.67 AMOLED 120Hz","5500 mAh","67W","64MP OIS","8GB / 128GB"],
-["Redmi K60 Pro","Redmi",2023,"Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","8GB / 128GB"],
+["Redmi K60 Pro","Redmi",2023,"Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","8GB / 256GB"],
 ["Redmi 13","Redmi",2024,"Helio G91 Ultra","6.79 IPS 90Hz","5030 mAh","33W","108MP","6GB / 128GB"],
 ["Redmi 14C","Redmi",2024,"Helio G81 Ultra","6.88 IPS 120Hz","5160 mAh","18W","50MP","4GB / 128GB"],
 ["Redmi Note 13","Redmi",2024,"Snapdragon 685","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","6GB / 128GB"],
@@ -455,7 +468,7 @@ const phones=[
 ["POCO C65","POCO",2023,"Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["POCO X6","POCO",2024,"Snapdragon 7s Gen 2","6.67 AMOLED 120Hz","5100 mAh","67W","64MP OIS","8GB / 256GB"],
 ["POCO X6 Pro","POCO",2024,"Dimensity 8300 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
-["POCO X6 Neo","POCO",2024,"Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 128GB"],
+["POCO X6 Neo","POCO",2024,"Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 256GB"],
 ["POCO F6","POCO",2024,"Snapdragon 8s Gen 3","6.67 AMOLED 120Hz","5000 mAh","90W","50MP OIS","8GB / 256GB"],
 ["POCO F6 Pro","POCO",2024,"Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","12GB / 256GB"],
 ["POCO M6","POCO",2024,"Helio G91 Ultra","6.79 IPS 90Hz","5030 mAh","33W","108MP","6GB / 128GB"],
@@ -463,7 +476,7 @@ const phones=[
 ["POCO X7","POCO",2025,"Dimensity 7300 Ultra","6.67 AMOLED 120Hz","5110 mAh","45W","50MP OIS","8GB / 256GB"],
 ["POCO X7 Pro","POCO",2025,"Dimensity 8400 Ultra","6.67 AMOLED 120Hz","6000 mAh","90W","50MP OIS","8GB / 256GB"],
 ["POCO F7","POCO",2025,"Snapdragon 8s Gen 4","6.67 AMOLED 120Hz","5500 mAh","90W","50MP OIS","8GB / 256GB"],
-["POCO F7 Pro","POCO",2025,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
+["POCO F7 Pro","POCO",2025,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","8GB / 256GB"],
 ["POCO F7 Ultra","POCO",2025,"Snapdragon 8 Elite","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 512GB"],
 ["POCO M7","POCO",2025,"Helio processor","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["POCO M7 Pro 5G","POCO",2025,"Dimensity processor","6.67 AMOLED 120Hz","5000 mAh","45W","50MP OIS","8GB / 256GB"],
@@ -505,7 +518,11 @@ function render(){
 function renderList(){
  const q=$("search").value.toLowerCase(),br=$("brand").value,yr=$("year").value;
  const arr=phones.map((p,i)=>({p,i})).filter(x=>(!q||x.p[0].toLowerCase().includes(q))&&(br==="all"||x.p[1]===br)&&(yr==="all"||String(x.p[2])===yr));
- $("list").innerHTML=arr.map(x=>`<div class="item" data-i="${x.i}"><div class="phoneIcon"></div><div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · ${translateSpec(x.p[3])}</p></div><span class="tag">${x.p[2]}</span></div>`).join("")||`<div class="empty">گوشی‌ای پیدا نشد.</div>`;
+ 
+ // طراحی وکتور اختصاصی و واقعی موبایل (حاشیه‌ها، اسپیکر بالای صفحه و نمایشگر تمام‌صفحه)
+ const realPhoneSvg=`<div class="phoneIconSVG"><svg viewBox="0 0 24 24"><path d="M16 1H8C6.9 1 6 1.9 6 3v18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H8V4h8v16z"/><circle cx="12" cy="2.5" r="0.75"/><rect x="9" y="19" width="6" height="1.5" rx="0.5"/></svg></div>`;
+
+ $("list").innerHTML=arr.map(x=>`<div class="item" data-i="${x.i}">${realPhoneSvg}<div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · ${translateSpec(x.p[3])}</p></div><span class="tag">${x.p[2]}</span></div>`).join("")||`<div class="empty">گوشی‌ای پیدا نشد.</div>`;
  document.querySelectorAll(".item").forEach(e=>e.onclick=()=>{A=+e.dataset.i;if(A===B)B=(A+1)%phones.length;render();document.querySelector("#compare").scrollIntoView({behavior:"smooth"})});
 }
 $("selectA").innerHTML=opts();$("selectB").innerHTML=opts();
