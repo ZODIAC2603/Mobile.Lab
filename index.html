@@ -204,7 +204,7 @@ header{
 .sectionHead h2{font-size:24px;margin:0}
 .sectionHead p{font-size:12px;color:var(--muted);margin:5px 0 0}
 
-/* افکت نور نئونی اختصاصی برای کارت‌های مقایسه و دیتابیس (فقط روی خودِ کادرهای محتوا اثر می‌کنه) */
+/* افکت نور نئونی اختصاصی برای کارت‌های مقایسه و دیتابیس */
 .card, .heroCard, .picker, .supportBox {
   position: relative;
   overflow: hidden;
@@ -313,7 +313,7 @@ header{
 .search:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 .list{display:none;max-height:520px;overflow:auto;position:relative;z-index:2}
 .list.open{display:block}
-.item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center;transition:background 0.2s}
+.item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center;transition:background 0.2s;cursor:pointer}
 .item:hover{background:linear-gradient(90deg, rgba(168,85,247,0.08), rgba(34,211,238,0.08))}
 
 .phoneIconSVG{
@@ -556,7 +556,7 @@ const phones=[
 ["Samsung Galaxy S22+","Samsung",2022,"$999","Snapdragon 8 Gen 1","6.6 AMOLED 120Hz","4500 mAh","45W","50MP","8GB / 128GB"],
 ["Samsung Galaxy S22 Ultra","Samsung",2022,"$1199","Snapdragon 8 Gen 1","6.8 AMOLED 120Hz","5000 mAh","45W","108MP","12GB / 256GB"],
 ["Samsung Galaxy S23","Samsung",2023,"$799","Snapdragon 8 Gen 2 for Galaxy","6.1 AMOLED 120Hz","3900 mAh","25W","50MP","8GB / 128GB"],
-["Samsung Galaxy S23+","Samsung",2023,"$999","Snapdragon 8 Gen 2 for Galaxy","6.6 AMOLED 120Hz","4700 mAh","45W","50MP","8GB / 128GB"],
+["Samsung Galaxy S23+","Samsung",2023,"$999","Snapdragon 8 Gen 2 for Galaxy","6.6 AMOLED 120Hz","4700 mAh","45W","50MP","8GB / 256GB"],
 ["Samsung Galaxy S23 Ultra","Samsung",2023,"$1199","Snapdragon 8 Gen 2 for Galaxy","6.8 AMOLED 120Hz","5000 mAh","45W","200MP","12GB / 256GB"],
 ["Samsung Galaxy S23 FE","Samsung",2023,"$599","Snapdragon 8 Gen 1 / Exynos 2200","6.4 AMOLED 120Hz","4500 mAh","25W","50MP","8GB / 128GB"],
 ["Samsung Galaxy S24","Samsung",2024,"$799","Exynos 2400 / Snapdragon 8 Gen 3","6.2 AMOLED 120Hz","4000 mAh","25W","50MP","8GB / 128GB"],
@@ -685,7 +685,7 @@ const phones=[
 ["POCO C65","POCO",2023,"$129","Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["POCO X6","POCO",2024,"$279","Snapdragon 7s Gen 2","6.67 AMOLED 120Hz","5100 mAh","67W","64MP OIS","8GB / 256GB"],
 ["POCO X6 Pro","POCO",2024,"$349","Dimensity 8300 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
-["POCO X6 Neo","POCO",2024,"$229","Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 256GB"],
+["POCO X6 Neo","POCO",2024,"$229","Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 128GB"],
 ["POCO F6","POCO",2024,"$379","Snapdragon 8s Gen 3","6.67 AMOLED 120Hz","5000 mAh","90W","50MP OIS","8GB / 256GB"],
 ["POCO F6 Pro","POCO",2024,"$499","Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","12GB / 256GB"],
 ["POCO M6","POCO",2024,"$149","Helio G91 Ultra","6.79 IPS 90Hz","5030 mAh","33W","108MP","6GB / 128GB"],
@@ -710,11 +710,12 @@ const phones=[
 ["POCO M8s 5G","POCO",2026,"$239","Processor class","6.67 AMOLED 120Hz","5200 mAh","45W","50MP OIS","8GB / 256GB"]
 ];
 
-let A=0, B=1, C=2;
+let A="", B="", C="";
 const $=id=>document.getElementById(id);
 $("total").textContent=phones.length;
 
 function translateSpec(value){
+ if(!value || value==="—") return "—";
  let v=value;
  v=v.replace(/Fast charging/g,"شارژ سریع").replace(/USB-C fast charge/g,"شارژ سریع USB-C").replace(/Multi-camera/g,"چند دوربین").replace(/Dual camera/g,"دوربین دوگانه").replace(/Foldable/g,"تاشو").replace(/flagship/g,"پرچمدار").replace(/class/g,"رده").replace(/system/g,"مجموعه دوربین").replace(/Lightning/g,"لایتنینگ").replace(/folding/g,"تاشو").replace(/outer/g,"خارجی").replace(/for Galaxy/g,"برای گلکسی");
  v=v.replace(/(\d+)MP/g,"$1 مگاپیکسل").replace(/(\d+)GB/g,"$1 گیگابایت").replace(/(\d+)TB/g,"$1 ترابایت").replace(/(\d+) mAh/g,"$1 میلی‌آمپرساعت");
@@ -770,15 +771,20 @@ function matchesSmart(phone, rawQuery){
   return tokens.every(t => target.includes(t) || compactTarget.includes(t));
 }
 
-function opts(){return phones.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]} · ${p[2]}</option>`).join("")}
+function opts(){
+  return `<option value="">-- انتخاب گوشی --</option>` + phones.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]} · ${p[2]}</option>`).join("");
+}
 function stat(label,value){return `<div class="stat"><small>${label}</small><b>${value}</b></div>`}
 
 function render(){
- const a=phones[A], b=phones[B], c=phones[C];
+ const emptyPhone = ["یک گوشی انتخاب کنید", "—", "—", "—", "—", "—", "—", "—", "—", "—"];
+ const a = A!=="" ? phones[A] : emptyPhone;
+ const b = B!=="" ? phones[B] : emptyPhone;
+ const c = C!=="" ? phones[C] : emptyPhone;
  
- $("nameA").textContent=a[0]; $("metaA").textContent=`${a[1]} · ${a[2]}`;
- $("nameB").textContent=b[0]; $("metaB").textContent=`${b[1]} · ${b[2]}`;
- $("nameC").textContent=c[0]; $("metaC").textContent=`${c[1]} · ${c[2]}`;
+ $("nameA").textContent=a[0]; $("metaA").textContent = A!=="" ? `${a[1]} · ${a[2]}` : "—";
+ $("nameB").textContent=b[0]; $("metaB").textContent = B!=="" ? `${b[1]} · ${b[2]}` : "—";
+ $("nameC").textContent=c[0]; $("metaC").textContent = C!=="" ? `${c[1]} · ${c[2]}` : "—";
 
  $("selectA").value=A; $("selectB").value=B; $("selectC").value=C;
 
@@ -807,9 +813,11 @@ function renderList(){
  $("list").innerHTML=arr.map(x=>`<div class="item" data-i="${x.i}">${realPhoneSvg}<div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · قیمت: <b>${x.p[3]}</b></p></div><span class="tag">${x.p[2]}</span></div>`).join("")||`<div class="empty">گوشی‌ای پیدا نشد.</div>`;
  
  document.querySelectorAll(".item").forEach(e=>e.onclick=()=>{
-   A = +e.dataset.i;
-   if(A===B) B=(A+1)%phones.length;
-   if(A===C) C=(A+2)%phones.length;
+   const idx = +e.dataset.i;
+   if(A==="") A = idx;
+   else if(B==="") B = idx;
+   else if(C==="") C = idx;
+   else A = idx;
    render();
    document.querySelector("#compare").scrollIntoView({behavior:"smooth"});
  });
@@ -817,9 +825,9 @@ function renderList(){
 
 $("selectA").innerHTML=opts(); $("selectB").innerHTML=opts(); $("selectC").innerHTML=opts();
 
-$("selectA").onchange=e=>{A=+e.target.value; render()};
-$("selectB").onchange=e=>{B=+e.target.value; render()};
-$("selectC").onchange=e=>{C=+e.target.value; render()};
+$("selectA").onchange=e=>{A = e.target.value!=="" ? +e.target.value : ""; render()};
+$("selectB").onchange=e=>{B = e.target.value!=="" ? +e.target.value : ""; render()};
+$("selectC").onchange=e=>{C = e.target.value!=="" ? +e.target.value : ""; render()};
 
 function openPicker(){ $("controls").classList.add("open");$("list").classList.add("open");renderList();$("togglePicker").textContent="بستن";$("search").focus() }
 function closePicker(){ $("controls").classList.remove("open");$("list").classList.remove("open");$("togglePicker").textContent="نمایش دیتابیس" }
