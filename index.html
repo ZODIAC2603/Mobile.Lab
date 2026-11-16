@@ -41,13 +41,121 @@ header{
   z-index:20;
   box-shadow:0 4px 30px rgba(168,85,247,0.12), 0 1px 15px rgba(34,211,238,0.08);
 }
-.nav{height:72px;display:flex;align-items:center;gap:26px}
+.nav{height:72px;display:flex;align-items:center;gap:20px;justify-content:space-between}
+.nav-right{display:flex;align-items:center;gap:20px}
 .name{font-size:15px;font-weight:800;letter-spacing:.4px}
 .name span{color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow)}
-.brand{font-size:21px;font-weight:900;letter-spacing:-.8px;margin:auto}
+.brand{font-size:21px;font-weight:900;letter-spacing:-.8px}
 .brand em{color:var(--purple);font-style:normal;text-shadow:0 0 12px var(--purple-glow)}
 .navlinks{display:flex;gap:18px;color:var(--muted);font-size:11px}
 .navlinks a:hover{color:var(--cyan);text-shadow:0 0 8px var(--cyan-glow)}
+
+/* استایل دکمه طرح اقساط در بالای صفحه (سمت چپ) */
+.installment-btn{
+  background:linear-gradient(135deg, rgba(34,211,238,0.15), rgba(168,85,247,0.15));
+  border:1px solid var(--cyan);
+  color:var(--cyan);
+  padding:8px 14px;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 0 12px rgba(34,211,238,0.2);
+  transition:all 0.2s ease;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.installment-btn:hover{
+  background:linear-gradient(135deg,#06b6d4,#a855f7);
+  color:#fff;
+  box-shadow:0 0 20px rgba(34,211,238,0.5);
+  transform:translateY(-1px);
+}
+
+/* استایل پنجره بازشو (Modal) طرح اقساط */
+.modal-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  backdrop-filter:blur(8px);
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:all 0.3s ease;
+}
+.modal-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+.modal-box{
+  background:linear-gradient(145deg,#0c1018,#05070a);
+  border:1px solid rgba(34,211,238,0.4);
+  width:min(550px, 90%);
+  border-radius:20px;
+  padding:26px;
+  box-shadow:0 0 40px rgba(34,211,238,0.25), 0 0 20px rgba(168,85,247,0.2);
+  transform:translateY(20px);
+  transition:all 0.3s ease;
+  position:relative;
+}
+.modal-overlay.active .modal-box{
+  transform:translateY(0);
+}
+.modal-close{
+  position:absolute;
+  top:16px;
+  left:16px;
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--muted);
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:14px;
+  transition:0.2s;
+}
+.modal-close:hover{
+  border-color:var(--pink);
+  color:var(--pink);
+  box-shadow:0 0 10px var(--pink-glow);
+}
+.modal-box h3{
+  margin:0 0 10px;
+  font-size:18px;
+  color:var(--cyan);
+  text-shadow:0 0 10px var(--cyan-glow);
+}
+.modal-box p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  margin:0 0 16px;
+}
+.modal-features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+.modal-feature-item{
+  background:#05070c;
+  border:1px solid #161c2b;
+  border-radius:12px;
+  padding:12px;
+}
+.modal-feature-item small{display:block;color:var(--muted);font-size:9px;margin-bottom:4px}
+.modal-feature-item b{color:var(--text);font-size:11px}
 
 .hero{padding:72px 0 48px;display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:end}
 .kicker{
@@ -224,23 +332,65 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
   .hero{grid-template-columns:1fr}
   .compare3{grid-template-columns:1fr}
   .navlinks{display:none}
-  .brand{margin-left:auto;margin-right:auto}
+  .brand{margin-left:auto}
   .name{font-size:11px}
   .stats{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<header><div class="wrap nav">
-<div class="name">Amir Ali <span>Zohrabi</span></div>
-<div class="brand">Mobile<em>Lab</em></div>
-<nav class="navlinks"><a href="#compare">مقایسه</a><a href="#phones">گوشی‌ها</a></nav>
-</div></header>
+<header>
+  <div class="wrap nav">
+    <div class="nav-right">
+      <div class="name">Amir Ali <span>Zohrabi</span></div>
+      <nav class="navlinks"><a href="#compare">مقایسه</a><a href="#phones">گوشی‌ها</a></nav>
+    </div>
+    <div class="brand">Mobile<em>Lab</em></div>
+    <!-- دکمه طرح اقساط بالای سایت (سمت چپ) -->
+    <div>
+      <button class="installment-btn" id="openInstallmentModal">
+        💳 شرایط اقساط وام مسکن
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- پنجره مودال (پاپ‌آپ) طرح اقساط -->
+<div class="modal-overlay" id="installmentModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeInstallmentModal">✕</button>
+    <h3>مژده برای همشهریان عزیز</h3>
+    <p>خرید انواع گوشی‌های موبایل با وام خرید کالا از طریق <b>بانک مسکن</b> به ساده‌ترین شکل ممکن فراهم شد.</p>
+    
+    <div class="modal-features">
+      <div class="modal-feature-item">
+        <small>سقف وام خرید کالا</small>
+        <b>تا سقف ۵۰۰ میلیون تومان</b>
+      </div>
+      <div class="modal-feature-item">
+        <small>نوع ضمانت</small>
+        <b>فقط با یک چک صیادی</b>
+      </div>
+      <div class="modal-feature-item">
+        <small>نرخ بهره بانکی</small>
+        <b>فقط ۱.۹ درصد در ماه</b>
+      </div>
+      <div class="modal-feature-item">
+        <small>مدت بازپرداخت</small>
+        <b>تا سقف ۲۴ ماهه</b>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin:0;font-size:11px;color:var(--cyan);">
+      جهت استعلام و تشکیل پرونده با شماره <b>09212038685</b> تماس بگیرید.
+    </p>
+  </div>
+</div>
 
 <main class="wrap">
 <section class="hero">
 <div>
-<div class="kicker">MOBILE DATABASE · V7.8</div>
+<div class="kicker">MOBILE DATABASE · V7.9</div>
 <h1><span>گوشی بعدی</span><br>خودت را پیدا کن.</h1>
 <p>دیتابیس جامع موبایل شامل تمامی مدل‌های اپل، سامسونگ، ردمی و پوکو. سه گوشی را انتخاب کنید و مشخصات کامل آن‌ها را همزمان مقایسه کنید.</p>
 <div class="actions"><a class="primary" href="#compare">شروع مقایسه</a><button class="ghost" id="openPicker">نمایش گوشی‌ها</button></div>
@@ -297,9 +447,15 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <a href="tel:09212038685" class="supportPhone">09212038685</a>
 </div>
 </main>
-<footer>MobileLab V7.8 · Amir Ali Zohrabi</footer>
+<footer>MobileLab V7.9 · Amir Ali Zohrabi</footer>
 
 <script>
+// اسکریپت باز و بسته کردن پنجره اقساط
+const modal = document.getElementById('installmentModal');
+document.getElementById('openInstallmentModal').onclick = () => modal.classList.add('active');
+document.getElementById('closeInstallmentModal').onclick = () => modal.classList.remove('active');
+modal.onclick = (e) => { if(e.target === modal) modal.classList.remove('active'); };
+
 // دیتابیس کامل و حجیم اصلی شما به‌همراه قیمت دلاری (نسخه بالای ۶۲۰ خط)
 const phones=[
 ["iPhone SE 2","Apple",2020,"$399","A13 Bionic","4.7 LCD","—","لایتنینگ","۱۲ مگاپیکسل","64GB–256GB"],
@@ -407,7 +563,7 @@ const phones=[
 ["Redmi Note 12 Turbo","Redmi",2023,"$299","Snapdragon 7+ Gen 2","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
 ["Redmi 13C","Redmi",2023,"$129","Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["Redmi K60","Redmi",2023,"$349","Snapdragon 8+ Gen 1","6.67 AMOLED 120Hz","5500 mAh","67W","64MP OIS","8GB / 128GB"],
-["Redmi K60 Pro","Redmi",2023,"$449","Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","8GB / 256GB"],
+["Redmi K60 Pro","Redmi",2023,"$449","Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","12GB / 256GB"],
 ["Redmi 13","Redmi",2024,"$149","Helio G91 Ultra","6.79 IPS 90Hz","5030 mAh","33W","108MP","6GB / 128GB"],
 ["Redmi 14C","Redmi",2024,"$129","Helio G81 Ultra","6.88 IPS 120Hz","5160 mAh","18W","50MP","4GB / 128GB"],
 ["Redmi Note 13","Redmi",2024,"$179","Snapdragon 685","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","6GB / 128GB"],
@@ -457,7 +613,7 @@ const phones=[
 ["POCO M3 Pro","POCO",2021,"$179","Dimensity 700","6.5 IPS 90Hz","5000 mAh","18W","48MP","4GB / 64GB"],
 ["POCO C31","POCO",2021,"$129","Helio G35","6.53 IPS","5000 mAh","10W","13MP","3GB / 32GB"],
 ["POCO M4 Pro 5G","POCO",2021,"$219","Dimensity 810","6.6 IPS 90Hz","5000 mAh","33W","50MP","4GB / 64GB"],
-["POCO M4 Pro","POco",2022,"$219","Helio G96","6.43 AMOLED 90Hz","5000 mAh","33W","64MP","6GB / 128GB"],
+["POCO M4 Pro","POCO",2022,"$219","Helio G96","6.43 AMOLED 90Hz","5000 mAh","33W","64MP","6GB / 128GB"],
 ["POCO M4 5G","POCO",2022,"$189","Dimensity 700","6.58 IPS 90Hz","5000 mAh","18W","13MP","4GB / 64GB"],
 ["POCO X4 Pro 5G","POCO",2022,"$299","Snapdragon 695","6.67 AMOLED 120Hz","5000 mAh","67W","108MP","6GB / 128GB"],
 ["POCO X4 GT","POCO",2022,"$379","Dimensity 8100","6.6 IPS 144Hz","5080 mAh","67W","64MP","8GB / 128GB"],
@@ -468,10 +624,10 @@ const phones=[
 ["POCO C40","POCO",2022,"$129","JLQ JR510","6.71 IPS","6000 mAh","18W","13MP","3GB / 32GB"],
 ["POCO C50","POCO",2022,"$99","Helio A22","6.52 IPS","5000 mAh","10W","8MP","2GB / 32GB"],
 ["POCO X5","POCO",2023,"$249","Snapdragon 695","6.67 AMOLED 120Hz","5000 mAh","33W","48MP","6GB / 128GB"],
-["POCO X5 Pro","POco",2023,"$299","Snapdragon 778G","6.67 AMOLED 120Hz","5000 mAh","67W","108MP","6GB / 128GB"],
+["POCO X5 Pro","POCO",2023,"$299","Snapdragon 778G","6.67 AMOLED 120Hz","5000 mAh","67W","108MP","6GB / 128GB"],
 ["POCO F5","POCO",2023,"$379","Snapdragon 7+ Gen 2","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
 ["POCO F5 Pro","POCO",2023,"$449","Snapdragon 8+ Gen 1","6.67 AMOLED 120Hz","5160 mAh","30W","64MP OIS","8GB / 256GB"],
-["POCO M6 Pro","POco",2023,"$219","Helio G99 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
+["POCO M6 Pro","POCO",2023,"$219","Helio G99 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
 ["POCO C51","POCO",2023,"$109","Helio G36","6.52 IPS","5000 mAh","10W","8MP","4GB / 64GB"],
 ["POCO C55","POCO",2023,"$119","Helio G85","6.71 IPS","5000 mAh","10W","50MP","4GB / 64GB"],
 ["POCO C65","POCO",2023,"$129","Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
