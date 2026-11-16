@@ -41,7 +41,7 @@ header{
   z-index:20;
   box-shadow:0 4px 30px rgba(168,85,247,0.12), 0 1px 15px rgba(34,211,238,0.08);
 }
-.nav{height:72px;display:flex;align-items:center;gap:20px;justify-content:space-between}
+.nav{height:76px;display:flex;align-items:center;gap:20px;justify-content:space-between}
 .nav-right{display:flex;align-items:center;gap:20px}
 .name{font-size:15px;font-weight:800;letter-spacing:.4px}
 .name span{color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow)}
@@ -50,26 +50,26 @@ header{
 .navlinks{display:flex;gap:18px;color:var(--muted);font-size:11px}
 .navlinks a:hover{color:var(--cyan);text-shadow:0 0 8px var(--cyan-glow)}
 
-/* استایل دکمه طرح اقساط در بالای صفحه (سمت چپ) */
+/* دکمه بزرگ‌تر و کاملاً چشمگیر برای شرایط اقساط */
 .installment-btn{
-  background:linear-gradient(135deg, rgba(34,211,238,0.15), rgba(168,85,247,0.15));
-  border:1px solid var(--cyan);
+  background:linear-gradient(135deg, rgba(34,211,238,0.25), rgba(168,85,247,0.25));
+  border:1.5px solid var(--cyan);
   color:var(--cyan);
-  padding:8px 14px;
-  border-radius:10px;
-  font-size:11px;
-  font-weight:800;
+  padding:10px 18px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:900;
   cursor:pointer;
-  box-shadow:0 0 12px rgba(34,211,238,0.2);
-  transition:all 0.2s ease;
+  box-shadow:0 0 18px rgba(34,211,238,0.3);
+  transition:all 0.25s ease;
   display:flex;
   align-items:center;
-  gap:6px;
+  gap:8px;
 }
 .installment-btn:hover{
   background:linear-gradient(135deg,#06b6d4,#a855f7);
   color:#fff;
-  box-shadow:0 0 20px rgba(34,211,238,0.5);
+  box-shadow:0 0 25px rgba(34,211,238,0.6);
   transform:translateY(-1px);
 }
 
@@ -346,7 +346,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
       <nav class="navlinks"><a href="#compare">مقایسه</a><a href="#phones">گوشی‌ها</a></nav>
     </div>
     <div class="brand">Mobile<em>Lab</em></div>
-    <!-- دکمه طرح اقساط بالای سایت (سمت چپ) -->
+    <!-- دکمه بزرگ‌تر و جذاب‌تر برای طرح اقساط -->
     <div>
       <button class="installment-btn" id="openInstallmentModal">
         💳 شرایط اقساط وام مسکن
@@ -382,7 +382,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
     </div>
 
     <p style="text-align:center;margin:0;font-size:11px;color:var(--cyan);">
-      جهت استعلام و تشکیل پرونده با شماره <b>09212038685</b> تماس بگیرید.
+      جهت کسب اطلاعات بیشتر با شماره <b>09212038685</b> تماس بگیرید.
     </p>
   </div>
 </div>
@@ -390,7 +390,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <main class="wrap">
 <section class="hero">
 <div>
-<div class="kicker">MOBILE DATABASE · V7.9</div>
+<div class="kicker">MOBILE DATABASE · V7.10</div>
 <h1><span>گوشی بعدی</span><br>خودت را پیدا کن.</h1>
 <p>دیتابیس جامع موبایل شامل تمامی مدل‌های اپل، سامسونگ، ردمی و پوکو. سه گوشی را انتخاب کنید و مشخصات کامل آن‌ها را همزمان مقایسه کنید.</p>
 <div class="actions"><a class="primary" href="#compare">شروع مقایسه</a><button class="ghost" id="openPicker">نمایش گوشی‌ها</button></div>
@@ -447,7 +447,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <a href="tel:09212038685" class="supportPhone">09212038685</a>
 </div>
 </main>
-<footer>MobileLab V7.9 · Amir Ali Zohrabi</footer>
+<footer>MobileLab V7.10 · Amir Ali Zohrabi</footer>
 
 <script>
 // اسکریپت باز و بسته کردن پنجره اقساط
@@ -456,7 +456,7 @@ document.getElementById('openInstallmentModal').onclick = () => modal.classList.
 document.getElementById('closeInstallmentModal').onclick = () => modal.classList.remove('active');
 modal.onclick = (e) => { if(e.target === modal) modal.classList.remove('active'); };
 
-// دیتابیس کامل و حجیم اصلی شما به‌همراه قیمت دلاری (نسخه بالای ۶۲۰ خط)
+// دیتابیس کامل و حجیم اصلی شما به‌همراه قیمت دلاری
 const phones=[
 ["iPhone SE 2","Apple",2020,"$399","A13 Bionic","4.7 LCD","—","لایتنینگ","۱۲ مگاپیکسل","64GB–256GB"],
 ["iPhone 12 mini","Apple",2020,"$699","A14 Bionic","5.4 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","64GB–256GB"],
