@@ -6,10 +6,10 @@
 <title>MobileLab — Amir Ali Zohrabi</title>
 <style>
 :root{
-  --bg:#050508;
-  --panel:#0e1017;
-  --panel2:#141721;
-  --line:#282e44;
+  --bg:#000000;
+  --panel:#0a0c10;
+  --panel2:#10131b;
+  --line:#222738;
   --text:#f8fafc;
   --muted:#94a3b8;
   --purple:#c084fc;
@@ -21,9 +21,7 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  background:
-    radial-gradient(circle at 85% 10%, rgba(34,211,238,0.12) 0%, transparent 45%),
-    radial-gradient(circle at 15% 5%, rgba(168,85,247,0.18) 0%, var(--bg) 65%);
+  background:var(--bg);
   color:var(--text);
   font-family:Inter,system-ui,Arial,sans-serif;
 }
@@ -34,7 +32,7 @@ a{color:inherit;text-decoration:none}
 
 header{
   border-bottom:1px solid var(--line);
-  background:#050508ea;
+  background:#000000f2;
   backdrop-filter:blur(16px);
   position:sticky;
   top:0;
@@ -66,7 +64,7 @@ header{
   border:1px solid rgba(34,211,238,0.3);
   border-radius:20px;
   padding:20px;
-  background:linear-gradient(145deg,#101420,#090b10);
+  background:linear-gradient(145deg,#0c1018,#05070a);
   box-shadow:0 0 30px rgba(34,211,238,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .heroCard strong{display:block;font-size:25px;color:var(--cyan);text-shadow:0 0 12px var(--cyan-glow)}
@@ -86,7 +84,7 @@ header{
   box-shadow:0 0 28px rgba(168,85,247,0.65), 0 0 22px rgba(34,211,238,0.5);
   transform:translateY(-1px);
 }
-.ghost{background:#121622;color:#fff;border:1px solid var(--line)}
+.ghost{background:#0a0d14;color:#fff;border:1px solid var(--line)}
 .ghost:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 15px rgba(34,211,238,0.25)}
 
 .section{padding:18px 0 45px}
@@ -100,10 +98,10 @@ header{
   border:1px solid var(--line);
   border-radius:18px;
   padding:18px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+  box-shadow:0 8px 30px rgba(0,0,0,0.8);
 }
-.cardA{border-top:2px solid var(--purple);box-shadow:0 8px 30px rgba(0,0,0,0.5), 0 -4px 20px rgba(192,132,252,0.1)}
-.cardB{border-top:2px solid var(--cyan);box-shadow:0 8px 30px rgba(0,0,0,0.5), 0 -4px 20px rgba(34,211,238,0.1)}
+.cardA{border-top:2px solid var(--purple);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(192,132,252,0.1)}
+.cardB{border-top:2px solid var(--cyan);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(34,211,238,0.1)}
 
 .cardTitleA{font-size:10px;color:var(--purple);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--purple-glow)}
 .cardTitleB{font-size:10px;color:var(--cyan);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--cyan-glow)}
@@ -116,7 +114,7 @@ header{
   width:70px;
   height:44px;
   border:1px solid var(--line);
-  background:linear-gradient(135deg,#141726,#0e1522);
+  background:linear-gradient(135deg,#0c101c,#060912);
   color:var(--cyan);
   border-radius:12px;
   font-weight:900;
@@ -131,7 +129,7 @@ header{
 .select{
   width:100%;
   margin-top:14px;
-  background:#080a10;
+  background:#000000;
   color:#fff;
   border:1px solid var(--line);
   border-radius:10px;
@@ -143,7 +141,7 @@ header{
 #selectB:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 
 .stats{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.stat{background:#0b0f19;border:1px solid #1e2638;border-radius:10px;padding:9px}
+.stat{background:#05070c;border:1px solid #161c2b;border-radius:10px;padding:9px}
 .stat small{display:block;color:#7e8b9f;font-size:8px}
 .stat b{font-size:9px;color:var(--text)}
 
@@ -153,9 +151,9 @@ header{
   border-radius:16px;
   overflow:hidden;
   background:var(--panel);
-  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+  box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
-.tr{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #1e2638}
+.tr{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #161c2b}
 .tr:last-child{border-bottom:0}
 .tr>*{padding:12px;font-size:10px}
 .tr span{color:var(--muted)}
@@ -169,28 +167,28 @@ header{
   border-radius:18px;
   background:var(--panel);
   overflow:hidden;
-  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+  box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
 .pickerTop{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center}
 .pickerTop h3{margin:0;font-size:15px}
 .pickerTop p{margin:5px 0 0;color:var(--muted);font-size:10px}
-.pickerControls{display:none;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap;background:#0b0f19}
+.pickerControls{display:none;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap;background:#05070c}
 .pickerControls.open{display:flex}
-.search{flex:1;min-width:200px;background:#080a10;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;outline:0}
+.search{flex:1;min-width:200px;background:#000000;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;outline:0}
 .search:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 .list{display:none;max-height:520px;overflow:auto}
 .list.open{display:block}
-.item{display:grid;grid-template-columns:48px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #181d2c;align-items:center}
+.item{display:grid;grid-template-columns:48px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center}
 .item:hover{background:linear-gradient(90deg, rgba(168,85,247,0.06), rgba(34,211,238,0.06))}
 .phoneIcon{width:42px;height:58px;border:1px solid #3b3f47;border-radius:10px;background:linear-gradient(145deg,#1a1d23,#090a0d);position:relative}
-.phoneIcon:after{content:"";position:absolute;right:5px;top:5px;width:15px;height:20px;background:#050608;border-radius:5px;box-shadow:0 0 0 2px #30343b}
+.phoneIcon:after{content:"";position:absolute;right:5px;top:5px;width:15px;height:20px;background:#000000;border-radius:5px;box-shadow:0 0 0 2px #30343b}
 .item h4{margin:0;font-size:12px}
 .item p{margin:4px 0 0;color:var(--muted);font-size:9px}
 .tag{
   font-size:8px;
   padding:5px 7px;
   border-radius:7px;
-  background:#111927;
+  background:#0c111c;
   border:1px solid rgba(34,211,238,0.3);
   color:var(--cyan);
   box-shadow:0 0 8px rgba(34,211,238,0.15);
@@ -199,7 +197,7 @@ header{
 
 .supportBox{
   margin:40px 0 20px;
-  background:linear-gradient(145deg,#100d1b,#0c1724);
+  background:linear-gradient(145deg,#0a0812,#040c14);
   border:1px solid rgba(34,211,238,0.35);
   border-radius:18px;
   padding:22px;
@@ -246,7 +244,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <p>دیتابیس جامع موبایل شامل تمامی مدل‌های اپل، سامسونگ، ردمی و پوکو. دو گوشی را انتخاب کنید و مشخصات آن‌ها را مقایسه کنید.</p>
 <div class="actions"><a class="primary" href="#compare">شروع مقایسه</a><button class="ghost" id="openPicker">نمایش گوشی‌ها</button></div>
 </div>
-<div class="heroCard"><strong id="total">0</strong><small>گوشی در دیتابیس جامع</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>۲</strong><small>جایگاه مقایسه مستقل</small></div>
+<div class="heroCard"><strong id="total">0</strong><small>گوشی در دیتابیس جامع</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>2</strong><small>جایگاه مقایسه مستقل</small></div>
 </section>
 
 <section class="section" id="compare">
