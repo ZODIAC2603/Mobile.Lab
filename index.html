@@ -32,26 +32,6 @@ body{
   overflow-x: hidden;
 }
 
-/* افکت نور نئونی دنبال‌کننده موس برای دسکتاپ */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(34,211,238,0.12) 0%, rgba(168,85,247,0.08) 40%, transparent 70%);
-  pointer-events: none;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: opacity 0.3s;
-  opacity: 0;
-}
-body:hover::after {
-  opacity: 1;
-}
-
 button,input,select{font:inherit; font-family: 'Vazirmatn', sans-serif;}
 button{cursor:pointer}
 a{color:inherit;text-decoration:none}
@@ -224,7 +204,29 @@ header{
 .sectionHead h2{font-size:24px;margin:0}
 .sectionHead p{font-size:12px;color:var(--muted);margin:5px 0 0}
 
-/* مقایسه ۳ تایی با افکت هاور نئونی نرم */
+/* افکت نور نئونی اختصاصی برای کارت‌های مقایسه و دیتابیس (فقط روی خودِ کادرهای محتوا اثر می‌کنه) */
+.card, .heroCard, .picker, .supportBox {
+  position: relative;
+  overflow: hidden;
+}
+.card::before, .heroCard::before, .picker::before, .supportBox::before {
+  content: '';
+  position: absolute;
+  top: var(--y, -100px);
+  left: var(--x, -100px);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(34,211,238,0.18) 0%, rgba(168,85,247,0.1) 40%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+.card:hover::before, .heroCard:hover::before, .picker:hover::before, .supportBox:hover::before {
+  opacity: 1;
+}
+
 .compare3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
 .card{
   background:var(--panel);
@@ -263,12 +265,14 @@ header{
   padding:11px;
   outline:0;
   font-size:12px;
+  position: relative;
+  z-index: 2;
 }
 #selectA:focus{border-color:var(--purple);box-shadow:0 0 12px var(--purple-glow)}
 #selectB:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 #selectC:focus{border-color:var(--pink);box-shadow:0 0 12px var(--pink-glow)}
 
-.stats{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stats{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:relative;z-index:2}
 .stat{background:#05070c;border:1px solid #161c2b;border-radius:10px;padding:10px}
 .stat small{display:block;color:#7e8b9f;font-size:9px}
 .stat b{font-size:11px;color:var(--text)}
@@ -300,14 +304,14 @@ header{
   overflow:hidden;
   box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
-.pickerTop{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.pickerTop{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center;position:relative;z-index:2}
 .pickerTop h3{margin:0;font-size:16px}
 .pickerTop p{margin:5px 0 0;color:var(--muted);font-size:11px}
-.pickerControls{display:none;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap;background:#05070c}
+.pickerControls{display:none;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap;background:#05070c;position:relative;z-index:2}
 .pickerControls.open{display:flex}
 .search{flex:1;min-width:200px;background:#000000;color:#fff;border:1px solid var(--line);border-radius:10px;padding:11px;outline:0;font-size:12px}
 .search:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
-.list{display:none;max-height:520px;overflow:auto}
+.list{display:none;max-height:520px;overflow:auto;position:relative;z-index:2}
 .list.open{display:block}
 .item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center;transition:background 0.2s}
 .item:hover{background:linear-gradient(90deg, rgba(168,85,247,0.08), rgba(34,211,238,0.08))}
@@ -352,6 +356,7 @@ header{
   border-color:var(--cyan);
   box-shadow:0 0 45px rgba(34,211,238,0.25);
 }
+.supportBox h3, .supportBox p, .supportBox a{position:relative;z-index:2}
 .supportBox h3{margin:0 0 8px;font-size:17px;color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow)}
 .supportBox p{margin:0 0 14px;color:var(--muted);font-size:12px}
 .supportPhone{
@@ -373,7 +378,6 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:10px}
   .brand{margin-left:auto}
   .name{font-size:12px}
   .stats{grid-template-columns:1fr}
-  body::after { display: none; } /* غیرفعال‌سازی افکت موس در موبایل جهت بهینه‌سازی */
 }
 </style>
 </head>
@@ -487,16 +491,16 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:10px}
 <footer>MobileLab · Amir Ali Zohrabi</footer>
 
 <script>
-// اسکریپت دنبال‌کننده نور موس
-window.addEventListener('mousemove', e => {
-  document.body.style.setProperty('--x', e.clientX + 'px');
-  document.body.style.setProperty('--y', e.clientY + 'px');
+// اسکریپت هوشمند برای تنظیم دقیق نور نئونی داخل خودِ کارت‌ها به دنبال موس
+document.querySelectorAll('.card, .heroCard, .picker, .supportBox').forEach(box => {
+  box.addEventListener('mousemove', e => {
+    const rect = box.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    box.style.setProperty('--x', x + 'px');
+    box.style.setProperty('--y', y + 'px');
+  });
 });
-
-// اضافه شدن داینامیک موقعیت نور موس به بدنه
-const styleSheet = document.createElement("style");
-styleSheet.innerText = `body::after { transform: translate(calc(var(--x, 0px) - 50%), calc(var(--y, 0px) - 50%)); }`;
-document.head.appendChild(styleSheet);
 
 // اسکریپت باز و بسته کردن پنجره اقساط
 const modal = document.getElementById('installmentModal');
@@ -681,7 +685,7 @@ const phones=[
 ["POCO C65","POCO",2023,"$129","Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["POCO X6","POCO",2024,"$279","Snapdragon 7s Gen 2","6.67 AMOLED 120Hz","5100 mAh","67W","64MP OIS","8GB / 256GB"],
 ["POCO X6 Pro","POCO",2024,"$349","Dimensity 8300 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
-["POCO X6 Neo","POCO",2024,"$229","Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 128GB"],
+["POCO X6 Neo","POCO",2024,"$229","Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 256GB"],
 ["POCO F6","POCO",2024,"$379","Snapdragon 8s Gen 3","6.67 AMOLED 120Hz","5000 mAh","90W","50MP OIS","8GB / 256GB"],
 ["POCO F6 Pro","POCO",2024,"$499","Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","12GB / 256GB"],
 ["POCO M6","POCO",2024,"$149","Helio G91 Ultra","6.79 IPS 90Hz","5030 mAh","33W","108MP","6GB / 128GB"],
