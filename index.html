@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MobileLab — Amir Ali Zohrabi</title>
+<!-- اضافه کردن فونت وزیرمتن از گوگل فونت -->
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#000000;
@@ -25,9 +27,32 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:Inter,system-ui,Arial,sans-serif;
+  font-family: 'Vazirmatn', sans-serif;
+  font-feature-settings: "ss02" 0;
+  overflow-x: hidden;
 }
-button,input,select{font:inherit}
+
+/* افکت نور نئونی دنبال‌کننده موس برای دسکتاپ */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(34,211,238,0.12) 0%, rgba(168,85,247,0.08) 40%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+body:hover::after {
+  opacity: 1;
+}
+
+button,input,select{font:inherit; font-family: 'Vazirmatn', sans-serif;}
 button{cursor:pointer}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(1200px,92%);margin:auto}
@@ -50,7 +75,7 @@ header{
 .navlinks{display:flex;gap:18px;color:var(--muted);font-size:12px}
 .navlinks a:hover{color:var(--cyan);text-shadow:0 0 8px var(--cyan-glow)}
 
-/* دکمه بزرگ‌تر و کاملاً چشمگیر برای شرایط اقساط */
+/* دکمه شرایط اقساط وام مسکن */
 .installment-btn{
   background:linear-gradient(135deg, rgba(34,211,238,0.25), rgba(168,85,247,0.25));
   border:1.5px solid var(--cyan);
@@ -73,7 +98,7 @@ header{
   transform:translateY(-1px);
 }
 
-/* استایل پنجره بازشو (Modal) طرح اقساط */
+/* پنجره بازشو (Modal) طرح اقساط */
 .modal-overlay{
   position:fixed;
   top:0;
@@ -168,6 +193,11 @@ header{
   padding:20px;
   background:linear-gradient(145deg,#0c1018,#05070a);
   box-shadow:0 0 30px rgba(34,211,238,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition:0.3s;
+}
+.heroCard:hover{
+  border-color:var(--cyan);
+  box-shadow:0 0 35px rgba(34,211,238,0.25);
 }
 .heroCard strong{display:block;font-size:26px;color:var(--cyan);text-shadow:0 0 12px var(--cyan-glow)}
 .heroCard small{color:var(--muted);font-size:12px}
@@ -194,7 +224,7 @@ header{
 .sectionHead h2{font-size:24px;margin:0}
 .sectionHead p{font-size:12px;color:var(--muted);margin:5px 0 0}
 
-/* مقایسه ۳ تایی - با فونت‌ها و نوشته‌های درشت‌تر و خواناتر */
+/* مقایسه ۳ تایی با افکت هاور نئونی نرم */
 .compare3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
 .card{
   background:var(--panel);
@@ -202,10 +232,19 @@ header{
   border-radius:18px;
   padding:20px;
   box-shadow:0 8px 30px rgba(0,0,0,0.8);
+  transition:all 0.3s ease;
+}
+.card:hover{
+  transform:translateY(-3px);
 }
 .cardA{border-top:2px solid var(--purple);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(192,132,252,0.1)}
+.cardA:hover{box-shadow:0 12px 35px rgba(0,0,0,0.9), 0 0 25px rgba(192,132,252,0.25); border-color:var(--purple)}
+
 .cardB{border-top:2px solid var(--cyan);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(34,211,238,0.1)}
+.cardB:hover{box-shadow:0 12px 35px rgba(0,0,0,0.9), 0 0 25px rgba(34,211,238,0.25); border-color:var(--cyan)}
+
 .cardC{border-top:2px solid var(--pink);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(244,63,94,0.1)}
+.cardC:hover{box-shadow:0 12px 35px rgba(0,0,0,0.9), 0 0 25px rgba(244,63,94,0.25); border-color:var(--pink)}
 
 .cardTitleA{font-size:11px;color:var(--purple);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--purple-glow)}
 .cardTitleB{font-size:11px;color:var(--cyan);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--cyan-glow)}
@@ -234,7 +273,7 @@ header{
 .stat small{display:block;color:#7e8b9f;font-size:9px}
 .stat b{font-size:11px;color:var(--text)}
 
-/* جدول مقایسه با نوشته‌های بزرگ‌تر و خوانایی عالی */
+/* جدول مقایسه با جزئیات واضح */
 .compareTable{
   margin-top:14px;
   border:1px solid var(--line);
@@ -243,7 +282,8 @@ header{
   background:var(--panel);
   box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
-.tr{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid #161c2b}
+.tr{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid #161c2b;transition:background 0.2s}
+.tr:hover{background:rgba(34,211,238,0.03)}
 .tr:last-child{border-bottom:0}
 .tr>*{padding:15px 12px;font-size:12px;display:flex;align-items:center}
 .tr span{color:var(--muted);font-weight:600}
@@ -269,8 +309,8 @@ header{
 .search:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 .list{display:none;max-height:520px;overflow:auto}
 .list.open{display:block}
-.item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center}
-.item:hover{background:linear-gradient(90deg, rgba(168,85,247,0.06), rgba(34,211,238,0.06))}
+.item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center;transition:background 0.2s}
+.item:hover{background:linear-gradient(90deg, rgba(168,85,247,0.08), rgba(34,211,238,0.08))}
 
 .phoneIconSVG{
   width:36px;
@@ -306,6 +346,11 @@ header{
   padding:22px;
   text-align:center;
   box-shadow:0 0 35px rgba(168,85,247,0.15), 0 0 25px rgba(34,211,238,0.12);
+  transition:0.3s;
+}
+.supportBox:hover{
+  border-color:var(--cyan);
+  box-shadow:0 0 45px rgba(34,211,238,0.25);
 }
 .supportBox h3{margin:0 0 8px;font-size:17px;color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow)}
 .supportBox p{margin:0 0 14px;color:var(--muted);font-size:12px}
@@ -328,6 +373,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:10px}
   .brand{margin-left:auto}
   .name{font-size:12px}
   .stats{grid-template-columns:1fr}
+  body::after { display: none; } /* غیرفعال‌سازی افکت موس در موبایل جهت بهینه‌سازی */
 }
 </style>
 </head>
@@ -357,7 +403,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:10px}
     <div class="modal-features">
       <div class="modal-feature-item">
         <small>سقف وام خرید کالا</small>
-        <b>تا سقف ۵۰۰ میلیون تومان</b>
+        <b>تا سقف 500 میلیون تومان</b>
       </div>
       <div class="modal-feature-item">
         <small>نوع ضمانت</small>
@@ -365,11 +411,11 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:10px}
       </div>
       <div class="modal-feature-item">
         <small>نرخ بهره بانکی</small>
-        <b>فقط ۱.۹ درصد در ماه</b>
+        <b>فقط 1.9 درصد در ماه</b>
       </div>
       <div class="modal-feature-item">
         <small>مدت بازپرداخت</small>
-        <b>تا سقف ۲۴ ماهه</b>
+        <b>تا سقف 24 ماهه</b>
       </div>
     </div>
 
@@ -441,45 +487,56 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:10px}
 <footer>MobileLab · Amir Ali Zohrabi</footer>
 
 <script>
+// اسکریپت دنبال‌کننده نور موس
+window.addEventListener('mousemove', e => {
+  document.body.style.setProperty('--x', e.clientX + 'px');
+  document.body.style.setProperty('--y', e.clientY + 'px');
+});
+
+// اضافه شدن داینامیک موقعیت نور موس به بدنه
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `body::after { transform: translate(calc(var(--x, 0px) - 50%), calc(var(--y, 0px) - 50%)); }`;
+document.head.appendChild(styleSheet);
+
 // اسکریپت باز و بسته کردن پنجره اقساط
 const modal = document.getElementById('installmentModal');
 document.getElementById('openInstallmentModal').onclick = () => modal.classList.add('active');
 document.getElementById('closeInstallmentModal').onclick = () => modal.classList.remove('active');
 modal.onclick = (e) => { if(e.target === modal) modal.classList.remove('active'); };
 
-// دیتابیس کامل و حجیم اصلی شما به‌همراه قیمت دلاری
+// دیتابیس کامل و حجیم گوشی‌ها
 const phones=[
-["iPhone SE 2","Apple",2020,"$399","A13 Bionic","4.7 LCD","—","لایتنینگ","۱۲ مگاپیکسل","64GB–256GB"],
-["iPhone 12 mini","Apple",2020,"$699","A14 Bionic","5.4 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","64GB–256GB"],
-["iPhone 12","Apple",2020,"$799","A14 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","64GB–256GB"],
-["iPhone 12 Pro","Apple",2020,"$999","A14 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
-["iPhone 12 Pro Max","Apple",2020,"$1099","A14 Bionic","6.7 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
-["iPhone 13 mini","Apple",2021,"$699","A15 Bionic","5.4 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
-["iPhone 13","Apple",2021,"$799","A15 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
-["iPhone 13 Pro","Apple",2021,"$999","A15 Bionic","6.1 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–1TB"],
-["iPhone 13 Pro Max","Apple",2021,"$1099","A15 Bionic","6.7 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–1TB"],
-["iPhone SE 3","Apple",2022,"$429","A15 Bionic","4.7 LCD","—","لایتنینگ","۱۲ مگاپیکسل","64GB–256GB"],
-["iPhone 14","Apple",2022,"$799","A15 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
-["iPhone 14 Plus","Apple",2022,"$899","A15 Bionic","6.7 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
-["iPhone 14 Pro","Apple",2022,"$999","A16 Bionic","6.1 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین ۴۸ مگاپیکسلی","128GB–1TB"],
-["iPhone 14 Pro Max","Apple",2022,"$1099","A16 Bionic","6.7 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین ۴۸ مگاپیکسلی","128GB–1TB"],
-["iPhone 15","Apple",2023,"$799","A16 Bionic","6.1 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
-["iPhone 15 Plus","Apple",2023,"$899","A16 Bionic","6.7 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
-["iPhone 15 Pro","Apple",2023,"$999","A17 Pro","6.1 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","128GB–1TB"],
-["iPhone 15 Pro Max","Apple",2023,"$1199","A17 Pro","6.7 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–1TB"],
-["iPhone 16","Apple",2024,"$799","A18","6.1 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
-["iPhone 16 Plus","Apple",2024,"$899","A18","6.7 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
-["iPhone 16 Pro","Apple",2024,"$999","A18 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","128GB–1TB"],
-["iPhone 16 Pro Max","Apple",2024,"$1199","A18 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–1TB"],
-["iPhone 16e","Apple",2025,"$599","A18","6.1 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
-["iPhone 17","Apple",2025,"$799","A19","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","۴۸ مگاپیکسل","256GB–512GB"],
-["iPhone 17 Air","Apple",2025,"$999","A19 Pro","6.5 OLED ProMotion 120Hz","—","شارژ سریع USB-C","۴۸ مگاپیکسل","256GB–1TB"],
-["iPhone 17 Pro","Apple",2025,"$1099","A19 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–1TB"],
-["iPhone 17 Pro Max","Apple",2025,"$1249","A19 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–2TB"],
-["iPhone 17e","Apple",2026,"$629","A19","6.1 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","256GB"],
-["iPhone 18 Pro","Apple",2026,"$1099","A20 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–1TB"],
-["iPhone 18 Pro Max","Apple",2026,"$1299","A20 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–2TB"],
-["iPhone Duo","Apple",2026,"$1799","A20 Pro","7.6 OLED folding + 5.36 OLED outer","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–2TB"],
+["iPhone SE 2","Apple",2020,"$399","A13 Bionic","4.7 LCD","—","لایتنینگ","12 مگاپیکسل","64GB–256GB"],
+["iPhone 12 mini","Apple",2020,"$699","A14 Bionic","5.4 OLED","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","64GB–256GB"],
+["iPhone 12","Apple",2020,"$799","A14 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","64GB–256GB"],
+["iPhone 12 Pro","Apple",2020,"$999","A14 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","128GB–512GB"],
+["iPhone 12 Pro Max","Apple",2020,"$1099","A14 Bionic","6.7 OLED","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","128GB–512GB"],
+["iPhone 13 mini","Apple",2021,"$699","A15 Bionic","5.4 OLED","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","128GB–512GB"],
+["iPhone 13","Apple",2021,"$799","A15 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","128GB–512GB"],
+["iPhone 13 Pro","Apple",2021,"$999","A15 Bionic","6.1 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","128GB–1TB"],
+["iPhone 13 Pro Max","Apple",2021,"$1099","A15 Bionic","6.7 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","128GB–1TB"],
+["iPhone SE 3","Apple",2022,"$429","A15 Bionic","4.7 LCD","—","لایتنینگ","12 مگاپیکسل","64GB–256GB"],
+["iPhone 14","Apple",2022,"$799","A15 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","128GB–512GB"],
+["iPhone 14 Plus","Apple",2022,"$899","A15 Bionic","6.7 OLED","—","لایتنینگ","مجموعه دوربین 12 مگاپیکسلی","128GB–512GB"],
+["iPhone 14 Pro","Apple",2022,"$999","A16 Bionic","6.1 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین 48 مگاپیکسلی","128GB–1TB"],
+["iPhone 14 Pro Max","Apple",2022,"$1099","A16 Bionic","6.7 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین 48 مگاپیکسلی","128GB–1TB"],
+["iPhone 15","Apple",2023,"$799","A16 Bionic","6.1 OLED","—","شارژ سریع USB-C","48 مگاپیکسل","128GB–512GB"],
+["iPhone 15 Plus","Apple",2023,"$899","A16 Bionic","6.7 OLED","—","شارژ سریع USB-C","48 مگاپیکسل","128GB–512GB"],
+["iPhone 15 Pro","Apple",2023,"$999","A17 Pro","6.1 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","128GB–1TB"],
+["iPhone 15 Pro Max","Apple",2023,"$1199","A17 Pro","6.7 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","256GB–1TB"],
+["iPhone 16","Apple",2024,"$799","A18","6.1 OLED","—","شارژ سریع USB-C","48 مگاپیکسل","128GB–512GB"],
+["iPhone 16 Plus","Apple",2024,"$899","A18","6.7 OLED","—","شارژ سریع USB-C","48 مگاپیکسل","128GB–512GB"],
+["iPhone 16 Pro","Apple",2024,"$999","A18 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","128GB–1TB"],
+["iPhone 16 Pro Max","Apple",2024,"$1199","A18 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","256GB–1TB"],
+["iPhone 16e","Apple",2025,"$599","A18","6.1 OLED","—","شارژ سریع USB-C","48 مگاپیکسل","128GB–512GB"],
+["iPhone 17","Apple",2025,"$799","A19","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","48 مگاپیکسل","256GB–512GB"],
+["iPhone 17 Air","Apple",2025,"$999","A19 Pro","6.5 OLED ProMotion 120Hz","—","شارژ سریع USB-C","48 مگاپیکسل","256GB–1TB"],
+["iPhone 17 Pro","Apple",2025,"$1099","A19 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","256GB–1TB"],
+["iPhone 17 Pro Max","Apple",2025,"$1249","A19 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","256GB–2TB"],
+["iPhone 17e","Apple",2026,"$629","A19","6.1 OLED","—","شارژ سریع USB-C","48 مگاپیکسل","256GB"],
+["iPhone 18 Pro","Apple",2026,"$1099","A20 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","256GB–1TB"],
+["iPhone 18 Pro Max","Apple",2026,"$1299","A20 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","256GB–2TB"],
+["iPhone Duo","Apple",2026,"$1799","A20 Pro","7.6 OLED folding + 5.36 OLED outer","—","شارژ سریع USB-C","مجموعه دوربین 48 مگاپیکسلی","256GB–2TB"],
 ["Samsung Galaxy S20","Samsung",2020,"$999","Snapdragon 865 / Exynos 990","6.2 AMOLED 120Hz","4000 mAh","25W","64MP","8GB / 128GB"],
 ["Samsung Galaxy S20+","Samsung",2020,"$1199","Snapdragon 865 / Exynos 990","6.7 AMOLED 120Hz","4500 mAh","25W","64MP","8GB / 128GB"],
 ["Samsung Galaxy S20 Ultra","Samsung",2020,"$1399","Snapdragon 865 / Exynos 990","6.9 AMOLED 120Hz","5000 mAh","45W","108MP","12GB / 128GB"],
@@ -495,7 +552,7 @@ const phones=[
 ["Samsung Galaxy S22+","Samsung",2022,"$999","Snapdragon 8 Gen 1","6.6 AMOLED 120Hz","4500 mAh","45W","50MP","8GB / 128GB"],
 ["Samsung Galaxy S22 Ultra","Samsung",2022,"$1199","Snapdragon 8 Gen 1","6.8 AMOLED 120Hz","5000 mAh","45W","108MP","12GB / 256GB"],
 ["Samsung Galaxy S23","Samsung",2023,"$799","Snapdragon 8 Gen 2 for Galaxy","6.1 AMOLED 120Hz","3900 mAh","25W","50MP","8GB / 128GB"],
-["Samsung Galaxy S23+","Samsung",2023,"$999","Snapdragon 8 Gen 2 for Galaxy","6.6 AMOLED 120Hz","4700 mAh","45W","50MP","8GB / 256GB"],
+["Samsung Galaxy S23+","Samsung",2023,"$999","Snapdragon 8 Gen 2 for Galaxy","6.6 AMOLED 120Hz","4700 mAh","45W","50MP","8GB / 128GB"],
 ["Samsung Galaxy S23 Ultra","Samsung",2023,"$1199","Snapdragon 8 Gen 2 for Galaxy","6.8 AMOLED 120Hz","5000 mAh","45W","200MP","12GB / 256GB"],
 ["Samsung Galaxy S23 FE","Samsung",2023,"$599","Snapdragon 8 Gen 1 / Exynos 2200","6.4 AMOLED 120Hz","4500 mAh","25W","50MP","8GB / 128GB"],
 ["Samsung Galaxy S24","Samsung",2024,"$799","Exynos 2400 / Snapdragon 8 Gen 3","6.2 AMOLED 120Hz","4000 mAh","25W","50MP","8GB / 128GB"],
