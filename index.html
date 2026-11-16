@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MobileLab Pro — Amir Ali Zohrabi</title>
+<title>MobileLab — Amir Ali Zohrabi</title>
 <style>
 :root{
   --bg:#000000;
@@ -16,16 +16,19 @@
   --purple-glow:rgba(192,132,252,0.45);
   --cyan:#22d3ee;
   --cyan-glow:rgba(34,211,238,0.45);
-  --pink:#f43f5e;
-  --pink-glow:rgba(244,63,94,0.45);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,Arial,sans-serif;
+}
 button,input,select{font:inherit}
 button{cursor:pointer}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1250px,94%);margin:auto}
+.wrap{width:min(1200px,92%);margin:auto}
 
 header{
   border-bottom:1px solid var(--line);
@@ -34,7 +37,7 @@ header{
   position:sticky;
   top:0;
   z-index:20;
-  box-shadow:0 4px 30px rgba(168,85,247,0.12);
+  box-shadow:0 4px 30px rgba(168,85,247,0.12), 0 1px 15px rgba(34,211,238,0.08);
 }
 .nav{height:72px;display:flex;align-items:center;gap:26px}
 .name{font-size:15px;font-weight:800;letter-spacing:.4px}
@@ -53,7 +56,7 @@ header{
   letter-spacing:2px;
   font-weight:900;
 }
-.hero h1{font-size:clamp(40px,6vw,68px);line-height:1;letter-spacing:-3px;margin:15px 0}
+.hero h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-3px;margin:15px 0}
 .hero h1 span{color:var(--purple);text-shadow:0 0 22px var(--purple-glow)}
 .hero p{color:var(--muted);line-height:1.8;max-width:650px;font-size:13px}
 
@@ -62,7 +65,7 @@ header{
   border-radius:20px;
   padding:20px;
   background:linear-gradient(145deg,#0c1018,#05070a);
-  box-shadow:0 0 30px rgba(34,211,238,0.12);
+  box-shadow:0 0 30px rgba(34,211,238,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .heroCard strong{display:block;font-size:25px;color:var(--cyan);text-shadow:0 0 12px var(--cyan-glow)}
 .heroCard small{color:var(--muted)}
@@ -71,19 +74,25 @@ header{
 .primary,.ghost{border-radius:11px;padding:11px 16px;font-size:11px;transition:.2s}
 .primary{
   background:linear-gradient(135deg,#a855f7,#06b6d4);
-  color:white;border:0;font-weight:800;
-  box-shadow:0 0 20px rgba(168,85,247,0.35);
+  color:white;
+  border:0;
+  font-weight:800;
+  box-shadow:0 0 20px rgba(168,85,247,0.35), 0 0 15px rgba(34,211,238,0.25);
+  text-shadow:0 1px 2px rgba(0,0,0,0.4);
 }
-.primary:hover{box-shadow:0 0 28px rgba(168,85,247,0.65);transform:translateY(-1px)}
+.primary:hover{
+  box-shadow:0 0 28px rgba(168,85,247,0.65), 0 0 22px rgba(34,211,238,0.5);
+  transform:translateY(-1px);
+}
 .ghost{background:#0a0d14;color:#fff;border:1px solid var(--line)}
-.ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.ghost:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 15px rgba(34,211,238,0.25)}
 
 .section{padding:18px 0 45px}
 .sectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}
 .sectionHead h2{font-size:22px;margin:0}
 .sectionHead p{font-size:10px;color:var(--muted);margin:5px 0 0}
 
-.compare3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
+.compare{display:grid;grid-template-columns:1fr 70px 1fr;gap:12px;align-items:stretch}
 .card{
   background:var(--panel);
   border:1px solid var(--line);
@@ -91,41 +100,74 @@ header{
   padding:18px;
   box-shadow:0 8px 30px rgba(0,0,0,0.8);
 }
-.cardA{border-top:2px solid var(--purple)}
-.cardB{border-top:2px solid var(--cyan)}
-.cardC{border-top:2px solid var(--pink)}
+.cardA{border-top:2px solid var(--purple);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(192,132,252,0.1)}
+.cardB{border-top:2px solid var(--cyan);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(34,211,238,0.1)}
 
-.cardTitleA{font-size:10px;color:var(--purple);font-weight:800;text-shadow:0 0 8px var(--purple-glow)}
-.cardTitleB{font-size:10px;color:var(--cyan);font-weight:800;text-shadow:0 0 8px var(--cyan-glow)}
-.cardTitleC{font-size:10px;color:var(--pink);font-weight:800;text-shadow:0 0 8px var(--pink-glow)}
+.cardTitleA{font-size:10px;color:var(--purple);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--purple-glow)}
+.cardTitleB{font-size:10px;color:var(--cyan);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--cyan-glow)}
 
-.card h3{margin:7px 0 3px;font-size:17px}
+.card h3{margin:7px 0 3px;font-size:18px}
 .card .muted{color:var(--muted);font-size:10px}
 
-.select{
-  width:100%;margin-top:14px;background:#000000;color:#fff;
-  border:1px solid var(--line);border-radius:10px;padding:10px;outline:0;font-size:11px;
+.swap{
+  align-self:center;
+  width:70px;
+  height:44px;
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,#0c101c,#060912);
+  color:var(--cyan);
+  border-radius:12px;
+  font-weight:900;
+  transition:.2s;
 }
+.swap:hover{
+  border-color:var(--cyan);
+  color:#fff;
+  box-shadow:0 0 16px var(--cyan-glow), 0 0 12px var(--purple-glow);
+}
+
+.select{
+  width:100%;
+  margin-top:14px;
+  background:#000000;
+  color:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:10px;
+  outline:0;
+  font-size:11px;
+}
+#selectA:focus{border-color:var(--purple);box-shadow:0 0 12px var(--purple-glow)}
+#selectB:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
+
+.stats{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.stat{background:#05070c;border:1px solid #161c2b;border-radius:10px;padding:9px}
+.stat small{display:block;color:#7e8b9f;font-size:8px}
+.stat b{font-size:9px;color:var(--text)}
 
 .compareTable{
-  margin-top:16px;border:1px solid var(--line);border-radius:16px;
-  overflow:hidden;background:var(--panel);box-shadow:0 10px 40px rgba(0,0,0,0.8);
+  margin-top:12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--panel);
+  box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
-.tableCategory{
-  background:#131825;color:var(--cyan);font-weight:900;font-size:11px;padding:12px 16px;
-  border-bottom:1px solid var(--line);border-top:1px solid var(--line);letter-spacing:.5px;
-}
-.tr3{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid #161c2b}
-.tr3:last-child{border-bottom:0}
-.tr3>*{padding:12px;font-size:10px}
-.tr3 span{color:var(--muted);font-weight:600}
-.tr3 b{text-align:center;display:block}
-.tr3 b:nth-child(2){color:#f3e8ff}
-.tr3 b:nth-child(3){color:#cffafe}
-.tr3 b:nth-child(4){color:#ffe4e6}
+.tr{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #161c2b}
+.tr:last-child{border-bottom:0}
+.tr>*{padding:12px;font-size:10px}
+.tr span{color:var(--muted)}
+.tr b{text-align:center}
+.tr b:nth-child(2){color:#f3e8ff}
+.tr b:nth-child(3){color:#cffafe}
 
 .picker{
-  margin-top:28px;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden;
+  margin-top:28px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--panel);
+  overflow:hidden;
+  box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
 .pickerTop{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center}
 .pickerTop h3{margin:0;font-size:15px}
@@ -133,33 +175,69 @@ header{
 .pickerControls{display:none;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap;background:#05070c}
 .pickerControls.open{display:flex}
 .search{flex:1;min-width:200px;background:#000000;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;outline:0}
+.search:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 .list{display:none;max-height:520px;overflow:auto}
 .list.open{display:block}
 .item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center}
 .item:hover{background:linear-gradient(90deg, rgba(168,85,247,0.06), rgba(34,211,238,0.06))}
-.phoneIconSVG{width:36px;height:48px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#121622,#07090f);border:1px solid rgba(34,211,238,0.35);border-radius:8px}
-.phoneIconSVG svg{width:22px;height:22px;fill:var(--cyan)}
+
+.phoneIconSVG{
+  width:36px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#121622,#07090f);
+  border:1px solid rgba(34,211,238,0.35);
+  border-radius:8px;
+  box-shadow:0 0 12px rgba(34,211,238,0.2);
+}
+.phoneIconSVG svg{width:22px;height:22px;fill:var(--cyan);filter:drop-shadow(0 0 6px var(--cyan-glow))}
+
 .item h4{margin:0;font-size:12px}
 .item p{margin:4px 0 0;color:var(--muted);font-size:9px}
-.tag{font-size:8px;padding:5px 7px;border-radius:7px;background:#0c111c;border:1px solid rgba(34,211,238,0.3);color:var(--cyan)}
+.tag{
+  font-size:8px;
+  padding:5px 7px;
+  border-radius:7px;
+  background:#0c111c;
+  border:1px solid rgba(34,211,238,0.3);
+  color:var(--cyan);
+  box-shadow:0 0 8px rgba(34,211,238,0.15);
+}
 .empty{padding:35px;text-align:center;color:var(--muted);font-size:11px}
 
 .supportBox{
-  margin:40px 0 20px;background:linear-gradient(145deg,#0a0812,#040c14);
-  border:1px solid rgba(34,211,238,0.35);border-radius:18px;padding:22px;text-align:center;
+  margin:40px 0 20px;
+  background:linear-gradient(145deg,#0a0812,#040c14);
+  border:1px solid rgba(34,211,238,0.35);
+  border-radius:18px;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(168,85,247,0.15), 0 0 25px rgba(34,211,238,0.12);
 }
-.supportBox h3{margin:0 0 8px;font-size:16px;color:var(--cyan)}
+.supportBox h3{margin:0 0 8px;font-size:16px;color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow)}
 .supportBox p{margin:0 0 14px;color:var(--muted);font-size:11px}
 .supportPhone{
-  display:inline-block;background:linear-gradient(135deg,#a855f7,#06b6d4);color:#fff;
-  padding:10px 22px;border-radius:12px;font-weight:800;font-size:13px;
+  display:inline-block;
+  background:linear-gradient(135deg,#a855f7,#06b6d4);
+  color:#fff;
+  padding:10px 22px;
+  border-radius:12px;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.5px;
+  box-shadow:0 0 20px rgba(34,211,238,0.4), 0 0 15px rgba(168,85,247,0.4);
 }
 footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
-
-@media(max-width:900px){
+@media(max-width:800px){
   .hero{grid-template-columns:1fr}
-  .compare3{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .swap{width:100%}
   .navlinks{display:none}
+  .brand{margin-left:auto;margin-right:auto}
+  .name{font-size:11px}
+  .stats{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -167,51 +245,37 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <header><div class="wrap nav">
 <div class="name">Amir Ali <span>Zohrabi</span></div>
 <div class="brand">Mobile<em>Lab</em></div>
-<nav class="navlinks"><a href="#compare">مقایسه ۳‌تایی</a><a href="#phones">گوشی‌ها</a></nav>
+<nav class="navlinks"><a href="#compare">مقایسه</a><a href="#phones">گوشی‌ها</a></nav>
 </div></header>
 
 <main class="wrap">
 <section class="hero">
 <div>
-<div class="kicker">MOBILE DATABASE · V9 PRO MAX</div>
-<h1><span>دیتابیس جامع</span><br>تخصصی‌ترین مقایسه موبایل.</h1>
-<p>مجهز به سیستم جستجوی پیشرفته هوشمند و پنل مقایسه همزمان ۳ دستگاه با جزئیات کامل فنی بدنه، نمایشگر، باتری و دوربین[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span)[span_2](start_span)[span_2](end_span).</p>
-<div class="actions"><a class="primary" href="#compare">شروع مقایسه</a><button class="ghost" id="openPicker">نمایش دیتابیس</button></div>
+<div class="kicker">MOBILE DATABASE · V7</div>
+<h1><span>گوشی بعدی</span><br>خودت را پیدا کن.</h1>
+<p>دیتابیس جامع موبایل شامل تمامی مدل‌های اپل، سامسونگ، ردمی و پوکو. دو گوشی را انتخاب کنید و مشخصات آن‌ها را مقایسه کنید.</p>
+<div class="actions"><a class="primary" href="#compare">شروع مقایسه</a><button class="ghost" id="openPicker">نمایش گوشی‌ها</button></div>
 </div>
-<div class="heroCard"><strong id="total">0</strong><small>گوشی با مشخصات فوق‌العاده دقیق</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>3</strong><small>ایستگاه مقایسه همزمان</small></div>
+<div class="heroCard"><strong id="total">0</strong><small>گوشی در دیتابیس جامع</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>2</strong><small>جایگاه مقایسه مستقل</small></div>
 </section>
 
 <section class="section" id="compare">
-<div class="sectionHead"><div><h2>مقایسه ۳ دستگاه</h2><p>انتخاب آزادانه ۳ مدل مختلف گوشی و بررسی کامل تفاوت‌ها[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).</p></div></div>
-
-<div class="compare3">
-  <div class="card cardA">
-    <div class="cardTitleA">دیوایس A</div>
-    <h3 id="nameA"></h3><div class="muted" id="metaA"></div>
-    <select id="selectA" class="select"></select>
-  </div>
-  <div class="card cardB">
-    <div class="cardTitleB">دیوایس B</div>
-    <h3 id="nameB"></h3><div class="muted" id="metaB"></div>
-    <select id="selectB" class="select"></select>
-  </div>
-  <div class="card cardC">
-    <div class="cardTitleC">دیوایس C</div>
-    <h3 id="nameC"></h3><div class="muted" id="metaC"></div>
-    <select id="selectC" class="select"></select>
-  </div>
+<div class="sectionHead"><div><h2>مقایسه گوشی‌ها</h2><p>انتخاب آزادانه هر دو مدل گوشی بدون محدودیت.</p></div></div>
+<div class="compare">
+<div class="card cardA"><div class="cardTitleA">دیوایس A</div><h3 id="nameA"></h3><div class="muted" id="metaA"></div><select id="selectA" class="select"></select><div class="stats" id="statsA"></div></div>
+<button id="swap" class="swap">↔</button>
+<div class="card cardB"><div class="cardTitleB">دیوایس B</div><h3 id="nameB"></h3><div class="muted" id="metaB"></div><select id="selectB" class="select"></select><div class="stats" id="statsB"></div></div>
 </div>
-
 <div id="table" class="compareTable"></div>
 </section>
 
 <section class="section" id="phones">
 <div class="picker">
-<div class="pickerTop"><div><h3>دیتابیس کامل گوشی‌ها</h3><p>جستجوی هوشمند (پشتیبانی از کلماتی مثل FE، اف ای، پرو، اولترا و...)</p></div><button class="primary" id="togglePicker">نمایش دیتابیس</button></div>
+<div class="pickerTop"><div><h3>دیتابیس کامل گوشی‌ها</h3><p>لیست کامل محصولات اپل، سامسونگ، ردمی و پوکو.</p></div><button class="primary" id="togglePicker">نمایش دیتابیس</button></div>
 <div id="controls" class="pickerControls">
-<input id="search" class="search" placeholder="جستجو (مثلاً: FE، اف ای، پرو، اولترا، S24...)">
+<input id="search" class="search" placeholder="جستجو (مثلاً: FE، اف ای، Pro، اولترا، S24...)">
 <select id="brand" class="select" style="width:150px;margin:0"><option value="all">همه برندها</option><option>Apple</option><option>Samsung</option><option>Redmi</option><option>POCO</option></select>
-<select id="year" class="select" style="width:120px;margin:0"><option value="all">همه سال‌ها</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option></select>
+<select id="year" class="select" style="width:120px;margin:0"><option value="all">همه سال‌ها</option><option>2016</option><option>2017</option><option>2018</option><option>2019</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option></select>
 <button class="ghost" id="closePicker">بستن</button>
 </div>
 <div id="list" class="list"></div>
@@ -224,69 +288,252 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <a href="tel:09212038685" class="supportPhone">09212038685</a>
 </div>
 </main>
-<footer>MobileLab V9 Pro Max · Amir Ali Zohrabi</footer>
+<footer>MobileLab V7 · Amir Ali Zohrabi</footer>
 
 <script>
 const phones=[
-["iPhone 12 mini","Apple",2020,"A14 Bionic","5.4 اینچ OLED Super Retina","2227 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","مجموعه 12 مگاپیکسل دوگانه","64GB / 128GB / 256GB","131.5 × 64.2 × 7.4 میلی‌متر - 135 گرم","IP68 مقاوم در برابر آب","مشکی، سفید، قرمز، آبی، سبز، بنفش"],
-["iPhone 12","Apple",2020,"A14 Bionic","6.1 اینچ OLED Super Retina","2815 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","مجموعه 12 مگاپیکسل دوگانه با OIS","64GB / 128GB / 256GB","146.7 × 71.5 × 7.4 میلی‌متر - 164 گرم","IP68 ضدآب","مشکی، سفید، قرمز، آبی، سبز، بنفش"],
-["iPhone 12 Pro","Apple",2020,"A14 Bionic","6.1 اینچ OLED ProMotion","2815 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","12 مگاپیکسل سه‌گانه + LiDAR","128GB / 256GB / 512GB","146.7 × 71.5 × 7.4 میلی‌متر - 189 گرم","IP68 استیل ضدزنگ","گرافیت، طلایی، نقره‌ای، آبی اقیانوسی"],
-["iPhone 12 Pro Max","Apple",2020,"A14 Bionic","6.7 اینچ OLED Super Retina","3687 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","12 مگاپیکسل سه‌گانه پیشرفته + LiDAR","128GB / 256GB / 512GB","160.8 × 78.1 × 7.4 میلی‌متر - 228 گرم[span_6](start_span)[span_6](end_span)","IP68 استیل ضدزنگ","گرافیت، طلایی، نقره‌ای، آبی آرامش‌بخش[span_7](start_span)[span_7](end_span)"],
-["iPhone 13 mini","Apple",2021,"A15 Bionic","5.4 اینچ OLED Super Retina","2438 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","12 مگاپیکسل دوگانه سنسور شیفت","128GB / 256GB / 512GB","131.5 × 64.2 × 7.65 میلی‌متر - 141 گرم","IP68 ضدآب","صورتی، استارلایت، مه‌آلود، قرمز، آبی، سبز"],
-["iPhone 13","Apple",2021,"A15 Bionic","6.1 اینچ OLED Super Retina","3240 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","12 مگاپیکسل دوگانه با OIS","128GB / 256GB / 512GB","146.7 × 71.5 × 7.65 میلی‌متر - 174 گرم","IP68 ضدآب","صورتی، استارلایت، مه‌آلود، قرمز، آبی، سبز"],
-["iPhone 13 Pro","Apple",2021,"A15 Bionic","6.1 اینچ OLED ProMotion 120Hz","3095 میلی‌آمپر","شارژ سریع 23W و مگ‌سف","12 مگاپیکسل سه‌گانه + تله‌فوتو 3x","128GB تا 1TB","146.7 × 71.5 × 7.65 میلی‌متر - 204 گرم","IP68 استیل ضدزنگ","گرافیت، طلایی، نقره‌ای، آبی سیرا، سبز آلپاین"],
-["iPhone 13 Pro Max","Apple",2021,"A15 Bionic","6.7 اینچ OLED ProMotion 120Hz","4352 میلی‌آمپر[span_8](start_span)[span_8](end_span)","شارژ سریع 27W و مگ‌سف","12 مگاپیکسل سه‌گانه پیشرفته + OIS[span_9](start_span)[span_9](end_span)","128GB تا 1TB","160.8 × 78.1 × 7.65 میلی‌متر - 240 گرم[span_10](start_span)[span_10](end_span)","IP68 ضدآب[span_11](start_span)[span_11](end_span)","گرافیت، طلایی، نقره‌ای، آبی سیرا[span_12](start_span)[span_12](end_span)"],
-["iPhone 14","Apple",2022,"A15 Bionic","6.1 اینچ OLED Super Retina","3279 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","12 مگاپیکسل دوگانه بهبودیافته","128GB / 256GB / 512GB","146.7 × 71.5 × 7.8 میلی‌متر - 172 گرم","IP68 ضدآب","میدنایت، استارلایت، بنفش، آبی، قرمز، زرد"],
-["iPhone 14 Plus","Apple",2022,"A15 Bionic","6.7 اینچ OLED Super Retina","4325 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","12 مگاپیکسل دوگانه عریض","128GB / 256GB / 512GB","160.8 × 78.1 × 7.8 میلی‌متر - 203 گرم","IP68 ضدآب","میدنایت، استارلایت، بنفش، آبی، قرمز، زرد"],
-["iPhone 14 Pro","Apple",2022,"A16 Bionic","6.1 اینچ OLED ProMotion 120Hz","3200 میلی‌آمپر","شارژ سریع 27W و مگ‌سف","48 مگاپیکسل اصلی + تله‌فوتو 3x","128GB تا 1TB","147.5 × 71.5 × 7.85 میلی‌متر - 206 گرم","IP68 استیل ضدزنگ با جزیره پویا","بنفش تیره، طلایی، نقره‌ای، مشکی فضا"],
-["iPhone 14 Pro Max","Apple",2022,"A16 Bionic","6.7 اینچ OLED ProMotion 120Hz","4323 میلی‌آمپر","شارژ سریع 27W و مگ‌سف","48 مگاپیکسل پیشرفته + OIS","128GB تا 1TB","160.7 × 77.6 × 7.85 میلی‌متر - 240 گرم","IP68 استیل ضدزنگ با جزیره پویا","بنفش تیره، طلایی، نقره‌ای، مشکی فضا"],
-["iPhone 15","Apple",2023,"A16 Bionic","6.1 اینچ OLED Super Retina","3349 میلی‌آمپر","شارژ سریع USB-C و مگ‌سف","48 مگاپیکسل اصلی با زوم 2x دیجیتال","128GB / 256GB / 512GB","147.6 × 71.6 × 7.8 میلی‌متر - 171 گرم","IP68 آلومینیوم مات","مشکی، آبی، سبز، زرد، صورتی"],
-["iPhone 15 Plus","Apple",2023,"A16 Bionic","6.7 اینچ OLED Super Retina","4383 میلی‌آمپر","شارژ سریع USB-C و مگ‌سف","48 مگاپیکسل اصلی عریض","128GB / 256GB / 512GB","160.9 × 77.8 × 7.8 میلی‌متر - 201 گرم","IP68 آلومینیوم مات","مشکی، آبی، سبز، زرد، صورتی"],
-["iPhone 15 Pro","Apple",2023,"A17 Pro","6.1 اینچ OLED ProMotion 120Hz","3274 میلی‌آمپر","شارژ سریع USB-C و مگ‌سف","48 مگاپیکسل + زوم اپتیکال 3x","128GB تا 1TB","146.6 × 70.6 × 8.25 میلی‌متر - 187 گرم","IP68 تیتانیوم درجه پنجم","تیتانیوم مشکی، سفید، آبی، طبیعی"],
-["iPhone 15 Pro Max","Apple",2023,"A17 Pro","6.7 اینچ OLED ProMotion 120Hz","4422 میلی‌آمپر","شارژ سریع USB-C و مگ‌سف","48 مگاپیکسل + زوم تله‌فوتو پریسکوپی 5x","256GB تا 1TB","159.9 × 76.7 × 8.25 میلی‌متر - 221 گرم","IP68 تیتانیوم درجه پنجم","تیتانیوم مشکی، سفید، آبی، طبیعی"],
-["iPhone 16","Apple",2024,"A18","6.1 اینچ OLED Super Retina","3561 میلی‌آمپر","شارژ سریع USB-C و مگ‌سف","48 مگاپیکسل دوگانه عمودی","128GB / 256GB / 512GB","147.6 × 71.6 × 7.8 میلی‌متر - 170 گرم","IP68 آلومینیوم و شیشه مقاوم","مشکی، سفید، سبز مایل به آبی، صورتی، اولترامارین"],
-["iPhone 16 Pro","Apple",2024,"A18 Pro","6.3 اینچ OLED ProMotion 120Hz","3582 میلی‌آمپر","شارژ سریع USB-C و مگ‌سف","48 مگاپیکسل فیوژن + 5x تله‌فوتو","128GB تا 1TB","149.6 × 71.5 × 8.25 میلی‌متر - 199 گرم","IP68 تیتانیوم سبک‌تر","تیتانیوم بیابانی، طبیعی، سفید، مشکی"],
-["iPhone 16 Pro Max","Apple",2024,"A18 Pro","6.9 اینچ OLED ProMotion 120Hz","4685 میلی‌آمپر","شارژ سریع USB-C و مگ‌سف","48 مگاپیکسل پیشرفته + تله‌فوتو 5x","256GB تا 2TB","163.0 × 77.6 × 8.25 میلی‌متر - 227 گرم","IP68 تیتانیوم با حاشیه بسیار باریک","تیتانیوم بیابانی، طبیعی، سفید، مشکی"],
-["Samsung Galaxy S20 FE 5G","Samsung",2020,"Snapdragon 865 5G","6.5 اینچ AMOLED 120Hz","4500 میلی‌آمپر","25W سیمی / 15W بی‌سیم","12 مگاپیکسل سه‌گانه با OIS","128GB / 8GB","159.8 × 74.5 × 8.4 میلی‌متر - 190 گرم","IP68 مقاوم در برابر آب","آبی، قرمز، سبز، سفید، اسطوخودوس"],
-["Samsung Galaxy S21","Samsung",2021,"Snapdragon 888 / Exynos 2100","6.2 اینچ AMOLED 120Hz","4000 میلی‌آمپر","25W سیمی / 15W بی‌سیم","12 مگاپیکسل سه‌گانه با OIS","128GB / 8GB","151.7 × 71.2 × 7.9 میلی‌متر - 169 گرم","IP68 مقاوم در برابر آب","خاکستری، سفید، صورتی، بنفش"],
-["Samsung Galaxy S21 Ultra","Samsung",2021,"Snapdragon 888 / Exynos 2100","6.8 اینچ AMOLED 120Hz","5000 میلی‌آمپر","25W سیمی / 15W بی‌سیم","108 مگاپیکسل چهارگانه با زوم دوگانه","128GB تا 512GB","165.1 × 75.6 × 8.9 میلی‌متر - 227 گرم","IP68 ضدآب گوریلا گلس ویکتوس","مشکی فانتوم، نقره‌ای"],
-["Samsung Galaxy S22 Ultra","Samsung",2022,"Snapdragon 8 Gen 1","6.8 اینچ AMOLED 120Hz","5000 میلی‌آمپر","45W سیمی / 15W بی‌سیم","108 مگاپیکسل پیشرفته + قلم S-Pen","128GB تا 1TB","163.3 × 77.9 × 8.9 میلی‌متر - 228 گرم","IP68 ضدآب با جایگاه قلم مجزا","مشکی فانتوم، سفید، بورگوندی، سبز"],
-["Samsung Galaxy S23","Samsung",2023,"Snapdragon 8 Gen 2 for Galaxy","6.1 اینچ AMOLED 120Hz","3900 میلی‌آمپر","25W سیمی / 15W بی‌سیم","50 مگاپیکسل اصلی با OIS","128GB / 256GB / 8GB","146.3 × 70.9 × 7.6 میلی‌متر - 168 گرم","IP68 ضدآب و گردوغبار","مشکی فانتوم، کرم، سبز، اسطوخودوس"],
-["Samsung Galaxy S23 Ultra","Samsung",2023,"Snapdragon 8 Gen 2 for Galaxy","6.8 اینچ AMOLED 120Hz","5000 میلی‌آمپر","45W سیمی / 15W بی‌سیم","200 مگاپیکسل فوق‌العاده با OIS","256GB تا 1TB","163.4 × 78.1 × 8.9 میلی‌متر - 234 گرم","IP68 ضدآب و قلم اکتیو","مشکی فانتوم، کرم، سبز، بنفش"],
-["Samsung Galaxy S24","Samsung",2024,"Snapdragon 8 Gen 3 / Exynos 2400","6.2 اینچ AMOLED 120Hz","4000 میلی‌آمپر","25W سیمی / 15W بی‌سیم","50 مگاپیکسل هوش مصنوعی پیشرفته","128GB / 256GB / 8GB","147.0 × 70.6 × 7.6 میلی‌متر - 167 گرم","IP68 آلومینیوم زرهی","مشکی، خاکستری، زرد کهربایی، بنفش کبالت"],
-["Samsung Galaxy S24 Ultra","Samsung",2024,"Snapdragon 8 Gen 3 for Galaxy","6.8 اینچ AMOLED 120Hz صفحه تخت","5000 میلی‌آمپر","45W سیمی / 15W بی‌سیم","200 مگاپیکسل تیتانیومی + زوم 5x","256GB تا 1TB","162.3 × 79.0 × 8.6 میلی‌متر - 232 گرم","IP68 بدنه تیتانیومی مقاوم","خاکستری تیتانیوم، مشکی، زرد، بنفش"],
-["Samsung Galaxy S25 Ultra","Samsung",2025,"Snapdragon 8 Elite for Galaxy","6.9 اینچ AMOLED 120Hz لبه خمیده","5000 میلی‌آمپر","45W سیمی / 15W بی‌سیم","200 مگاپیکسل پرچمدار + OIS","256GB تا 1TB","162.8 × 77.6 × 8.2 میلی‌متر - 219 گرم","IP68 بدنه تیتانیومی پیشرفته","مشکی تیتانیومی، نقره‌ای، خاکستری، آبی"],
-["POCO X3 Pro","POCO",2021,"Snapdragon 860","6.67 اینچ IPS 120Hz","5160 میلی‌آمپر","33W شارژ سریع سیمی","48 مگاپیکسل چهارگانه هوش مصنوعی","128GB / 6GB یا 8GB","165.3 × 76.8 × 9.4 میلی‌متر - 215 گرم","IP53 مقاوم در برابر پاشش قطرات آب","مشکی فانتومی، آبی متالیک، برنزی"],
-["POCO F3","POCO",2021,"Snapdragon 870 5G","6.67 اینچ AMOLED 120Hz","4520 میلی‌آمپر","33W شارژ سریع","48 مگاپیکسل سه‌گانه با کیفیت","128GB / 256GB / 6GB یا 8GB","163.7 × 76.4 × 7.8 میلی‌متر - 196 گرم","IP53 ضد پاشش آب","مشکی شب، سفید مهتابی، آبی اقیانوس"],
-["POCO X4 Pro 5G","POCO",2022,"Snapdragon 695 5G","6.67 اینچ AMOLED 120Hz","5000 میلی‌آمپر","67W شارژ سریع سیمی","108 مگاپیکسل اصلی پرجزییات","128GB / 256GB / 6GB یا 8GB","164.2 × 76.1 × 8.12 میلی‌متر - 205 گرم","IP53 مقاومت در برابر پاشش آب","مشکی لیزری، آبی لیزری، زرد پوکو"],
-["POCO F4","POCO",2022,"Snapdragon 870 5G","6.67 اینچ AMOLED 120Hz","4500 میلی‌آمپر","67W شارژ سریع سیمی","64 مگاپیکسل اصلی با لرزشگیر اپتیکال OIS","128GB / 256GB / 6GB یا 8GB","163.2 × 75.95 × 7.7 میلی‌متر - 195 گرم","IP53 مقاوم در برابر گردوغبار","مشکی شب، نقره‌ای مهتابی، سبز نبولی"],
-["POCO X5 Pro","POCO",2023,"Snapdragon 778G 5G","6.67 اینچ AMOLED 120Hz","5000 میلی‌آمپر","67W شارژ سریع سیمی","108 مگاپیکسل سه‌گانه هوشمند","128GB / 256GB / 6GB یا 8GB","162.91 × 76.03 × 7.9 میلی‌متر - 181 گرم","IP53 ضد پاشش آب","مشکی، آبی، زرد اختصاصی پوکو"],
-["POCO F5","POCO",2023,"Snapdragon 7+ Gen 2","6.67 اینچ AMOLED 120Hz","5000 میلی‌آمپر","67W شارژ سریع سیمی","64 مگاپیکسل با فناوری OIS","256GB / 8GB یا 12GB","161.1 × 75.0 × 7.9 میلی‌متر - 181 گرم","IP53 ضد پاشش آب و گردوغبار","مشکی کربنی، سفید برفی، آبی یخچالی"],
-["POCO F5 Pro","POCO",2023,"Snapdragon 8+ Gen 1","6.67 اینچ AMOLED 120Hz WQHD+","5160 میلی‌آمپر","67W سیمی / 30W بی‌سیم","64 مگاپیکسل با OIS و قابلیت 8K","256GB / 512GB / 12GB","162.78 × 75.44 × 8.59 میلی‌متر - 204 گرم","IP53 مقاومت استاندارد","مشکی کلاسیک، سفید ابریشمی"],
-["POCO X6 Pro","POCO",2024,"Dimensity 8300 Ultra","6.67 اینچ AMOLED 120Hz حاشیه بسیار باریک","5000 میلی‌آمپر","67W شارژ فوق‌العاده سریع","64 مگاپیکسل اصلی با OIS","256GB / 512GB / 8GB یا 12GB","160.5 × 74.3 × 8.3 میلی‌متر - 186 گرم","IP54 مقاوم در برابر گردوغبار و پاشش آب","مشکی، خاکستری، زرد چرمی"],
-["POCO F6","POCO",2024,"Snapdragon 8s Gen 3","6.67 اینچ AMOLED 120Hz","5000 میلی‌آمپر","90W شارژ سریع حرفه‌ای","50 مگاپیکسل سونی IMX882 با OIS","256GB / 512GB / 8GB یا 12GB","160.5 × 74.4 × 7.8 میلی‌متر - 179 گرم","IP64 مقاومت در برابر پاشش آب و گردوغبار","مشکی مات، سبز زیتونی، تایتانیوم"],
-["POCO F6 Pro","POCO",2024,"Snapdragon 8 Gen 2","6.67 اینچ AMOLED 120Hz WQHD+","5000 میلی‌آمپر","120W شارژ فوق‌العاده سریع","50 مگاپیکسل پرچمدار با لرزشگیر اپتیکال OIS","256GB تا 1TB / 12GB یا 16GB","160.86 × 74.95 × 8.21 میلی‌متر - 209 گرم","IP54 مقاوم در برابر قطرات آب","مشکی کلاسیک، سفید سرامیکی"],
-["POCO F7 Ultra","POCO",2025,"Snapdragon 8 Elite","6.67 اینچ AMOLED 120Hz پرچمدار","6000 میلی‌آمپر","120W شارژ فوق‌العاده سریع","50 مگاپیکسل سه‌گانه با زوم اپتیکال پیشرفته","512GB / 12GB یا 16GB","160.3 × 75.1 × 8.1 میلی‌متر - 209 گرم","IP68 ضدآب کامل در عمق آب","مشکی تیتانیومی، زرد پوکو، نقره‌ای براق"],
-["Xiaomi Poco C71","POCO",2025,"Processor class","6.88 اینچ IPS 120Hz بزرگ و روان[span_13](start_span)[span_13](end_span)","5200 میلی‌آمپر باتری قدرتمند[span_14](start_span)[span_14](end_span)","18W شارژ سیمی استاندارد[span_15](start_span)[span_15](end_span)","50 مگاپیکسل هوش مصنوعی[span_16](start_span)[span_16](end_span)","128GB / 6GB رم","171.8 × 77.8 × 8.3 میلی‌متر - 193 گرم[span_17](start_span)[span_17](end_span)","مقاوم در برابر قطرات آب و گردوغبار","مشکی کلاسیک، آبی اقیانوسی، طلایی[span_18](start_span)[span_18](end_span)"],
-["Redmi Note 10 Pro","Redmi",2021,"Snapdragon 732G","6.67 اینچ AMOLED 120Hz","5020 میلی‌آمپر","33W شارژ سریع سیمی","108 مگاپیکسل چهارگانه حرفه‌ای","128GB / 6GB یا 8GB","164.0 × 76.5 × 8.1 میلی‌متر - 193 گرم","IP53 مقاومت در برابر پاشش آب","خاکستری اونیکس، آبی یخی، برنزی گرادینت"],
-["Redmi Note 11 Pro+","Redmi",2022,"Dimensity 920 5G","6.67 اینچ AMOLED 120Hz","4500 میلی‌آمپر","120W شارژ فوق‌العاده سریع HyperCharge","108 مگاپیکسل اصلی با کیفیت بالا","128GB / 256GB / 6GB یا 8GB","163.65 × 76.19 × 8.34 میلی‌متر - 204 گرم","IP53 مقاومت در برابر پاشش قطرات آب","مشکی گرافیت، سبز جنگلی، بنفش ستاره‌ای"],
-["Redmi Note 12 Pro+","Redmi",2023,"Dimensity 1080 5G","6.67 اینچ AMOLED 120Hz","5000 میلی‌آمپر","120W شارژ سریع سیمی","200 مگاپیکسل اصلی با لرزشگیر اپتیکال OIS","256GB / 8GB یا 12GB","162.9 × 76.0 × 8.98 میلی‌متر - 210.5 گرم","IP53 ضد پاشش آب","مشکی نیمه‌شب، سفید قطبی، آبی آسمانی"],
-["Redmi Note 13 Pro 5G","Redmi",2024,"Snapdragon 7s Gen 2","6.67 اینچ AMOLED 120Hz خمیده","5100 میلی‌آمپر","67W شارژ سریع سیمی","200 مگاپیکسل اصلی با OIS پیشرفته","256GB / 512GB / 8GB یا 12GB","161.15 × 74.24 × 7.98 میلی‌متر - 187 گرم","IP54 مقاوم در برابر گردوغبار و آب","مشکی نیمه‌شب، آبی اقیانوس، بنفش تیره"],
-["Redmi Note 13 Pro+","Redmi",2024,"Dimensity 7200 Ultra","6.67 اینچ AMOLED 120Hz خمیده منحنی","5000 میلی‌آمپر","120W شارژ فوق‌العاده سریع","200 مگاپیکسل دوربین اصلی با OIS","256GB تا 512GB / 8GB تا 12GB","161.4 × 74.2 × 8.9 میلی‌متر - 204.5 گرم","IP68 ضدآب و گردوغبار کامل","مشکی نیمه‌شب، سفید مهتابی، بنفش، چرمی سبز"],
-["Redmi K70 Pro","Redmi",2024,"Snapdragon 8 Gen 3","6.67 اینچ AMOLED 120Hz WQHD+","5000 میلی‌آمپر","120W شارژ فوق‌العاده سریع","50 مگاپیکسل سه‌گانه با OIS","256GB تا 1TB / 12GB تا 24GB","160.86 × 74.95 × 8.21 میلی‌متر - 209 گرم","IP54 مقاومت استاندارد","مشکی، سفید، آبی، نسخه ویژه لامبورگینی"],
-["Redmi Note 14 Pro+","Redmi",2025,"Snapdragon 7s Gen 3","6.67 اینچ AMOLED 120Hz خمیده محافظ‌دار","6200 میلی‌آمپر باتری غول‌پیکر","90W شارژ سریع سیمی","50 مگاپیکسل پرچمدار با OIS","256GB / 512GB / 12GB","162.5 × 74.6 × 8.7 میلی‌متر - 210 گرم","IP68 / IP69K مقاومت فوق‌العاده صنعتی","مشکی، سفید، بنفش، سبز"],
-["Redmi K80 Pro","Redmi",2025,"Snapdragon 8 Elite","6.67 اینچ AMOLED 120Hz تخت حرفه‌ای","6000 میلی‌آمپر باتری فوق‌العاده","120W شارژ سیمی / 50W بی‌سیم","50 مگاپیکسل سه‌گانه با زوم تله‌فوتو ماکرو","512GB تا 1TB / 12GB تا 16GB","160.3 × 75.1 × 8.1 میلی‌متر - 209 گرم","IP68 ضدآب و گردوغبار کامل","مشکی مات، سفید سرامیکی، خاکستری تیتانیومی"]
+["iPhone SE 2","Apple",2020,"A13 Bionic","4.7 LCD","—","لایتنینگ","۱۲ مگاپیکسل","64GB–256GB"],
+["iPhone 12 mini","Apple",2020,"A14 Bionic","5.4 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","64GB–256GB"],
+["iPhone 12","Apple",2020,"A14 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","64GB–256GB"],
+["iPhone 12 Pro","Apple",2020,"A14 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
+["iPhone 12 Pro Max","Apple",2020,"A14 Bionic","6.7 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
+["iPhone 13 mini","Apple",2021,"A15 Bionic","5.4 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
+["iPhone 13","Apple",2021,"A15 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
+["iPhone 13 Pro","Apple",2021,"A15 Bionic","6.1 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–1TB"],
+["iPhone 13 Pro Max","Apple",2021,"A15 Bionic","6.7 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–1TB"],
+["iPhone SE 3","Apple",2022,"A15 Bionic","4.7 LCD","—","لایتنینگ","۱۲ مگاپیکسل","64GB–256GB"],
+["iPhone 14","Apple",2022,"A15 Bionic","6.1 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
+["iPhone 14 Plus","Apple",2022,"A15 Bionic","6.7 OLED","—","لایتنینگ","مجموعه دوربین ۱۲ مگاپیکسلی","128GB–512GB"],
+["iPhone 14 Pro","Apple",2022,"A16 Bionic","6.1 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین ۴۸ مگاپیکسلی","128GB–1TB"],
+["iPhone 14 Pro Max","Apple",2022,"A16 Bionic","6.7 OLED ProMotion 120Hz","—","لایتنینگ","مجموعه دوربین ۴۸ مگاپیکسلی","128GB–1TB"],
+["iPhone 15","Apple",2023,"A16 Bionic","6.1 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
+["iPhone 15 Plus","Apple",2023,"A16 Bionic","6.7 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
+["iPhone 15 Pro","Apple",2023,"A17 Pro","6.1 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","128GB–1TB"],
+["iPhone 15 Pro Max","Apple",2023,"A17 Pro","6.7 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–1TB"],
+["iPhone 16","Apple",2024,"A18","6.1 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
+["iPhone 16 Plus","Apple",2024,"A18","6.7 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
+["iPhone 16 Pro","Apple",2024,"A18 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","128GB–1TB"],
+["iPhone 16 Pro Max","Apple",2024,"A18 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–1TB"],
+["iPhone 16e","Apple",2025,"A18","6.1 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","128GB–512GB"],
+["iPhone 17","Apple",2025,"A19","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","۴۸ مگاپیکسل","256GB–512GB"],
+["iPhone 17 Air","Apple",2025,"A19 Pro","6.5 OLED ProMotion 120Hz","—","شارژ سریع USB-C","۴۸ مگاپیکسل","256GB–1TB"],
+["iPhone 17 Pro","Apple",2025,"A19 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–1TB"],
+["iPhone 17 Pro Max","Apple",2025,"A19 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–2TB"],
+["iPhone 17e","Apple",2026,"A19","6.1 OLED","—","شارژ سریع USB-C","۴۸ مگاپیکسل","256GB"],
+["iPhone 18 Pro","Apple",2026,"A20 Pro","6.3 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–1TB"],
+["iPhone 18 Pro Max","Apple",2026,"A20 Pro","6.9 OLED ProMotion 120Hz","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–2TB"],
+["iPhone Duo","Apple",2026,"A20 Pro","7.6 OLED folding + 5.36 OLED outer","—","شارژ سریع USB-C","مجموعه دوربین ۴۸ مگاپیکسلی","256GB–2TB"],
+["Samsung Galaxy S20","Samsung",2020,"Snapdragon 865 / Exynos 990","6.2 AMOLED 120Hz","4000 mAh","25W","64MP","8GB / 128GB"],
+["Samsung Galaxy S20+","Samsung",2020,"Snapdragon 865 / Exynos 990","6.7 AMOLED 120Hz","4500 mAh","25W","64MP","8GB / 128GB"],
+["Samsung Galaxy S20 Ultra","Samsung",2020,"Snapdragon 865 / Exynos 990","6.9 AMOLED 120Hz","5000 mAh","45W","108MP","12GB / 128GB"],
+["Samsung Galaxy S20 FE","Samsung",2020,"Snapdragon 865 / Exynos 990","6.5 AMOLED 120Hz","4500 mAh","25W","12MP","8GB / 128GB"],
+["Samsung Galaxy S20 FE 5G","Samsung",2020,"Snapdragon 865 5G","6.5 AMOLED 120Hz","4500 mAh","25W","12MP","8GB / 128GB"],
+["Samsung Galaxy Note20","Samsung",2020,"Snapdragon 865+ / Exynos 990","6.7 Super AMOLED Plus 60Hz","4300 mAh","25W","12MP","8GB / 256GB"],
+["Samsung Galaxy Note20 Ultra","Samsung",2020,"Snapdragon 865+ / Exynos 990","6.9 Dynamic AMOLED 2X 120Hz","4500 mAh","25W","108MP OIS","12GB / 256GB"],
+["Samsung Galaxy S21","Samsung",2021,"Snapdragon 888 / Exynos 2100","6.2 AMOLED 120Hz","4000 mAh","25W","12MP","8GB / 128GB"],
+["Samsung Galaxy S21+","Samsung",2021,"Snapdragon 888 / Exynos 2100","6.7 AMOLED 120Hz","4800 mAh","25W","12MP","8GB / 128GB"],
+["Samsung Galaxy S21 Ultra","Samsung",2021,"Snapdragon 888 / Exynos 2100","6.8 AMOLED 120Hz","5000 mAh","25W","108MP","12GB / 128GB"],
+["Samsung Galaxy S21 FE","Samsung",2022,"Snapdragon 888 / Exynos 2100","6.4 AMOLED 120Hz","4500 mAh","25W","12MP","8GB / 128GB"],
+["Samsung Galaxy S22","Samsung",2022,"Snapdragon 8 Gen 1","6.1 AMOLED 120Hz","3700 mAh","25W","50MP","8GB / 128GB"],
+["Samsung Galaxy S22+","Samsung",2022,"Snapdragon 8 Gen 1","6.6 AMOLED 120Hz","4500 mAh","45W","50MP","8GB / 128GB"],
+["Samsung Galaxy S22 Ultra","Samsung",2022,"Snapdragon 8 Gen 1","6.8 AMOLED 120Hz","5000 mAh","45W","108MP","12GB / 256GB"],
+["Samsung Galaxy S23","Samsung",2023,"Snapdragon 8 Gen 2 for Galaxy","6.1 AMOLED 120Hz","3900 mAh","25W","50MP","8GB / 128GB"],
+["Samsung Galaxy S23+","Samsung",2023,"Snapdragon 8 Gen 2 for Galaxy","6.6 AMOLED 120Hz","4700 mAh","45W","50MP","8GB / 256GB"],
+["Samsung Galaxy S23 Ultra","Samsung",2023,"Snapdragon 8 Gen 2 for Galaxy","6.8 AMOLED 120Hz","5000 mAh","45W","200MP","12GB / 256GB"],
+["Samsung Galaxy S23 FE","Samsung",2023,"Snapdragon 8 Gen 1 / Exynos 2200","6.4 AMOLED 120Hz","4500 mAh","25W","50MP","8GB / 128GB"],
+["Samsung Galaxy S24","Samsung",2024,"Exynos 2400 / Snapdragon 8 Gen 3","6.2 AMOLED 120Hz","4000 mAh","25W","50MP","8GB / 128GB"],
+["Samsung Galaxy S24+","Samsung",2024,"Exynos 2400 / Snapdragon 8 Gen 3","6.7 AMOLED 120Hz","4900 mAh","45W","50MP","12GB / 256GB"],
+["Samsung Galaxy S24 Ultra","Samsung",2024,"Snapdragon 8 Gen 3 for Galaxy","6.8 AMOLED 120Hz","5000 mAh","45W","200MP","12GB / 256GB"],
+["Samsung Galaxy S24 FE","Samsung",2024,"Exynos 2400e","6.7 AMOLED 120Hz","4700 mAh","25W","50MP","8GB / 128GB"],
+["Samsung Galaxy S25","Samsung",2025,"Snapdragon 8 Elite for Galaxy","6.2 AMOLED 120Hz","4000 mAh","25W","50MP","12GB / 256GB"],
+["Samsung Galaxy S25+","Samsung",2025,"Snapdragon 8 Elite for Galaxy","6.7 AMOLED 120Hz","4900 mAh","45W","50MP","12GB / 256GB"],
+["Samsung Galaxy S25 Ultra","Samsung",2025,"Snapdragon 8 Elite for Galaxy","6.9 AMOLED 120Hz","5000 mAh","45W","200MP","12GB / 256GB"],
+["Samsung Galaxy S25 Edge","Samsung",2025,"Snapdragon 8 Elite for Galaxy","6.7 AMOLED 120Hz","3900 mAh","25W","200MP","12GB / 256GB"],
+["Samsung Galaxy S25 FE","Samsung",2025,"Exynos class","6.7 AMOLED 120Hz","5000 mAh","45W","50MP","8GB / 256GB"],
+["Samsung Galaxy S26","Samsung",2026,"Snapdragon 8 Elite Gen 5 for Galaxy","6.3 AMOLED 120Hz","4300 mAh","45W","50MP","12GB / 256GB"],
+["Samsung Galaxy S26+","Samsung",2026,"Snapdragon 8 Elite Gen 5 for Galaxy","6.7 AMOLED 120Hz","4900 mAh","45W","50MP","12GB / 256GB"],
+["Samsung Galaxy S26 Ultra","Samsung",2026,"Snapdragon 8 Elite Gen 5 for Galaxy","6.9 AMOLED 120Hz","5000 mAh","60W","200MP","16GB / 512GB"],
+["Samsung Galaxy S26 FE","Samsung",2026,"Exynos class","6.7 AMOLED 120Hz","5000 mAh","45W","50MP","8GB / 256GB"],
+["Redmi 9","Redmi",2020,"Helio G80","6.53 IPS","5020 mAh","18W","13MP","4GB / 64GB"],
+["Redmi 9A","Redmi",2020,"Helio G25","6.53 IPS","5000 mAh","10W","13MP","2GB / 32GB"],
+["Redmi 9C","Redmi",2020,"Helio G35","6.53 IPS","5000 mAh","10W","13MP","3GB / 64GB"],
+["Redmi 9 Prime","Redmi",2020,"Helio G80","6.53 IPS","5020 mAh","18W","13MP","4GB / 64GB"],
+["Redmi Note 9","Redmi",2020,"Helio G85","6.53 IPS","5020 mAh","18W","48MP","4GB / 128GB"],
+["Redmi Note 9S","Redmi",2020,"Snapdragon 720G","6.67 IPS","5020 mAh","18W","48MP","4GB / 128GB"],
+["Redmi Note 9 Pro","Redmi",2020,"Snapdragon 720G","6.67 IPS","5020 mAh","30W","64MP","6GB / 128GB"],
+["Redmi Note 9 Pro Max","Redmi",2020,"Snapdragon 720G","6.67 IPS","5020 mAh","33W","64MP","6GB / 128GB"],
+["Redmi Note 9 5G","Redmi",2020,"Dimensity 800U","6.53 IPS 90Hz","5000 mAh","18W","48MP","6GB / 128GB"],
+["Redmi Note 9 Pro 5G","Redmi",2020,"Snapdragon 750G","6.67 IPS 120Hz","4820 mAh","33W","108MP","6GB / 128GB"],
+["Redmi K30","Redmi",2020,"Snapdragon 730G","6.67 IPS 120Hz","4500 mAh","27W","64MP","6GB / 128GB"],
+["Redmi K30 Pro","Redmi",2020,"Snapdragon 865","6.67 AMOLED","4700 mAh","33W","64MP","6GB / 128GB"],
+["Redmi 9T","Redmi",2021,"Snapdragon 662","6.53 IPS","6000 mAh","18W","48MP","4GB / 128GB"],
+["Redmi Note 10","Redmi",2021,"Snapdragon 678","6.43 AMOLED","5000 mAh","33W","48MP","4GB / 128GB"],
+["Redmi Note 10S","Redmi",2021,"Helio G95","6.43 AMOLED","5000 mAh","33W","64MP","6GB / 128GB"],
+["Redmi Note 10 Pro","Redmi",2021,"Snapdragon 732G","6.67 AMOLED 120Hz","5020 mAh","33W","108MP","6GB / 128GB"],
+["Redmi Note 10 Pro Max","Redmi",2021,"Snapdragon 732G","6.67 AMOLED 120Hz","5020 mAh","33W","108MP","6GB / 128GB"],
+["Redmi Note 10 5G","Redmi",2021,"Dimensity 700","6.5 IPS 90Hz","5000 mAh","18W","48MP","4GB / 128GB"],
+["Redmi Note 10T","Redmi",2021,"Dimensity 700","6.5 IPS 90Hz","5000 mAh","18W","48MP","4GB / 128GB"],
+["Redmi Note 10 JE","Redmi",2021,"Snapdragon 480 5G","6.5 IPS 90Hz","4800 mAh","18W","48MP","4GB / 64GB"],
+["Redmi 10","Redmi",2021,"Helio G88","6.5 IPS 90Hz","5000 mAh","18W","50MP","4GB / 64GB"],
+["Redmi 10 Prime","Redmi",2021,"Helio G88","6.5 IPS 90Hz","6000 mAh","18W","50MP","4GB / 64GB"],
+["Redmi Note 11 4G","Redmi",2021,"Helio G88","6.5 IPS 90Hz","5000 mAh","18W","50MP","4GB / 128GB"],
+["Redmi 10 2022","Redmi",2022,"Helio G88","6.5 IPS 90Hz","5000 mAh","18W","50MP","4GB / 128GB"],
+["Redmi 10C","Redmi",2022,"Snapdragon 680","6.71 IPS","5000 mAh","18W","50MP","4GB / 64GB"],
+["Redmi 10A","Redmi",2022,"Helio G25","6.53 IPS","5000 mAh","10W","13MP","2GB / 32GB"],
+["Redmi Note 11","Redmi",2022,"Snapdragon 680","6.43 AMOLED 90Hz","5000 mAh","33W","50MP","4GB / 128GB"],
+["Redmi Note 11S","Redmi",2022,"Helio G96","6.43 AMOLED 90Hz","5000 mAh","33W","108MP","6GB / 128GB"],
+["Redmi Note 11 Pro","Redmi",2022,"Helio G96","6.67 AMOLED 120Hz","5000 mAh","67W","108MP","6GB / 128GB"],
+["Redmi Note 11 Pro 5G","Redmi",2022,"Snapdragon 695","6.67 AMOLED 120Hz","5000 mAh","67W","108MP","6GB / 128GB"],
+["Redmi Note 11 Pro+","Redmi",2022,"Dimensity 920","6.67 AMOLED 120Hz","4500 mAh","120W","108MP","6GB / 128GB"],
+["Redmi Note 11T","Redmi",2022,"Dimensity 8100","6.6 IPS 144Hz","5080 mAh","67W","64MP","6GB / 128GB"],
+["Redmi A1","Redmi",2022,"Helio A22","6.52 IPS","5000 mAh","10W","8MP","2GB / 32GB"],
+["Redmi A1+","Redmi",2022,"Helio A22","6.52 IPS","5000 mAh","10W","8MP","2GB / 32GB"],
+["Redmi 12","Redmi",2023,"Helio G88","6.79 IPS 90Hz","5000 mAh","18W","50MP","4GB / 128GB"],
+["Redmi 12C","Redmi",2023,"Helio G85","6.71 IPS","5000 mAh","10W","50MP","4GB / 64GB"],
+["Redmi 12 5G","Redmi",2023,"Snapdragon 4 Gen 2","6.79 IPS 90Hz","5000 mAh","18W","50MP","4GB / 128GB"],
+["Redmi Note 12","Redmi",2023,"Snapdragon 4 Gen 1","6.67 AMOLED 120Hz","5000 mAh","33W","48MP","4GB / 128GB"],
+["Redmi Note 12 Pro","Redmi",2023,"Dimensity 1080","6.67 AMOLED 120Hz","5000 mAh","67W","50MP OIS","6GB / 128GB"],
+["Redmi Note 12 Pro+","Redmi",2023,"Dimensity 1080","6.67 AMOLED 120Hz","5000 mAh","120W","200MP OIS","8GB / 256GB"],
+["Redmi Note 12 Turbo","Redmi",2023,"Snapdragon 7+ Gen 2","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
+["Redmi 13C","Redmi",2023,"Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
+["Redmi K60","Redmi",2023,"Snapdragon 8+ Gen 1","6.67 AMOLED 120Hz","5500 mAh","67W","64MP OIS","8GB / 128GB"],
+["Redmi K60 Pro","Redmi",2023,"Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","8GB / 256GB"],
+["Redmi 13","Redmi",2024,"Helio G91 Ultra","6.79 IPS 90Hz","5030 mAh","33W","108MP","6GB / 128GB"],
+["Redmi 14C","Redmi",2024,"Helio G81 Ultra","6.88 IPS 120Hz","5160 mAh","18W","50MP","4GB / 128GB"],
+["Redmi Note 13","Redmi",2024,"Snapdragon 685","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","6GB / 128GB"],
+["Redmi Note 13 5G","Redmi",2024,"Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","6GB / 128GB"],
+["Redmi Note 13 Pro","Redmi",2024,"Helio G99 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","200MP OIS","8GB / 256GB"],
+["Redmi Note 13 Pro 5G","Redmi",2024,"Snapdragon 7s Gen 2","6.67 AMOLED 120Hz","5100 mAh","67W","200MP OIS","8GB / 256GB"],
+["Redmi Note 13 Pro+","Redmi",2024,"Dimensity 7200 Ultra","6.67 AMOLED 120Hz","5000 mAh","120W","200MP OIS","8GB / 256GB"],
+["Redmi K70","Redmi",2024,"Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","12GB / 256GB"],
+["Redmi K70 Pro","Redmi",2024,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","12GB / 256GB"],
+["Redmi 15","Redmi",2025,"Helio G100","6.79 IPS 90Hz","5200 mAh","33W","50MP","6GB / 128GB"],
+["Redmi 15 5G","Redmi",2025,"Snapdragon 4 Gen 2","6.79 IPS 120Hz","5300 mAh","33W","50MP","6GB / 128GB"],
+["Redmi 15C","Redmi",2025,"Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","4GB / 128GB"],
+["Redmi Note 14","Redmi",2025,"Dimensity 7025 Ultra","6.67 AMOLED 120Hz","5110 mAh","45W","50MP","6GB / 128GB"],
+["Redmi Note 14 5G","Redmi",2025,"Dimensity 7025","6.67 AMOLED 120Hz","5110 mAh","45W","50MP","6GB / 128GB"],
+["Redmi Note 14 Pro","Redmi",2025,"Dimensity 7300 Ultra","6.67 AMOLED 120Hz","5500 mAh","45W","50MP OIS","8GB / 256GB"],
+["Redmi Note 14 Pro 5G","Redmi",2025,"Snapdragon 7s Gen 3","6.67 AMOLED 120Hz","6200 mAh","90W","50MP OIS","8GB / 256GB"],
+["Redmi Note 14 Pro+","Redmi",2025,"Snapdragon 7s Gen 3","6.67 AMOLED 120Hz","6200 mAh","90W","50MP OIS","12GB / 256GB"],
+["Redmi A5","Redmi",2025,"Helio G36","6.52 IPS","5000 mAh","10W","8MP","2GB / 32GB"],
+["Redmi K80","Redmi",2025,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","6500 mAh","90W","50MP OIS","12GB / 256GB"],
+["Redmi K80 Pro","Redmi",2025,"Snapdragon 8 Elite","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
+["Redmi 17","Redmi",2026,"Processor class","6.79 IPS 120Hz","5500 mAh","33W","50MP","6GB / 128GB"],
+["Redmi 17 5G","Redmi",2026,"Snapdragon class","6.79 IPS 120Hz","5500 mAh","33W","50MP","6GB / 128GB"],
+["Redmi 17C 5G","Redmi",2026,"Dimensity class","6.74 IPS 90Hz","5000 mAh","18W","50MP","4GB / 128GB"],
+["Redmi Note 15","Redmi",2026,"Processor class","6.67 AMOLED 120Hz","5500 mAh","45W","50MP","6GB / 128GB"],
+["Redmi Note 15 5G","Redmi",2026,"Processor class","6.67 AMOLED 120Hz","5500 mAh","45W","50MP","6GB / 128GB"],
+["Redmi Note 15 Pro","Redmi",2026,"Processor class","6.67 AMOLED 120Hz","5600 mAh","67W","50MP OIS","8GB / 256GB"],
+["Redmi Note 15 Pro 5G","Redmi",2026,"Processor class","6.67 AMOLED 120Hz","5600 mAh","67W","50MP OIS","8GB / 256GB"],
+["Redmi Note 15 Pro+","Redmi",2026,"Processor class","6.67 AMOLED 120Hz","5600 mAh","90W","200MP OIS","8GB / 256GB"],
+["Redmi Note 17","Redmi",2026,"Processor class","6.67 AMOLED 120Hz","5500 mAh","45W","50MP","6GB / 128GB"],
+["Redmi Note 17 Pro","Redmi",2026,"Processor class","6.67 AMOLED 120Hz","5600 mAh","67W","50MP OIS","8GB / 256GB"],
+["Redmi Note 17 Pro Max","Redmi",2026,"Processor class","6.67 AMOLED 120Hz","5800 mAh","90W","200MP OIS","12GB / 256GB"],
+["Redmi K90","Redmi",2026,"Flagship processor","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
+["Redmi K100","Redmi",2026,"Flagship processor","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
+["POCO X2","POCO",2020,"Snapdragon 730G","6.67 IPS 120Hz","4500 mAh","27W","64MP","6GB / 128GB"],
+["POCO F2 Pro","POCO",2020,"Snapdragon 865","6.67 AMOLED","4700 mAh","30W","64MP","6GB / 128GB"],
+["POCO M2","POCO",2020,"Helio G80","6.53 IPS","5000 mAh","18W","13MP","4GB / 64GB"],
+["POCO M2 Pro","POCO",2020,"Snapdragon 720G","6.67 IPS","5000 mAh","33W","48MP","4GB / 64GB"],
+["POCO X3","POCO",2020,"Snapdragon 732G","6.67 IPS 120Hz","5160 mAh","33W","64MP","6GB / 128GB"],
+["POCO X3 NFC","POCO",2020,"Snapdragon 732G","6.67 IPS 120Hz","5160 mAh","33W","64MP","6GB / 128GB"],
+["POCO C3","POCO",2020,"Helio G35","6.53 IPS","5000 mAh","10W","13MP","3GB / 32GB"],
+["POCO M3","POCO",2020,"Snapdragon 662","6.53 IPS","6000 mAh","18W","48MP","4GB / 64GB"],
+["POCO F3","POCO",2021,"Snapdragon 870","6.67 AMOLED 120Hz","4520 mAh","33W","48MP","6GB / 128GB"],
+["POCO F3 GT","POCO",2021,"Dimensity 1200","6.67 AMOLED 120Hz","5065 mAh","67W","64MP","8GB / 128GB"],
+["POCO X3 Pro","POCO",2021,"Snapdragon 860","6.67 IPS 120Hz","5160 mAh","33W","48MP","6GB / 128GB"],
+["POCO X3 GT","POCO",2021,"Dimensity 1100","6.6 IPS 120Hz","5000 mAh","67W","64MP","8GB / 128GB"],
+["POCO M2 Reloaded","POCO",2021,"Helio G80","6.53 IPS","5000 mAh","18W","13MP","4GB / 64GB"],
+["POCO M3 Pro","POCO",2021,"Dimensity 700","6.5 IPS 90Hz","5000 mAh","18W","48MP","4GB / 64GB"],
+["POCO C31","POCO",2021,"Helio G35","6.53 IPS","5000 mAh","10W","13MP","3GB / 32GB"],
+["POCO M4 Pro 5G","POCO",2021,"Dimensity 810","6.6 IPS 90Hz","5000 mAh","33W","50MP","4GB / 64GB"],
+["POCO M4 Pro","POCO",2022,"Helio G96","6.43 AMOLED 90Hz","5000 mAh","33W","64MP","6GB / 128GB"],
+["POCO M4 5G","POCO",2022,"Dimensity 700","6.58 IPS 90Hz","5000 mAh","18W","13MP","4GB / 64GB"],
+["POCO X4 Pro 5G","POCO",2022,"Snapdragon 695","6.67 AMOLED 120Hz","5000 mAh","67W","108MP","6GB / 128GB"],
+["POCO X4 GT","POCO",2022,"Dimensity 8100","6.6 IPS 144Hz","5080 mAh","67W","64MP","8GB / 128GB"],
+["POCO F4","POCO",2022,"Snapdragon 870","6.67 AMOLED 120Hz","4500 mAh","67W","64MP OIS","6GB / 128GB"],
+["POCO F4 GT","POCO",2022,"Snapdragon 8 Gen 1","6.67 AMOLED 120Hz","4700 mAh","120W","64MP","8GB / 128GB"],
+["POCO M5","POCO",2022,"Helio G99","6.58 IPS 90Hz","5000 mAh","18W","50MP","4GB / 64GB"],
+["POCO M5s","POCO",2022,"Helio G95","6.43 AMOLED","5000 mAh","33W","64MP","4GB / 64GB"],
+["POCO C40","POCO",2022,"JLQ JR510","6.71 IPS","6000 mAh","18W","13MP","3GB / 32GB"],
+["POCO C50","POCO",2022,"Helio A22","6.52 IPS","5000 mAh","10W","8MP","2GB / 32GB"],
+["POCO X5","POCO",2023,"Snapdragon 695","6.67 AMOLED 120Hz","5000 mAh","33W","48MP","6GB / 128GB"],
+["POCO X5 Pro","POCO",2023,"Snapdragon 778G","6.67 AMOLED 120Hz","5000 mAh","67W","108MP","6GB / 128GB"],
+["POCO F5","POCO",2023,"Snapdragon 7+ Gen 2","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
+["POCO F5 Pro","POCO",2023,"Snapdragon 8+ Gen 1","6.67 AMOLED 120Hz","5160 mAh","30W","64MP OIS","8GB / 256GB"],
+["POCO M6 Pro","POCO",2023,"Helio G99 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
+["POCO C51","POCO",2023,"Helio G36","6.52 IPS","5000 mAh","10W","8MP","4GB / 64GB"],
+["POCO C55","POCO",2023,"Helio G85","6.71 IPS","5000 mAh","10W","50MP","4GB / 64GB"],
+["POCO C65","POCO",2023,"Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
+["POCO X6","POCO",2024,"Snapdragon 7s Gen 2","6.67 AMOLED 120Hz","5100 mAh","67W","64MP OIS","8GB / 256GB"],
+["POCO X6 Pro","POCO",2024,"Dimensity 8300 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
+["POCO X6 Neo","POCO",2024,"Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 128GB"],
+["POCO F6","POCO",2024,"Snapdragon 8s Gen 3","6.67 AMOLED 120Hz","5000 mAh","90W","50MP OIS","8GB / 256GB"],
+["POCO F6 Pro","POCO",2024,"Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","12GB / 256GB"],
+["POCO M6","POCO",2024,"Helio G91 Ultra","6.79 IPS 90Hz","5030 mAh","33W","108MP","6GB / 128GB"],
+["POCO C61","POCO",2024,"Helio G36","6.71 IPS 90Hz","5000 mAh","10W","8MP","4GB / 64GB"],
+["POCO X7","POCO",2025,"Dimensity 7300 Ultra","6.67 AMOLED 120Hz","5110 mAh","45W","50MP OIS","8GB / 256GB"],
+["POCO X7 Pro","POCO",2025,"Dimensity 8400 Ultra","6.67 AMOLED 120Hz","6000 mAh","90W","50MP OIS","8GB / 256GB"],
+["POCO F7","POCO",2025,"Snapdragon 8s Gen 4","6.67 AMOLED 120Hz","5500 mAh","90W","50MP OIS","8GB / 256GB"],
+["POCO F7 Pro","POCO",2025,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
+["POCO F7 Ultra","POCO",2025,"Snapdragon 8 Elite","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 512GB"],
+["POCO M7","POCO",2025,"Helio processor","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
+["POCO M7 Pro 5G","POCO",2025,"Dimensity processor","6.67 AMOLED 120Hz","5000 mAh","45W","50MP OIS","8GB / 256GB"],
+["POCO C75","POCO",2025,"Helio G81 Ultra","6.88 IPS 120Hz","5160 mAh","18W","50MP","6GB / 128GB"],
+["POCO C85","POCO",2025,"Processor class","6.88 IPS 120Hz","5200 mAh","18W","50MP","6GB / 128GB"],
+["POCO X8","POCO",2026,"Processor class","6.67 AMOLED 120Hz","5500 mAh","45W","50MP OIS","8GB / 256GB"],
+["POCO X8 Pro","POCO",2026,"Processor class","6.67 AMOLED 120Hz","6000 mAh","90W","50MP OIS","8GB / 256GB"],
+["POCO X8 Pro Max","POCO",2026,"Processor class","6.78 AMOLED 120Hz","6200 mAh","100W","50MP OIS","12GB / 512GB"],
+["POCO F8 Pro","POCO",2026,"Flagship processor","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
+["POCO F8 Ultra","POCO",2026,"Flagship processor","6.67 AMOLED 120Hz","6500 mAh","120W","50MP OIS","16GB / 512GB"],
+["POCO F9 Pro","POCO",2026,"Flagship processor","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
+["POCO M8 5G","POCO",2026,"Processor class","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
+["POCO M8 Pro 5G","POCO",2026,"Processor class","6.67 AMOLED 120Hz","5200 mAh","45W","50MP OIS","8GB / 256GB"],
+["POCO M8s 5G","POCO",2026,"Processor class","6.67 AMOLED 120Hz","5200 mAh","45W","50MP OIS","8GB / 256GB"]
 ];
 
-let A=0, B=1, C=2;
+let A=0,B=1;
 const $=id=>document.getElementById(id);
 $("total").textContent=phones.length;
 
+function translateSpec(value){
+ let v=value;
+ v=v.replace(/Fast charging/g,"شارژ سریع").replace(/USB-C fast charge/g,"شارژ سریع USB-C").replace(/Multi-camera/g,"چند دوربین").replace(/Dual camera/g,"دوربین دوگانه").replace(/Foldable/g,"تاشو").replace(/flagship/g,"پرچمدار").replace(/class/g,"رده").replace(/system/g,"مجموعه دوربین").replace(/Lightning/g,"لایتنینگ").replace(/folding/g,"تاشو").replace(/outer/g,"خارجی").replace(/for Galaxy/g,"برای گلکسی");
+ v=v.replace(/(\d+)MP/g,"$1 مگاپیکسل").replace(/(\d+)GB/g,"$1 گیگابایت").replace(/(\d+)TB/g,"$1 ترابایت").replace(/(\d+) mAh/g,"$1 میلی‌آمپرساعت");
+ return v;
+}
+
+// موتور جستجوی هوشمند فارسی و انگلیسی با پشتیبانی از معادل‌ها و تطابق جزئی
 const faToEnMap = [
-  [/اف\s*ای|اف‌ای/g, "fe"], [/پرو\s*مکس|پرومکس/g, "pro max"], [/پرو/g, "pro"],
-  [/اولترا|الترا/g, "ultra"], [/پلاس/g, "plus"], [/مینی/g, "mini"], [/نوت/g, "note"],
-  [/توربو/g, "turbo"], [/نئو/g, "neo"], [/پوکو/g, "poco"], [/ردمی/g, "redmi"],
-  [/سامسونگ/g, "samsung"], [/آیفون|ایفون/g, "iphone"], [/اس\s*ای/g, "se"]
+  [/اف\s*ای|اف‌ای/g, "fe"],
+  [/پرو\s*مکس|پرومکس/g, "pro max"],
+  [/پرو/g, "pro"],
+  [/اولترا|الترا/g, "ultra"],
+  [/پلاس/g, "plus"],
+  [/مینی/g, "mini"],
+  [/نوت/g, "note"],
+  [/پرایم/g, "prime"],
+  [/توربو/g, "turbo"],
+  [/نئو/g, "neo"],
+  [/اج/g, "edge"],
+  [/ایر/g, "air"],
+  [/دوئو/g, "duo"],
+  [/جی\s*تی|جی‌تی/g, "gt"],
+  [/ان\s*اف\s*سی/g, "nfc"],
+  [/آیفون|ایفون/g, "iphone"],
+  [/سامسونگ/g, "samsung"],
+  [/گلکسی/g, "galaxy"],
+  [/ردمی/g, "redmi"],
+  [/پوکو/g, "poco"],
+  [/اس\s*ای/g, "se"],
+  [/اس(?=\s*\d)/g, "s"],
+  [/ایکس(?=\s*\d)/g, "x"],
+  [/اف(?=\s*\d)/g, "f"],
+  [/ام(?=\s*\d)/g, "m"],
+  [/سی(?=\s*\d)/g, "c"],
+  [/آ(?=\s*\d)/g, "a"],
+  [/کا(?=\s*\d)/g, "k"],
+  [/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d)]
 ];
 
 function normalizeSearch(str){
@@ -307,77 +554,34 @@ function matchesSmart(phone, rawQuery){
 }
 
 function opts(){return phones.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]} · ${p[2]}</option>`).join("")}
-
+function stat(label,value){return `<div class="stat"><small>${label}</small><b>${value}</b></div>`}
 function render(){
- const a=phones[A], b=phones[B], c=phones[C];
- 
- $("nameA").textContent=a[0]; $("metaA").textContent=`${a[1]} · ${a[2]}`;
- $("nameB").textContent=b[0]; $("metaB").textContent=`${b[1]} · ${b[2]}`;
- $("nameC").textContent=c[0]; $("metaC").textContent=`${c[1]} · ${c[2]}`;
-
- $("selectA").value=A; $("selectB").value=B; $("selectC").value=C;
-
- const rows = [
-   ["اطلاعات پایه", [
-     ["تاریخ عرضه", `${a[2]} میلادی`, `${b[2]} میلادی`, `${c[2]} میلادی`],
-     ["برند سازنده", a[1], b[1], c[1]],
-     ["سیستم‌عامل / تراشه", a[3], b[3], c[3]]
-   ]],
-   ["مشخصات بدنه و طراحی[span_19](start_span)[span_19](end_span)", [
-     ["ابعاد و وزن", a[9], b[9], c[9]],
-     ["جنس بدنه و فریم", a[10], b[10], c[10]],
-     ["رنگ‌بندی", a[11], b[11], c[11]]
-   ]],
-   ["مشخصات صفحه نمایش[span_20](start_span)[span_20](end_span)", [
-     ["نوع و نرخ نوسازی نمایشگر", a[4], b[4], c[4]]
-   ]],
-   ["مشخصات باتری و شارژ[span_21](start_span)[span_21](end_span)", [
-     ["ظرفیت باتری", a[5], b[5], c[5]],
-     ["سرعت شارژر", a[6], b[6], c[6]]
-   ]],
-   ["مشخصات دوربین اصلی[span_22](start_span)[span_22](end_span)", [
-     ["دوربین اصلی و لنزها", a[7], b[7], c[7]],
-     ["حافظه رم و حافظه داخلی", a[8], b[8], c[8]]
-   ]]
- ];
-
- let html = "";
- rows.forEach(group => {
-   html += `<div class="tableCategory">${group[0]}</div>`;
-   group[1].forEach(r => {
-     html += `<div class="tr3"><span>${r[0]}</span><b>${r[1]}</b><b>${r[2]}</b><b>${r[3]}</b></div>`;
-   });
- });
- $("table").innerHTML = html;
+ const a=phones[A],b=phones[B];
+ $("nameA").textContent=a[0];$("metaA").textContent=`${a[1]} · ${a[2]}`;
+ $("nameB").textContent=b[0];$("metaB").textContent=`${b[1]} · ${b[2]}`;
+ $("selectA").value=A;$("selectB").value=B;
+ $("statsA").innerHTML=stat("چیپست",translateSpec(a[3]))+stat("نمایشگر",translateSpec(a[4]))+stat("باتری",translateSpec(a[5]));
+ $("statsB").innerHTML=stat("چیپست",translateSpec(b[3]))+stat("نمایشگر",translateSpec(b[4]))+stat("باتری",translateSpec(b[5]));
+ const rows=[["پردازنده",a[3],b[3]],["نمایشگر",a[4],b[4]],["باتری",a[5],b[5]],["شارژ",a[6],b[6]],["دوربین",a[7],b[7]],["رم / حافظه",a[8],b[8]]];
+ $("table").innerHTML=rows.map(r=>`<div class="tr"><span>${r[0]}</span><b>${translateSpec(r[1])}</b><b>${translateSpec(r[2])}</b></div>`).join("");
 }
-
 function renderList(){
- const q=$("search").value, br=$("brand").value, yr=$("year").value;
+ const q=$("search").value,br=$("brand").value,yr=$("year").value;
  const arr=phones.map((p,i)=>({p,i})).filter(x=>matchesSmart(x.p, q)&&(br==="all"||x.p[1]===br)&&(yr==="all"||String(x.p[2])===yr));
  const realPhoneSvg=`<div class="phoneIconSVG"><svg viewBox="0 0 24 24"><path d="M16 1H8C6.9 1 6 1.9 6 3v18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H8V4h8v16z"/><circle cx="12" cy="2.5" r="0.75"/><rect x="9" y="19" width="6" height="1.5" rx="0.5"/></svg></div>`;
- 
- $("list").innerHTML=arr.map(x=>`<div class="item" data-i="${x.i}">${realPhoneSvg}<div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · ${x.p[3]}</p></div><span class="tag">${x.p[2]}</span></div>`).join("")||`<div class="empty">گوشی‌ای پیدا نشد.</div>`;
- document.querySelectorAll(".item").forEach(e=>e.onclick=()=>{
-   A = +e.dataset.i;
-   if(A===B) B=(A+1)%phones.length;
-   if(A===C) C=(A+2)%phones.length;
-   render();
-   document.querySelector("#compare").scrollIntoView({behavior:"smooth"});
- });
+ $("list").innerHTML=arr.map(x=>`<div class="item" data-i="${x.i}">${realPhoneSvg}<div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · ${translateSpec(x.p[3])}</p></div><span class="tag">${x.p[2]}</span></div>`).join("")||`<div class="empty">گوشی‌ای پیدا نشد.</div>`;
+ document.querySelectorAll(".item").forEach(e=>e.onclick=()=>{A=+e.dataset.i;if(A===B)B=(A+1)%phones.length;render();document.querySelector("#compare").scrollIntoView({behavior:"smooth"})});
 }
-
-$("selectA").innerHTML=opts(); $("selectB").innerHTML=opts(); $("selectC").innerHTML=opts();
-$("selectA").onchange=e=>{A=+e.target.value; render()};
-$("selectB").onchange=e=>{B=+e.target.value; render()};
-$("selectC").onchange=e=>{C=+e.target.value; render()};
-
-function openPicker(){ $("controls").classList.add("open"); $("list").classList.add("open"); renderList(); $("togglePicker").textContent="بستن"; $("search").focus(); }
-function closePicker(){ $("controls").classList.remove("open"); $("list").classList.remove("open"); $("togglePicker").textContent="نمایش دیتابیس"; }
-$("openPicker").onclick=()=>{document.querySelector("#phones").scrollIntoView({behavior:"smooth"}); setTimeout(openPicker,250)};
+$("selectA").innerHTML=opts();$("selectB").innerHTML=opts();
+$("selectA").onchange=e=>{A=+e.target.value;if(A===B)B=(B+1)%phones.length;render()};
+$("selectB").onchange=e=>{B=+e.target.value;if(A===B)A=(A+1)%phones.length;render()};
+$("swap").onclick=()=>{[A,B]=[B,A];render()};
+function openPicker(){ $("controls").classList.add("open");$("list").classList.add("open");renderList();$("togglePicker").textContent="بستن";$("search").focus() }
+function closePicker(){ $("controls").classList.remove("open");$("list").classList.remove("open");$("togglePicker").textContent="نمایش دیتابیس" }
+$("openPicker").onclick=()=>{document.querySelector("#phones").scrollIntoView({behavior:"smooth"});setTimeout(openPicker,250)};
 $("togglePicker").onclick=()=>{if($("list").classList.contains("open"))closePicker();else openPicker()};
 $("closePicker").onclick=closePicker;
-$("search").oninput=renderList; $("brand").onchange=renderList; $("year").onchange=renderList;
-
+$("search").oninput=renderList;$("brand").onchange=renderList;$("year").onchange=renderList;
 render();
 </script>
 </body>
