@@ -181,7 +181,6 @@ header{
 .item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;padding:12px 16px;border-bottom:1px solid #121624;align-items:center}
 .item:hover{background:linear-gradient(90deg, rgba(168,85,247,0.06), rgba(34,211,238,0.06))}
 
-/* استایل دقیق و واقع‌گرایانه موبایل با جزئیات بدنه و صفحه نمایش */
 .phoneIconSVG{
   width:36px;
   height:48px;
@@ -274,7 +273,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <div class="picker">
 <div class="pickerTop"><div><h3>دیتابیس کامل گوشی‌ها</h3><p>لیست کامل محصولات اپل، سامسونگ، ردمی و پوکو.</p></div><button class="primary" id="togglePicker">نمایش دیتابیس</button></div>
 <div id="controls" class="pickerControls">
-<input id="search" class="search" placeholder="جستجوی مدل گوشی...">
+<input id="search" class="search" placeholder="جستجو (مثلاً: FE، اف ای، Pro، اولترا، S24...)">
 <select id="brand" class="select" style="width:150px;margin:0"><option value="all">همه برندها</option><option>Apple</option><option>Samsung</option><option>Redmi</option><option>POCO</option></select>
 <select id="year" class="select" style="width:120px;margin:0"><option value="all">همه سال‌ها</option><option>2016</option><option>2017</option><option>2018</option><option>2019</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option></select>
 <button class="ghost" id="closePicker">بستن</button>
@@ -468,7 +467,7 @@ const phones=[
 ["POCO C65","POCO",2023,"Helio G85","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["POCO X6","POCO",2024,"Snapdragon 7s Gen 2","6.67 AMOLED 120Hz","5100 mAh","67W","64MP OIS","8GB / 256GB"],
 ["POCO X6 Pro","POCO",2024,"Dimensity 8300 Ultra","6.67 AMOLED 120Hz","5000 mAh","67W","64MP OIS","8GB / 256GB"],
-["POCO X6 Neo","POCO",2024,"Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 256GB"],
+["POCO X6 Neo","POCO",2024,"Dimensity 6080","6.67 AMOLED 120Hz","5000 mAh","33W","108MP","8GB / 128GB"],
 ["POCO F6","POCO",2024,"Snapdragon 8s Gen 3","6.67 AMOLED 120Hz","5000 mAh","90W","50MP OIS","8GB / 256GB"],
 ["POCO F6 Pro","POCO",2024,"Snapdragon 8 Gen 2","6.67 AMOLED 120Hz","5000 mAh","120W","50MP OIS","12GB / 256GB"],
 ["POCO M6","POCO",2024,"Helio G91 Ultra","6.79 IPS 90Hz","5030 mAh","33W","108MP","6GB / 128GB"],
@@ -476,7 +475,7 @@ const phones=[
 ["POCO X7","POCO",2025,"Dimensity 7300 Ultra","6.67 AMOLED 120Hz","5110 mAh","45W","50MP OIS","8GB / 256GB"],
 ["POCO X7 Pro","POCO",2025,"Dimensity 8400 Ultra","6.67 AMOLED 120Hz","6000 mAh","90W","50MP OIS","8GB / 256GB"],
 ["POCO F7","POCO",2025,"Snapdragon 8s Gen 4","6.67 AMOLED 120Hz","5500 mAh","90W","50MP OIS","8GB / 256GB"],
-["POCO F7 Pro","POCO",2025,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","8GB / 256GB"],
+["POCO F7 Pro","POCO",2025,"Snapdragon 8 Gen 3","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 256GB"],
 ["POCO F7 Ultra","POCO",2025,"Snapdragon 8 Elite","6.67 AMOLED 120Hz","6000 mAh","120W","50MP OIS","12GB / 512GB"],
 ["POCO M7","POCO",2025,"Helio processor","6.74 IPS 90Hz","5000 mAh","18W","50MP","6GB / 128GB"],
 ["POCO M7 Pro 5G","POCO",2025,"Dimensity processor","6.67 AMOLED 120Hz","5000 mAh","45W","50MP OIS","8GB / 256GB"],
@@ -503,6 +502,56 @@ function translateSpec(value){
  v=v.replace(/(\d+)MP/g,"$1 مگاپیکسل").replace(/(\d+)GB/g,"$1 گیگابایت").replace(/(\d+)TB/g,"$1 ترابایت").replace(/(\d+) mAh/g,"$1 میلی‌آمپرساعت");
  return v;
 }
+
+const faToEnMap = [
+  [/اف\s*ای|اف‌ای/g, "fe"],
+  [/پرو\s*مکس|پرومکس/g, "pro max"],
+  [/پرو/g, "pro"],
+  [/اولترا|الترا/g, "ultra"],
+  [/پلاس/g, "plus"],
+  [/مینی/g, "mini"],
+  [/نوت/g, "note"],
+  [/پرایم/g, "prime"],
+  [/توربو/g, "turbo"],
+  [/نئو/g, "neo"],
+  [/اج/g, "edge"],
+  [/ایر/g, "air"],
+  [/دوئو/g, "duo"],
+  [/جی\s*تی|جی‌تی/g, "gt"],
+  [/ان\s*اف\s*سی/g, "nfc"],
+  [/آیفون|ایفون/g, "iphone"],
+  [/سامسونگ/g, "samsung"],
+  [/گلکسی/g, "galaxy"],
+  [/ردمی/g, "redmi"],
+  [/پوکو/g, "poco"],
+  [/اس\s*ای/g, "se"],
+  [/اس(?=\s*\d)/g, "s"],
+  [/ایکس(?=\s*\d)/g, "x"],
+  [/اف(?=\s*\d)/g, "f"],
+  [/ام(?=\s*\d)/g, "m"],
+  [/سی(?=\s*\d)/g, "c"],
+  [/آ(?=\s*\d)/g, "a"],
+  [/کا(?=\s*\d)/g, "k"],
+  [/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d)]
+];
+
+function normalizeSearch(str){
+  let s = String(str).toLowerCase().replace(/[\u200c\-_+/]/g, " ");
+  for(const [rx, rep] of faToEnMap) s = s.replace(rx, rep);
+  return s.replace(/\s+/g, " ").trim();
+}
+
+function matchesSmart(phone, rawQuery){
+  const q = normalizeSearch(rawQuery);
+  if(!q) return true;
+  const target = normalizeSearch(`${phone[0]} ${phone[1]} ${phone[2]} ${phone[3]}`);
+  const compactTarget = target.replace(/\s+/g, "");
+  const compactQuery = q.replace(/\s+/g, "");
+  if(compactTarget.includes(compactQuery)) return true;
+  const tokens = q.split(" ").filter(Boolean);
+  return tokens.every(t => target.includes(t) || compactTarget.includes(t));
+}
+
 function opts(){return phones.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]} · ${p[2]}</option>`).join("")}
 function stat(label,value){return `<div class="stat"><small>${label}</small><b>${value}</b></div>`}
 function render(){
@@ -516,12 +565,9 @@ function render(){
  $("table").innerHTML=rows.map(r=>`<div class="tr"><span>${r[0]}</span><b>${translateSpec(r[1])}</b><b>${translateSpec(r[2])}</b></div>`).join("");
 }
 function renderList(){
- const q=$("search").value.toLowerCase(),br=$("brand").value,yr=$("year").value;
- const arr=phones.map((p,i)=>({p,i})).filter(x=>(!q||x.p[0].toLowerCase().includes(q))&&(br==="all"||x.p[1]===br)&&(yr==="all"||String(x.p[2])===yr));
- 
- // طراحی وکتور اختصاصی و واقعی موبایل (حاشیه‌ها، اسپیکر بالای صفحه و نمایشگر تمام‌صفحه)
+ const q=$("search").value,br=$("brand").value,yr=$("year").value;
+ const arr=phones.map((p,i)=>({p,i})).filter(x=>matchesSmart(x.p, q)&&(br==="all"||x.p[1]===br)&&(yr==="all"||String(x.p[2])===yr));
  const realPhoneSvg=`<div class="phoneIconSVG"><svg viewBox="0 0 24 24"><path d="M16 1H8C6.9 1 6 1.9 6 3v18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H8V4h8v16z"/><circle cx="12" cy="2.5" r="0.75"/><rect x="9" y="19" width="6" height="1.5" rx="0.5"/></svg></div>`;
-
  $("list").innerHTML=arr.map(x=>`<div class="item" data-i="${x.i}">${realPhoneSvg}<div><h4>${x.p[0]}</h4><p>${x.p[1]} · ${x.p[2]} · ${translateSpec(x.p[3])}</p></div><span class="tag">${x.p[2]}</span></div>`).join("")||`<div class="empty">گوشی‌ای پیدا نشد.</div>`;
  document.querySelectorAll(".item").forEach(e=>e.onclick=()=>{A=+e.dataset.i;if(A===B)B=(A+1)%phones.length;render();document.querySelector("#compare").scrollIntoView({behavior:"smooth"})});
 }
