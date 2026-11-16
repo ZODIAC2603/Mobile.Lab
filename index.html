@@ -43,11 +43,11 @@ header{
 }
 .nav{height:76px;display:flex;align-items:center;gap:20px;justify-content:space-between}
 .nav-right{display:flex;align-items:center;gap:20px}
-.name{font-size:15px;font-weight:800;letter-spacing:.4px}
+.name{font-size:16px;font-weight:800;letter-spacing:.4px}
 .name span{color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow)}
-.brand{font-size:21px;font-weight:900;letter-spacing:-.8px}
+.brand{font-size:22px;font-weight:900;letter-spacing:-.8px}
 .brand em{color:var(--purple);font-style:normal;text-shadow:0 0 12px var(--purple-glow)}
-.navlinks{display:flex;gap:18px;color:var(--muted);font-size:11px}
+.navlinks{display:flex;gap:18px;color:var(--muted);font-size:12px}
 .navlinks a:hover{color:var(--cyan);text-shadow:0 0 8px var(--cyan-glow)}
 
 /* دکمه بزرگ‌تر و کاملاً چشمگیر برای شرایط اقساط */
@@ -138,7 +138,7 @@ header{
 }
 .modal-box p{
   color:var(--muted);
-  font-size:12px;
+  font-size:13px;
   line-height:1.8;
   margin:0 0 16px;
 }
@@ -154,21 +154,13 @@ header{
   border-radius:12px;
   padding:12px;
 }
-.modal-feature-item small{display:block;color:var(--muted);font-size:9px;margin-bottom:4px}
-.modal-feature-item b{color:var(--text);font-size:11px}
+.modal-feature-item small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}
+.modal-feature-item b{color:var(--text);font-size:12px}
 
-.hero{padding:72px 0 48px;display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:end}
-.kicker{
-  background:linear-gradient(90deg,var(--purple),var(--cyan));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  font-size:10px;
-  letter-spacing:2px;
-  font-weight:900;
-}
-.hero h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-3px;margin:15px 0}
+.hero{padding:64px 0 48px;display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:end}
+.hero h1{font-size:clamp(42px,6vw,72px);line-height:1.05;letter-spacing:-3px;margin:15px 0}
 .hero h1 span{color:var(--purple);text-shadow:0 0 22px var(--purple-glow)}
-.hero p{color:var(--muted);line-height:1.8;max-width:650px;font-size:13px}
+.hero p{color:var(--muted);line-height:1.8;max-width:650px;font-size:14px}
 
 .heroCard{
   border:1px solid rgba(34,211,238,0.3);
@@ -177,11 +169,11 @@ header{
   background:linear-gradient(145deg,#0c1018,#05070a);
   box-shadow:0 0 30px rgba(34,211,238,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
 }
-.heroCard strong{display:block;font-size:25px;color:var(--cyan);text-shadow:0 0 12px var(--cyan-glow)}
-.heroCard small{color:var(--muted)}
+.heroCard strong{display:block;font-size:26px;color:var(--cyan);text-shadow:0 0 12px var(--cyan-glow)}
+.heroCard small{color:var(--muted);font-size:12px}
 
-.actions{display:flex;gap:9px;margin-top:22px;flex-wrap:wrap}
-.primary,.ghost{border-radius:11px;padding:11px 16px;font-size:11px;transition:.2s}
+.actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.primary,.ghost{border-radius:11px;padding:12px 18px;font-size:12px;transition:.2s}
 .primary{
   background:linear-gradient(135deg,#a855f7,#06b6d4);
   color:white;
@@ -199,28 +191,28 @@ header{
 
 .section{padding:18px 0 45px}
 .sectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}
-.sectionHead h2{font-size:22px;margin:0}
-.sectionHead p{font-size:10px;color:var(--muted);margin:5px 0 0}
+.sectionHead h2{font-size:24px;margin:0}
+.sectionHead p{font-size:12px;color:var(--muted);margin:5px 0 0}
 
-/* مقایسه ۳ تایی */
-.compare3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:stretch}
+/* مقایسه ۳ تایی - با فونت‌ها و نوشته‌های درشت‌تر و خواناتر */
+.compare3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
 .card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
-  padding:18px;
+  padding:20px;
   box-shadow:0 8px 30px rgba(0,0,0,0.8);
 }
 .cardA{border-top:2px solid var(--purple);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(192,132,252,0.1)}
 .cardB{border-top:2px solid var(--cyan);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(34,211,238,0.1)}
 .cardC{border-top:2px solid var(--pink);box-shadow:0 8px 30px rgba(0,0,0,0.8), 0 -4px 20px rgba(244,63,94,0.1)}
 
-.cardTitleA{font-size:10px;color:var(--purple);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--purple-glow)}
-.cardTitleB{font-size:10px;color:var(--cyan);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--cyan-glow)}
-.cardTitleC{font-size:10px;color:var(--pink);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--pink-glow)}
+.cardTitleA{font-size:11px;color:var(--purple);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--purple-glow)}
+.cardTitleB{font-size:11px;color:var(--cyan);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--cyan-glow)}
+.cardTitleC{font-size:11px;color:var(--pink);font-weight:800;letter-spacing:.5px;text-shadow:0 0 8px var(--pink-glow)}
 
-.card h3{margin:7px 0 3px;font-size:16px}
-.card .muted{color:var(--muted);font-size:10px}
+.card h3{margin:8px 0 4px;font-size:18px}
+.card .muted{color:var(--muted);font-size:11px}
 
 .select{
   width:100%;
@@ -229,21 +221,22 @@ header{
   color:#fff;
   border:1px solid var(--line);
   border-radius:10px;
-  padding:10px;
+  padding:11px;
   outline:0;
-  font-size:11px;
+  font-size:12px;
 }
 #selectA:focus{border-color:var(--purple);box-shadow:0 0 12px var(--purple-glow)}
 #selectB:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 #selectC:focus{border-color:var(--pink);box-shadow:0 0 12px var(--pink-glow)}
 
-.stats{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.stat{background:#05070c;border:1px solid #161c2b;border-radius:10px;padding:9px}
-.stat small{display:block;color:#7e8b9f;font-size:8px}
-.stat b{font-size:9px;color:var(--text)}
+.stats{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:#05070c;border:1px solid #161c2b;border-radius:10px;padding:10px}
+.stat small{display:block;color:#7e8b9f;font-size:9px}
+.stat b{font-size:11px;color:var(--text)}
 
+/* جدول مقایسه با نوشته‌های بزرگ‌تر و خوانایی عالی */
 .compareTable{
-  margin-top:12px;
+  margin-top:14px;
   border:1px solid var(--line);
   border-radius:16px;
   overflow:hidden;
@@ -252,9 +245,9 @@ header{
 }
 .tr{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid #161c2b}
 .tr:last-child{border-bottom:0}
-.tr>*{padding:12px;font-size:10px}
-.tr span{color:var(--muted)}
-.tr b{text-align:center}
+.tr>*{padding:15px 12px;font-size:12px;display:flex;align-items:center}
+.tr span{color:var(--muted);font-weight:600}
+.tr b{text-align:center;width:100%;font-size:12px}
 .tr b:nth-child(2){color:#f3e8ff}
 .tr b:nth-child(3){color:#cffafe}
 .tr b:nth-child(4){color:#ffe4e6}
@@ -268,11 +261,11 @@ header{
   box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
 .pickerTop{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.pickerTop h3{margin:0;font-size:15px}
-.pickerTop p{margin:5px 0 0;color:var(--muted);font-size:10px}
+.pickerTop h3{margin:0;font-size:16px}
+.pickerTop p{margin:5px 0 0;color:var(--muted);font-size:11px}
 .pickerControls{display:none;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap;background:#05070c}
 .pickerControls.open{display:flex}
-.search{flex:1;min-width:200px;background:#000000;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;outline:0}
+.search{flex:1;min-width:200px;background:#000000;color:#fff;border:1px solid var(--line);border-radius:10px;padding:11px;outline:0;font-size:12px}
 .search:focus{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan-glow)}
 .list{display:none;max-height:520px;overflow:auto}
 .list.open{display:block}
@@ -292,18 +285,18 @@ header{
 }
 .phoneIconSVG svg{width:22px;height:22px;fill:var(--cyan);filter:drop-shadow(0 0 6px var(--cyan-glow))}
 
-.item h4{margin:0;font-size:12px}
-.item p{margin:4px 0 0;color:var(--muted);font-size:9px}
+.item h4{margin:0;font-size:13px}
+.item p{margin:4px 0 0;color:var(--muted);font-size:10px}
 .tag{
-  font-size:8px;
-  padding:5px 7px;
+  font-size:10px;
+  padding:5px 8px;
   border-radius:7px;
   background:#0c111c;
   border:1px solid rgba(34,211,238,0.3);
   color:var(--cyan);
   box-shadow:0 0 8px rgba(34,211,238,0.15);
 }
-.empty{padding:35px;text-align:center;color:var(--muted);font-size:11px}
+.empty{padding:35px;text-align:center;color:var(--muted);font-size:12px}
 
 .supportBox{
   margin:40px 0 20px;
@@ -314,8 +307,8 @@ header{
   text-align:center;
   box-shadow:0 0 35px rgba(168,85,247,0.15), 0 0 25px rgba(34,211,238,0.12);
 }
-.supportBox h3{margin:0 0 8px;font-size:16px;color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow)}
-.supportBox p{margin:0 0 14px;color:var(--muted);font-size:11px}
+.supportBox h3{margin:0 0 8px;font-size:17px;color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow)}
+.supportBox p{margin:0 0 14px;color:var(--muted);font-size:12px}
 .supportPhone{
   display:inline-block;
   background:linear-gradient(135deg,#a855f7,#06b6d4);
@@ -323,17 +316,17 @@ header{
   padding:10px 22px;
   border-radius:12px;
   font-weight:800;
-  font-size:13px;
+  font-size:14px;
   letter-spacing:.5px;
   box-shadow:0 0 20px rgba(34,211,238,0.4), 0 0 15px rgba(168,85,247,0.4);
 }
-footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
+footer{padding:30px 0;color:#64748b;text-align:center;font-size:10px}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr}
   .compare3{grid-template-columns:1fr}
   .navlinks{display:none}
   .brand{margin-left:auto}
-  .name{font-size:11px}
+  .name{font-size:12px}
   .stats{grid-template-columns:1fr}
 }
 </style>
@@ -346,7 +339,6 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
       <nav class="navlinks"><a href="#compare">مقایسه</a><a href="#phones">گوشی‌ها</a></nav>
     </div>
     <div class="brand">Mobile<em>Lab</em></div>
-    <!-- دکمه بزرگ‌تر و جذاب‌تر برای طرح اقساط -->
     <div>
       <button class="installment-btn" id="openInstallmentModal">
         💳 شرایط اقساط وام مسکن
@@ -381,7 +373,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
       </div>
     </div>
 
-    <p style="text-align:center;margin:0;font-size:11px;color:var(--cyan);">
+    <p style="text-align:center;margin:0;font-size:12px;color:var(--cyan);">
       جهت کسب اطلاعات بیشتر با شماره <b>09212038685</b> تماس بگیرید.
     </p>
   </div>
@@ -390,9 +382,8 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <main class="wrap">
 <section class="hero">
 <div>
-<div class="kicker">MOBILE DATABASE · V7.10</div>
-<h1><span>گوشی بعدی</span><br>خودت را پیدا کن.</h1>
-<p>دیتابیس جامع موبایل شامل تمامی مدل‌های اپل، سامسونگ، ردمی و پوکو. سه گوشی را انتخاب کنید و مشخصات کامل آن‌ها را همزمان مقایسه کنید.</p>
+<h1><span>موبایل بعدی</span><br>خودت را پیدا کن.</h1>
+<p>دیتابیس جامع موبایل شامل تمامی مدل‌های اپل، سامسونگ، ردمی و پوکو. سه گوشی را انتخاب کنید و مشخصات کامل آن‌ها را همزمان با جزییات خوانا مقایسه کنید.</p>
 <div class="actions"><a class="primary" href="#compare">شروع مقایسه</a><button class="ghost" id="openPicker">نمایش گوشی‌ها</button></div>
 </div>
 <div class="heroCard"><strong id="total">0</strong><small>گوشی در دیتابیس جامع</small><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><strong>3</strong><small>جایگاه مقایسه همزمان</small></div>
@@ -447,7 +438,7 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <a href="tel:09212038685" class="supportPhone">09212038685</a>
 </div>
 </main>
-<footer>MobileLab V7.10 · Amir Ali Zohrabi</footer>
+<footer>MobileLab · Amir Ali Zohrabi</footer>
 
 <script>
 // اسکریپت باز و بسته کردن پنجره اقساط
