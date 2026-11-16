@@ -83,7 +83,6 @@ header{
 .sectionHead h2{font-size:22px;margin:0}
 .sectionHead p{font-size:10px;color:var(--muted);margin:5px 0 0}
 
-/* مقایسه ۳ دستگاه */
 .compare3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
 .card{
   background:var(--panel);
@@ -116,7 +115,7 @@ header{
   background:#131825;color:var(--cyan);font-weight:900;font-size:11px;padding:12px 16px;
   border-bottom:1px solid var(--line);border-top:1px solid var(--line);letter-spacing:.5px;
 }
-  .tr3{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid #161c2b}
+.tr3{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid #161c2b}
 .tr3:last-child{border-bottom:0}
 .tr3>*{padding:12px;font-size:10px}
 .tr3 span{color:var(--muted);font-weight:600}
@@ -185,7 +184,6 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <section class="section" id="compare">
 <div class="sectionHead"><div><h2>مقایسه ۳ دستگاه</h2><p>انتخاب آزادانه ۳ مدل مختلف گوشی و بررسی کامل تفاوت‌ها[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).</p></div></div>
 
-<!-- سه کارت مقایسه -->
 <div class="compare3">
   <div class="card cardA">
     <div class="cardTitleA">دیوایس A</div>
@@ -202,9 +200,8 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
     <h3 id="nameC"></h3><div class="muted" id="metaC"></div>
     <select id="selectC" class="select"></select>
   </div>
-  </div>
+</div>
 
-<!-- جدول کامل جزئیات -->
 <div id="table" class="compareTable"></div>
 </section>
 
@@ -230,8 +227,6 @@ footer{padding:30px 0;color:#64748b;text-align:center;font-size:9px}
 <footer>MobileLab V9 Pro Max · Amir Ali Zohrabi</footer>
 
 <script>
-// دیتابیس بسیار حجیم، تخصصی و کامل شامل ۵۰ مدل پرچمدار و میان‌رده با ساختار تفکیک‌شده:
-// [نام, برند, سال, پردازنده, نمایشگر, باتری, شارژ, دوربین اصلی, حافظه رم/داخلی, ابعاد/وزن, گواهی بدنه, رنگ‌بندی]
 const phones=[
 ["iPhone 12 mini","Apple",2020,"A14 Bionic","5.4 اینچ OLED Super Retina","2227 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","مجموعه 12 مگاپیکسل دوگانه","64GB / 128GB / 256GB","131.5 × 64.2 × 7.4 میلی‌متر - 135 گرم","IP68 مقاوم در برابر آب","مشکی، سفید، قرمز، آبی، سبز، بنفش"],
 ["iPhone 12","Apple",2020,"A14 Bionic","6.1 اینچ OLED Super Retina","2815 میلی‌آمپر","شارژ سریع 20W و مگ‌سف","مجموعه 12 مگاپیکسل دوگانه با OIS","64GB / 128GB / 256GB","146.7 × 71.5 × 7.4 میلی‌متر - 164 گرم","IP68 ضدآب","مشکی، سفید، قرمز، آبی، سبز، بنفش"],
@@ -268,7 +263,7 @@ const phones=[
 ["POCO X5 Pro","POCO",2023,"Snapdragon 778G 5G","6.67 اینچ AMOLED 120Hz","5000 میلی‌آمپر","67W شارژ سریع سیمی","108 مگاپیکسل سه‌گانه هوشمند","128GB / 256GB / 6GB یا 8GB","162.91 × 76.03 × 7.9 میلی‌متر - 181 گرم","IP53 ضد پاشش آب","مشکی، آبی، زرد اختصاصی پوکو"],
 ["POCO F5","POCO",2023,"Snapdragon 7+ Gen 2","6.67 اینچ AMOLED 120Hz","5000 میلی‌آمپر","67W شارژ سریع سیمی","64 مگاپیکسل با فناوری OIS","256GB / 8GB یا 12GB","161.1 × 75.0 × 7.9 میلی‌متر - 181 گرم","IP53 ضد پاشش آب و گردوغبار","مشکی کربنی، سفید برفی، آبی یخچالی"],
 ["POCO F5 Pro","POCO",2023,"Snapdragon 8+ Gen 1","6.67 اینچ AMOLED 120Hz WQHD+","5160 میلی‌آمپر","67W سیمی / 30W بی‌سیم","64 مگاپیکسل با OIS و قابلیت 8K","256GB / 512GB / 12GB","162.78 × 75.44 × 8.59 میلی‌متر - 204 گرم","IP53 مقاومت استاندارد","مشکی کلاسیک، سفید ابریشمی"],
-["POCO X6 Pro","POCO",2024,"Dimensity 8300 Ultra","6.67 اینچ AMOLED 120Hz حاشیه بسیار باریک","5000 میلی‌آمپر","67W شارژ فوق‌العاده سریع","64 مگاپیکسل اصلی با OIS","256GB / 512GB / 8GB یا 12GB","160.5 × 74.3 × 8.3 میلی‌متر - 186 گرم","IP54 مقاوم در برابر گردوغبار و پاشش آب","مشکی، خاکستری، زرد چرمی (گان وگان)"],
+["POCO X6 Pro","POCO",2024,"Dimensity 8300 Ultra","6.67 اینچ AMOLED 120Hz حاشیه بسیار باریک","5000 میلی‌آمپر","67W شارژ فوق‌العاده سریع","64 مگاپیکسل اصلی با OIS","256GB / 512GB / 8GB یا 12GB","160.5 × 74.3 × 8.3 میلی‌متر - 186 گرم","IP54 مقاوم در برابر گردوغبار و پاشش آب","مشکی، خاکستری، زرد چرمی"],
 ["POCO F6","POCO",2024,"Snapdragon 8s Gen 3","6.67 اینچ AMOLED 120Hz","5000 میلی‌آمپر","90W شارژ سریع حرفه‌ای","50 مگاپیکسل سونی IMX882 با OIS","256GB / 512GB / 8GB یا 12GB","160.5 × 74.4 × 7.8 میلی‌متر - 179 گرم","IP64 مقاومت در برابر پاشش آب و گردوغبار","مشکی مات، سبز زیتونی، تایتانیوم"],
 ["POCO F6 Pro","POCO",2024,"Snapdragon 8 Gen 2","6.67 اینچ AMOLED 120Hz WQHD+","5000 میلی‌آمپر","120W شارژ فوق‌العاده سریع","50 مگاپیکسل پرچمدار با لرزشگیر اپتیکال OIS","256GB تا 1TB / 12GB یا 16GB","160.86 × 74.95 × 8.21 میلی‌متر - 209 گرم","IP54 مقاوم در برابر قطرات آب","مشکی کلاسیک، سفید سرامیکی"],
 ["POCO F7 Ultra","POCO",2025,"Snapdragon 8 Elite","6.67 اینچ AMOLED 120Hz پرچمدار","6000 میلی‌آمپر","120W شارژ فوق‌العاده سریع","50 مگاپیکسل سه‌گانه با زوم اپتیکال پیشرفته","512GB / 12GB یا 16GB","160.3 × 75.1 × 8.1 میلی‌متر - 209 گرم","IP68 ضدآب کامل در عمق آب","مشکی تیتانیومی، زرد پوکو، نقره‌ای براق"],
@@ -299,7 +294,8 @@ function normalizeSearch(str){
   for(const [rx, rep] of faToEnMap) s = s.replace(rx, rep);
   return s.replace(/\s+/g, " ").trim();
 }
-  function matchesSmart(phone, rawQuery){
+
+function matchesSmart(phone, rawQuery){
   const q = normalizeSearch(rawQuery);
   if(!q) return true;
   const target = normalizeSearch(`${phone[0]} ${phone[1]} ${phone[2]} ${phone[3]}`);
@@ -343,7 +339,7 @@ function render(){
      ["دوربین اصلی و لنزها", a[7], b[7], c[7]],
      ["حافظه رم و حافظه داخلی", a[8], b[8], c[8]]
    ]]
- };
+ ];
 
  let html = "";
  rows.forEach(group => {
